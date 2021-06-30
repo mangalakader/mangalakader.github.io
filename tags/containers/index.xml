@@ -1,31 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>containers on Mangala Kader</title>
-    <link>https://mangalakader.github.io/tags/containers/</link>
-    <description>Recent content in containers on Mangala Kader</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 28 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/containers/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>systemd-nspawn - Containerization - Part 2</title>
-      <link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</link>
-      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</guid>
-      <description>Recap: In the last part of the series, we saw how to configure the network in host for containers and learnt how to pull images using machinectl. If you haven&amp;rsquo;t gone through that first, please do so.
-Before Booting your container for the first time: I&amp;rsquo;m using an cloud based ubuntu image, as it provides cloud-init support, which lets me configure my container during the boot itself. I&amp;rsquo;m not going to go into the details of cloud-init, but I&amp;rsquo;ll give you some idea about minimising full-blown cloud setup.</description>
-    </item>
-    
-    <item>
-      <title>systemd-nspawn - Containerization - Part 1</title>
-      <link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</link>
-      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</guid>
-      <description>What is systemd-nspawn? systemd is known as INIT system, which is used in many unix and linux distributions. systemd-nspawn is available as a part of default systemd package and if it is not available, install the following packages:
- systemd-container (MAIN) bridge-utils (OPTIONAL - For managing networks)  systemd-nspawn can be used to run raw images or docker images without installing additional software tools and it is controlled by systemd, with the help of namespaces all the networks and logs are separated in our host itself.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>containers on Mangala Kader</title><link>https://mangalakader.github.io/tags/containers/</link><description>Recent content in containers on Mangala Kader</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 28 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/containers/index.xml" rel="self" type="application/rss+xml"/><item><title>systemd-nspawn - Containerization - Part 2</title><link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</link><pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</guid><description>Recap: In the last part of the series, we saw how to configure the network in host for containers and learnt how to pull images using machinectl. If you haven&amp;rsquo;t gone through that first, please do so.
+Before Booting your container for the first time: I&amp;rsquo;m using an cloud based ubuntu image, as it provides cloud-init support, which lets me configure my container during the boot itself. I&amp;rsquo;m not going to go into the details of cloud-init, but I&amp;rsquo;ll give you some idea about minimising full-blown cloud setup.</description></item><item><title>systemd-nspawn - Containerization - Part 1</title><link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</link><pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</guid><description>What is systemd-nspawn? systemd is known as INIT system, which is used in many unix and linux distributions. systemd-nspawn is available as a part of default systemd package and if it is not available, install the following packages:
+systemd-container (MAIN) bridge-utils (OPTIONAL - For managing networks) systemd-nspawn can be used to run raw images or docker images without installing additional software tools and it is controlled by systemd, with the help of namespaces all the networks and logs are separated in our host itself.</description></item></channel></rss>
