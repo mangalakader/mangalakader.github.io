@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ejabberd on Mangala Kader</title><link>https://mangalakader.github.io/tags/ejabberd/</link><description>Recent content in ejabberd on Mangala Kader</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/ejabberd/index.xml" rel="self" type="application/rss+xml"/><item><title>Instant Messaging using erlang and XMPP - Part 1</title><link>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</link><pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</guid><description>Instant Messaging It&amp;rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up - here Underlying Basics There are couple of things, we need to understand about real-time technologies:
-The underlying protocol is not HTTP/HTTPS, but raw TCP with TLS which is equivalent to HTTPS per say also there is a websocket which has been recently gaining popularity in the recent years The afore mentioned protocols heavily rely on keeping the connection to the servers alive until the user forcefully disconnects, whereas the HTTP ones are open and close for every request strategy and not suitable when you want to hit real-time messaging.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ejabberd on Mangala Kader</title>
+    <link>https://mangalakader.github.io/tags/ejabberd/</link>
+    <description>Recent content in ejabberd on Mangala Kader</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/ejabberd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instant Messaging using erlang and XMPP - Part 1</title>
+      <link>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</guid>
+      <description>Instant Messaging It&amp;rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up - here Underlying Basics There are couple of things, we need to understand about real-time technologies:
+ The underlying protocol is not HTTP/HTTPS, but raw TCP with TLS which is equivalent to HTTPS per say also there is a websocket which has been recently gaining popularity in the recent years  The afore mentioned protocols heavily rely on keeping the connection to the servers alive until the user forcefully disconnects, whereas the HTTP ones are open and close for every request strategy and not suitable when you want to hit real-time messaging.</description>
+    </item>
+    
+  </channel>
+</rss>

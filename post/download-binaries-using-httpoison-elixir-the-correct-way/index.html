@@ -1,92 +1,380 @@
-<!doctype html><html lang=en><head><title>Download Project Binaries using HTTPoison - Elixir</title><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://mangalakader.github.io/css/header.css><link rel=stylesheet href=https://mangalakader.github.io/css/index.css><link rel=stylesheet href=https://mangalakader.github.io/css/footer.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-icons-150.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-501.min.css><script src=https://mangalakader.github.io/js/jquery.min.js></script><script src=https://mangalakader.github.io/js/bootstrap-501.bundle.min.js></script><script src=https://mangalakader.github.io/js/index.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script>(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)},a._hjSettings={hjid:1579889,hjsv:6},d=c.getElementsByTagName('head')[0],b=c.createElement('script'),b.async=1,b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv,d.appendChild(b)})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')</script></head><body><div class="progress-container fixed-top"><span class=progress-bar></span></div><nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top"><div class="container-fluid px-0"><a class="navbar-brand logo text-focus-in ms-3 mt-3" href=/>PMK</a>
-<button class="bg-warning rounded-start border-0 mt-1" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasRight aria-controls=offcanvasRight><i class="bi bi-chevron-double-left"></i></button></div><div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex=-1 data-bs-scroll=true id=offcanvasRight aria-labelledby=offcanvasRightLabel><div class=offcanvas-header><h5 id=offcanvasRightLabel class=fw-bold>Menu</h5><button type=button class="btn-close text-reset" data-bs-dismiss=offcanvas aria-label=Close></button></div><div class=offcanvas-body><div class="container-fluid p-0"><ul class="list-group list-group-flush"><a href=/#home><li class="list-group-item active" aria-current=true>Home</li></a><a href=/#intro><li class=list-group-item>Introduction</li></a><a href=/#exp1><li class=list-group-item>Work Experience</li></a><a href=/#oss1><li class=list-group-item>Open Source Contributions</li></a><a href=/blog><li class=list-group-item>Blog</li></a><a href=/tags><li class=list-group-item>Tags</li></a></ul></div></div></div></nav><div id=title class="container-fluid bg-warning bg-warning-gradient p-5"><h2 class="text-dark text-center p-3 p-lg-5">Download Project Binaries using HTTPoison - Elixir</h2><h5 class="text-dark text-center">Sep 8, 2018</h5></div><div id=content class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container"><p>There are tons of methods for organising binaries into a particular project in different programming languages. But, I am writing this method particularly to illustrate the pure usage of elixir and joy of learning it! This tutorial is for intermediate users with enough experience in using elixir. I hope you enjoy it!</p><h2 id=how-can-you-leverage-it>How can you leverage it?</h2><p>It could be anyone of the following:</p><ul><li>a <code>mix</code> task</li><li>a <code>genserver</code></li><li>a <code>function</code></li><li>a <code>escript</code> etc.,</li></ul><p>In my particular use case, I wanted a mix task, so I will be illustrating the use case with Mix Tasks. Feel free to try and explore different options.</p><h2 id=mix-task>Mix Task:</h2><p>We all would have started using mix tasks, the moment we installed elixir in our system. The basic mix task that helped me my elixir journey is <code>mix help</code>. The first thing that I wanted to learn is how to create a simple mix task. I am not going to ellaborate on how to write a mix task, but rather focus on the main functionality.</p><h2 id=requirements>Requirements:</h2><ul><li>Erlang ~> 20</li><li>Elixir ~> 1.6</li><li>A simple elixir project (create it using <code>mix new</code>)</li><li>Create a basic mix task (<a href=https://medium.com/defmethod-works/writing-mix-tasks-for-fun-and-profit-61dd609e7263>Reference</a>)</li></ul><h1 id=getting-started>Getting Started</h1><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#75715e># Your example mix task should be like the one below</span>
-<span style=color:#66d9ef>defmodule</span> <span style=color:#a6e22e>Mix.Tasks.Hello</span> <span style=color:#66d9ef>do</span>
-  <span style=color:#a6e22e>@shortdoc</span> <span style=color:#e6db74>~S(&#34;Example mix task for showing hello world&#34;)</span>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <title>Download Project Binaries using HTTPoison - Elixir </title>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <span style=color:#f92672>use</span> <span style=color:#a6e22e>Mix.Task</span>
-  <span style=color:#66d9ef>def</span> run(_) <span style=color:#66d9ef>do</span>
-  <span style=color:#75715e>#################</span>
-  <span style=color:#a6e22e>Code</span> hidden......
-  <span style=color:#75715e>#################</span>
-  <span style=color:#66d9ef>end</span>
-<span style=color:#66d9ef>end</span>
-</code></pre></div><p>Add <code>{:httpoison, "~> 1.3"}</code> to your new sample project&rsquo;s <code>deps</code> in <code>mix.exs</code>. You can get to know the latest version of HTTpoison using <code>mix hex.info httpoison</code>.</p><h1 id=writing-a-basic-download-service-using-httpoison>Writing a Basic Download Service using HTTPoison</h1><p>First of all you need to know how much would it take for the download to complete. As we are not creating something competing to wget, curl or even IDM / XDM, I will keep it very simple, I am going to download something small with a timeout of 5 minutes, so that my task will wait for 5 minutes for the download to complete.</p><ul><li>A dummy download link</li><li>Timeout: 5 minutes (5 * 60 * 1000)</li></ul><p>With the above things ready, we are nearly ready to get into coding. Make sure to either keep the download url in config or use the <code>OptionsParser</code> in Elixir.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#66d9ef>def</span> download(url, path) <span style=color:#66d9ef>do</span>
-  {<span style=color:#e6db74>:ok</span>, file} <span style=color:#f92672>=</span> <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>open(<span style=color:#e6db74>&#34;path/filename&#34;</span>, [<span style=color:#e6db74>:write</span>, <span style=color:#e6db74>:exclusive</span>])
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/header.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/index.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/footer.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-icons-150.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-501.min.css">
+  
+  
+     <script src="https://mangalakader.github.io/js/jquery.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/bootstrap-501.bundle.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/index.js"></script>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1579889,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+
+    <body>
+        <div class="progress-container fixed-top">
+            <span class="progress-bar"></span>
+        </div>
+        <nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand logo text-focus-in ms-3 mt-3" href="/">PMK</a>
+    <button class="bg-warning rounded-start border-0 mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chevron-double-left"></i></button>
+  </div>
+
+  <div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel" class="fw-bold">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container-fluid p-0">
+        <ul class="list-group list-group-flush">
+          <a href="/#home"><li class="list-group-item active" aria-current="true">Home</li></a>
+          <a href="/#intro"><li class="list-group-item">Introduction</li></a>
+          <a href="/#exp1"><li class="list-group-item">Work Experience</li></a>
+          <a href="/#oss1"><li class="list-group-item">Open Source Contributions</li></a>
+          <a href="/blog"><li class="list-group-item">Blog</li></a>
+          <a href="/tags"><li class="list-group-item">Tags</li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+        <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
+            <h2 class="text-dark text-center p-3 p-lg-5">Download Project Binaries using HTTPoison - Elixir</h2>
+            <h5 class="text-dark text-center">Sep 8, 2018</h5>
+        </div>
+        <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
+            <p>There are tons of methods for organising binaries into a particular project in different programming languages. But, I am writing this method particularly to illustrate the pure usage of elixir and joy of learning it! This tutorial is for intermediate users with enough experience in using elixir. I hope you enjoy it!</p>
+<h2 id="how-can-you-leverage-it">How can you leverage it?</h2>
+<p>It could be anyone of the following:</p>
+<ul>
+<li>a <code>mix</code> task</li>
+<li>a <code>genserver</code></li>
+<li>a <code>function</code></li>
+<li>a <code>escript</code> etc.,</li>
+</ul>
+<p>In my particular use case, I wanted a mix task, so I will be illustrating the use case with Mix Tasks. Feel free to try and explore different options.</p>
+<h2 id="mix-task">Mix Task:</h2>
+<p>We all would have started using mix tasks, the moment we installed elixir in our system. The basic mix task that helped me my elixir journey is <code>mix help</code>. The first thing that I wanted to learn is how to create a simple mix task. I am not going to ellaborate on how to write a mix task, but rather focus on the main functionality.</p>
+<h2 id="requirements">Requirements:</h2>
+<ul>
+<li>Erlang ~&gt; 20</li>
+<li>Elixir ~&gt; 1.6</li>
+<li>A simple elixir project (create it using <code>mix new</code>)</li>
+<li>Create a basic mix task (<a href="https://medium.com/defmethod-works/writing-mix-tasks-for-fun-and-profit-61dd609e7263">Reference</a>)</li>
+</ul>
+<h1 id="getting-started">Getting Started</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#75715e"># Your example mix task should be like the one below</span>
+<span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Mix.Tasks.Hello</span> <span style="color:#66d9ef">do</span>
+  <span style="color:#a6e22e">@shortdoc</span> <span style="color:#e6db74">~S(&#34;Example mix task for showing hello world&#34;)</span>
+  
+  <span style="color:#f92672">use</span> <span style="color:#a6e22e">Mix.Task</span>
+  <span style="color:#66d9ef">def</span> run(_) <span style="color:#66d9ef">do</span>
+  <span style="color:#75715e">#################</span>
+  <span style="color:#a6e22e">Code</span> hidden......
+  <span style="color:#75715e">#################</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Add <code>{:httpoison, &quot;~&gt; 1.3&quot;}</code> to your new sample project&rsquo;s <code>deps</code> in <code>mix.exs</code>. You can get to know the latest version of HTTpoison using <code>mix hex.info httpoison</code>.</p>
+<h1 id="writing-a-basic-download-service-using-httpoison">Writing a Basic Download Service using HTTPoison</h1>
+<p>First of all you need to know how much would it take for the download to complete. As we are not creating something competing to wget, curl or even IDM / XDM, I will keep it very simple, I am going to download something small with a timeout of 5 minutes, so that my task will wait for 5 minutes for the download to complete.</p>
+<ul>
+<li>A dummy download link</li>
+<li>Timeout: 5 minutes (5 * 60 * 1000)</li>
+</ul>
+<p>With the above things ready, we are nearly ready to get into coding. Make sure to either keep the download url in config or use the <code>OptionsParser</code> in Elixir.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
+  {<span style="color:#e6db74">:ok</span>, file} <span style="color:#f92672">=</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;path/filename&#34;</span>, [<span style="color:#e6db74">:write</span>, <span style="color:#e6db74">:exclusive</span>])
     ...to continue
-<span style=color:#66d9ef>end</span>
-</code></pre></div><p>One main thing to remember is that, since it is a mix task, you are supposed to start HTTpoison before starting the download. If you are writing a mix application, just starting HTTPoison in the <code>mix.exs</code> is enough.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#66d9ef>def</span> download(url, path) <span style=color:#66d9ef>do</span>
-  <span style=color:#a6e22e>HTTPoison</span><span style=color:#f92672>.</span>start() <span style=color:#75715e>#Mandatory if you are using it in a mix task</span>
-  {<span style=color:#e6db74>:ok</span>, file} <span style=color:#f92672>=</span> <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>open(<span style=color:#e6db74>&#34;path/filename&#34;</span>, [<span style=color:#e6db74>:write</span>, <span style=color:#e6db74>:exclusive</span>])
-<span style=color:#66d9ef>end</span>
-</code></pre></div><h1 id=using-httpoison-get>Using HTTPoison get</h1><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#a6e22e>HTTPoison</span><span style=color:#f92672>.</span>get(url, [<span style=color:#e6db74>&#34;Accept&#34;</span>: <span style=color:#e6db74>&#34;application/octet-stream&#34;</span>], [<span style=color:#e6db74>follow_redirect</span>: <span style=color:#66d9ef>true</span>, <span style=color:#e6db74>stream_to</span>: self(), <span style=color:#e6db74>recv_timeout</span>: <span style=color:#ae81ff>5</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>60</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1000</span>])
-</code></pre></div><p>When you just need to hit an endpoint, the syntax is as simple as <code>HTTPoison.get(url, [])</code> but since, we want to download, I am using the necessary headers and <code>follow_redirect</code> is optional because, some sites redirect you to cloud storage services, where you will get the file and you can also control, you redirection limit. The <code>stream_to</code> is the interesting part, which is the thing that let&rsquo;s us download without blocking the IO. So, the above command gives a tuple in the form <code>{:ok, %HTTPoison.AsyncResponse{id: ref}}</code>. The tuple contains a reference to the downloading process.</p><p>Now the code will look like the following:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#66d9ef>def</span> download(url, path) <span style=color:#66d9ef>do</span>
-  <span style=color:#a6e22e>HTTPoison</span><span style=color:#f92672>.</span>start()
-  {<span style=color:#e6db74>:ok</span>, file} <span style=color:#f92672>=</span> <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>open(<span style=color:#e6db74>&#34;path/filename&#34;</span>, [<span style=color:#e6db74>:write</span>, <span style=color:#e6db74>:exclusive</span>])
-  with {<span style=color:#e6db74>:ok</span>, %<span style=color:#a6e22e>HTTPoison.AsyncResponse</span>{<span style=color:#e6db74>id</span>: ref}} <span style=color:#f92672>&lt;-</span> <span style=color:#a6e22e>HTTPoison</span><span style=color:#f92672>.</span>get(url, [<span style=color:#e6db74>&#34;Accept&#34;</span>: <span style=color:#e6db74>&#34;application/octet-stream&#34;</span>],
-                [<span style=color:#e6db74>follow_redirect</span>: <span style=color:#66d9ef>true</span>, <span style=color:#e6db74>stream_to</span>: self(), <span style=color:#e6db74>recv_timeout</span>: <span style=color:#ae81ff>5</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>60</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1000</span>]) <span style=color:#66d9ef>do</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>One main thing to remember is that, since it is a mix task, you are supposed to start HTTpoison before starting the download. If you are writing a mix application, just starting HTTPoison in the <code>mix.exs</code> is enough.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
+  <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>start() <span style="color:#75715e">#Mandatory if you are using it in a mix task</span>
+  {<span style="color:#e6db74">:ok</span>, file} <span style="color:#f92672">=</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;path/filename&#34;</span>, [<span style="color:#e6db74">:write</span>, <span style="color:#e6db74">:exclusive</span>])
+<span style="color:#66d9ef">end</span>
+</code></pre></div><h1 id="using-httpoison-get">Using HTTPoison get</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>get(url, [<span style="color:#e6db74">&#34;Accept&#34;</span>: <span style="color:#e6db74">&#34;application/octet-stream&#34;</span>], [<span style="color:#e6db74">follow_redirect</span>: <span style="color:#66d9ef">true</span>, <span style="color:#e6db74">stream_to</span>: self(), <span style="color:#e6db74">recv_timeout</span>: <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>])
+</code></pre></div><p>When you just need to hit an endpoint, the syntax is as simple as <code>HTTPoison.get(url, [])</code> but since, we want to download, I am using the necessary headers and <code>follow_redirect</code> is optional because, some sites redirect you to cloud storage services, where you will get the file and you can also control, you redirection limit. The <code>stream_to</code> is the interesting part, which is the thing that let&rsquo;s us download without blocking the IO. So, the above command gives a tuple in the form <code>{:ok, %HTTPoison.AsyncResponse{id: ref}}</code>. The tuple contains a reference to the downloading process.</p>
+<p>Now the code will look like the following:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
+  <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>start()
+  {<span style="color:#e6db74">:ok</span>, file} <span style="color:#f92672">=</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;path/filename&#34;</span>, [<span style="color:#e6db74">:write</span>, <span style="color:#e6db74">:exclusive</span>])
+  with {<span style="color:#e6db74">:ok</span>, %<span style="color:#a6e22e">HTTPoison.AsyncResponse</span>{<span style="color:#e6db74">id</span>: ref}} <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>get(url, [<span style="color:#e6db74">&#34;Accept&#34;</span>: <span style="color:#e6db74">&#34;application/octet-stream&#34;</span>],
+                [<span style="color:#e6db74">follow_redirect</span>: <span style="color:#66d9ef">true</span>, <span style="color:#e6db74">stream_to</span>: self(), <span style="color:#e6db74">recv_timeout</span>: <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>]) <span style="color:#66d9ef">do</span>
     write_data(ref, file, path)
-  <span style=color:#66d9ef>else</span>
-    error <span style=color:#f92672>-&gt;</span>
-      <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>close(file)
-      <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>rm_rf!(<span style=color:#e6db74>&#34;path/filename&#34;</span>)
-  <span style=color:#66d9ef>end</span>
-<span style=color:#66d9ef>end</span>
-</code></pre></div><h1 id=further-steps>Further steps</h1><p>The HTTPoison provides certain structs to understand the response from the server it hits and provides easier interface to interpret each type of struct and consume them.</p><p><code>alias HTTPoison.{AsyncHeaders, AsyncRedirect, AsyncResponse, AsyncStatus, AsyncChunk, AysncEnd}</code></p><p>The above aliases and our function in the previous snippet <code>write_data(ref, file, path)</code> are closely related.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#66d9ef>defp</span> write_data(ref, file, path) <span style=color:#66d9ef>do</span>
-  <span style=color:#66d9ef>receive</span> <span style=color:#66d9ef>do</span>
-    %<span style=color:#a6e22e>AsyncStatus</span>{<span style=color:#e6db74>code</span>: <span style=color:#ae81ff>200</span>} <span style=color:#f92672>-&gt;</span>
+  <span style="color:#66d9ef">else</span>
+    error <span style="color:#f92672">-&gt;</span>
+      <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>close(file)
+      <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>rm_rf!(<span style="color:#e6db74">&#34;path/filename&#34;</span>)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><h1 id="further-steps">Further steps</h1>
+<p>The HTTPoison provides certain structs to understand the response from the server it hits and provides easier interface to interpret each type of struct and consume them.</p>
+<p><code>alias HTTPoison.{AsyncHeaders, AsyncRedirect, AsyncResponse, AsyncStatus, AsyncChunk, AysncEnd}</code></p>
+<p>The above aliases and our function in the previous snippet <code>write_data(ref, file, path)</code> are closely related.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">defp</span> write_data(ref, file, path) <span style="color:#66d9ef">do</span>
+  <span style="color:#66d9ef">receive</span> <span style="color:#66d9ef">do</span>
+    %<span style="color:#a6e22e">AsyncStatus</span>{<span style="color:#e6db74">code</span>: <span style="color:#ae81ff">200</span>} <span style="color:#f92672">-&gt;</span>
       write(ref, file, path)
-    %<span style=color:#a6e22e>AsyncStatus</span>{<span style=color:#e6db74>code</span>: error_code} <span style=color:#f92672>-&gt;</span>
-      <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>close(file)
-    %<span style=color:#a6e22e>AsyncRedirect</span>{<span style=color:#e6db74>headers</span>: headers, <span style=color:#e6db74>to</span>: to, <span style=color:#e6db74>id</span>: <span style=color:#f92672>^</span>ref} <span style=color:#f92672>-&gt;</span>
+    %<span style="color:#a6e22e">AsyncStatus</span>{<span style="color:#e6db74">code</span>: error_code} <span style="color:#f92672">-&gt;</span>
+      <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>close(file)
+    %<span style="color:#a6e22e">AsyncRedirect</span>{<span style="color:#e6db74">headers</span>: headers, <span style="color:#e6db74">to</span>: to, <span style="color:#e6db74">id</span>: <span style="color:#f92672">^</span>ref} <span style="color:#f92672">-&gt;</span>
       download(to, path)
-    %<span style=color:#a6e22e>AsyncChunk</span>{<span style=color:#e6db74>chunk</span>: chunk, <span style=color:#e6db74>id</span>: <span style=color:#f92672>^</span>ref} <span style=color:#f92672>-&gt;</span>
-      <span style=color:#a6e22e>IO</span><span style=color:#f92672>.</span>binwrite(file, chunk)
+    %<span style="color:#a6e22e">AsyncChunk</span>{<span style="color:#e6db74">chunk</span>: chunk, <span style="color:#e6db74">id</span>: <span style="color:#f92672">^</span>ref} <span style="color:#f92672">-&gt;</span>
+      <span style="color:#a6e22e">IO</span><span style="color:#f92672">.</span>binwrite(file, chunk)
       write(ref, file, path)
-    %<span style=color:#a6e22e>AsyncEnd</span>{<span style=color:#e6db74>id</span>: <span style=color:#f92672>^</span>ref} <span style=color:#f92672>-&gt;</span>
-      <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>close(file)
-  <span style=color:#66d9ef>end</span>
-<span style=color:#66d9ef>end</span>
-</code></pre></div><p>The <code>write_data</code> is just a <code>receive do</code> loop with pattern matching.</p><ul><li>first pattern checks for connection success code <code>200</code> and then it again sends to the same function</li><li>the next, it checks for codes other than success and closes the file if it is executed</li><li>the redirect pattern, checks for any redirects and get the redirect url and starts the download with the new URL</li><li>the chunk is the real hero of the day, which accumulates our downloaded data in chunks and writes to the specified file</li><li>the end indicates the completion of streaming from the process.</li></ul><h1 id=finally-our-download-task-is-ready>Finally our download task is ready</h1><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#66d9ef>defmodule</span> <span style=color:#a6e22e>Mix.Tasks.Hello</span> <span style=color:#66d9ef>do</span>
-  <span style=color:#a6e22e>@shortdoc</span> <span style=color:#e6db74>~S(&#34;Example mix task for showing hello world&#34;)</span>
-  <span style=color:#f92672>use</span> <span style=color:#a6e22e>Mix.Task</span>
-  <span style=color:#f92672>alias</span> <span style=color:#a6e22e>HTTPoison</span><span style=color:#f92672>.</span>{<span style=color:#a6e22e>AsyncHeaders</span>, <span style=color:#a6e22e>AsyncRedirect</span>, <span style=color:#a6e22e>AsyncResponse</span>, <span style=color:#a6e22e>AsyncStatus</span>, <span style=color:#a6e22e>AsyncChunk</span>, <span style=color:#a6e22e>AysncEnd</span>}
-  <span style=color:#66d9ef>def</span> run(_) <span style=color:#66d9ef>do</span>
-  download(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>#{</span><span style=color:#a6e22e>URL</span><span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>, <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>#{</span><span style=color:#a6e22e>SAVE_TO_PATH</span><span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-  <span style=color:#66d9ef>end</span>
-  <span style=color:#66d9ef>def</span> download(url, path) <span style=color:#66d9ef>do</span>
-    <span style=color:#a6e22e>HTTPoison</span><span style=color:#f92672>.</span>start()
-    {<span style=color:#e6db74>:ok</span>, file} <span style=color:#f92672>=</span> <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>open(<span style=color:#e6db74>&#34;path/filename&#34;</span>, [<span style=color:#e6db74>:write</span>, <span style=color:#e6db74>:exclusive</span>])
-    with {<span style=color:#e6db74>:ok</span>, %<span style=color:#a6e22e>HTTPoison.AsyncResponse</span>{<span style=color:#e6db74>id</span>: ref}} <span style=color:#f92672>&lt;-</span> <span style=color:#a6e22e>HTTPoison</span><span style=color:#f92672>.</span>get(url, [<span style=color:#e6db74>&#34;Accept&#34;</span>: <span style=color:#e6db74>&#34;application/octet-stream&#34;</span>],
-                  [<span style=color:#e6db74>follow_redirect</span>: <span style=color:#66d9ef>true</span>, <span style=color:#e6db74>stream_to</span>: self(), <span style=color:#e6db74>recv_timeout</span>: <span style=color:#ae81ff>5</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>60</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>1000</span>]) <span style=color:#66d9ef>do</span>
+    %<span style="color:#a6e22e">AsyncEnd</span>{<span style="color:#e6db74">id</span>: <span style="color:#f92672">^</span>ref} <span style="color:#f92672">-&gt;</span>
+      <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>close(file)
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>The <code>write_data</code> is just a <code>receive do</code> loop with pattern matching.</p>
+<ul>
+<li>first pattern checks for connection success code <code>200</code> and then it again sends to the same function</li>
+<li>the next, it checks for codes other than success and closes the file if it is executed</li>
+<li>the redirect pattern, checks for any redirects and get the redirect url and starts the download with the new URL</li>
+<li>the chunk is the real hero of the day, which accumulates our downloaded data in chunks and writes to the specified file</li>
+<li>the end indicates the completion of streaming from the process.</li>
+</ul>
+<h1 id="finally-our-download-task-is-ready">Finally our download task is ready</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Mix.Tasks.Hello</span> <span style="color:#66d9ef">do</span>
+  <span style="color:#a6e22e">@shortdoc</span> <span style="color:#e6db74">~S(&#34;Example mix task for showing hello world&#34;)</span>
+  <span style="color:#f92672">use</span> <span style="color:#a6e22e">Mix.Task</span>
+  <span style="color:#f92672">alias</span> <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>{<span style="color:#a6e22e">AsyncHeaders</span>, <span style="color:#a6e22e">AsyncRedirect</span>, <span style="color:#a6e22e">AsyncResponse</span>, <span style="color:#a6e22e">AsyncStatus</span>, <span style="color:#a6e22e">AsyncChunk</span>, <span style="color:#a6e22e">AysncEnd</span>}
+  <span style="color:#66d9ef">def</span> run(_) <span style="color:#66d9ef">do</span>
+  download(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#a6e22e">URL</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#a6e22e">SAVE_TO_PATH</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
+    <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>start()
+    {<span style="color:#e6db74">:ok</span>, file} <span style="color:#f92672">=</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;path/filename&#34;</span>, [<span style="color:#e6db74">:write</span>, <span style="color:#e6db74">:exclusive</span>])
+    with {<span style="color:#e6db74">:ok</span>, %<span style="color:#a6e22e">HTTPoison.AsyncResponse</span>{<span style="color:#e6db74">id</span>: ref}} <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>get(url, [<span style="color:#e6db74">&#34;Accept&#34;</span>: <span style="color:#e6db74">&#34;application/octet-stream&#34;</span>],
+                  [<span style="color:#e6db74">follow_redirect</span>: <span style="color:#66d9ef">true</span>, <span style="color:#e6db74">stream_to</span>: self(), <span style="color:#e6db74">recv_timeout</span>: <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>]) <span style="color:#66d9ef">do</span>
       write_data(ref, file, path)
-    <span style=color:#66d9ef>else</span>
-      error <span style=color:#f92672>-&gt;</span>
-        <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>close(file)
-        <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>rm_rf!(<span style=color:#e6db74>&#34;path/filename&#34;</span>)
-    <span style=color:#66d9ef>end</span>
-  <span style=color:#66d9ef>end</span>
-  <span style=color:#66d9ef>defp</span> write_data(ref, file, path) <span style=color:#66d9ef>do</span>
-    <span style=color:#66d9ef>receive</span> <span style=color:#66d9ef>do</span>
-      %<span style=color:#a6e22e>AsyncStatus</span>{<span style=color:#e6db74>code</span>: <span style=color:#ae81ff>200</span>} <span style=color:#f92672>-&gt;</span>
+    <span style="color:#66d9ef">else</span>
+      error <span style="color:#f92672">-&gt;</span>
+        <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>close(file)
+        <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>rm_rf!(<span style="color:#e6db74">&#34;path/filename&#34;</span>)
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">defp</span> write_data(ref, file, path) <span style="color:#66d9ef">do</span>
+    <span style="color:#66d9ef">receive</span> <span style="color:#66d9ef">do</span>
+      %<span style="color:#a6e22e">AsyncStatus</span>{<span style="color:#e6db74">code</span>: <span style="color:#ae81ff">200</span>} <span style="color:#f92672">-&gt;</span>
         write(ref, file, path)
-      %<span style=color:#a6e22e>AsyncStatus</span>{<span style=color:#e6db74>code</span>: error_code} <span style=color:#f92672>-&gt;</span>
-        <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>close(file)
-      %<span style=color:#a6e22e>AsyncRedirect</span>{<span style=color:#e6db74>headers</span>: headers, <span style=color:#e6db74>to</span>: to, <span style=color:#e6db74>id</span>: <span style=color:#f92672>^</span>ref} <span style=color:#f92672>-&gt;</span>
+      %<span style="color:#a6e22e">AsyncStatus</span>{<span style="color:#e6db74">code</span>: error_code} <span style="color:#f92672">-&gt;</span>
+        <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>close(file)
+      %<span style="color:#a6e22e">AsyncRedirect</span>{<span style="color:#e6db74">headers</span>: headers, <span style="color:#e6db74">to</span>: to, <span style="color:#e6db74">id</span>: <span style="color:#f92672">^</span>ref} <span style="color:#f92672">-&gt;</span>
         download(to, path)
-      %<span style=color:#a6e22e>AsyncChunk</span>{<span style=color:#e6db74>chunk</span>: chunk, <span style=color:#e6db74>id</span>: <span style=color:#f92672>^</span>ref} <span style=color:#f92672>-&gt;</span>
-        <span style=color:#a6e22e>IO</span><span style=color:#f92672>.</span>binwrite(file, chunk)
+      %<span style="color:#a6e22e">AsyncChunk</span>{<span style="color:#e6db74">chunk</span>: chunk, <span style="color:#e6db74">id</span>: <span style="color:#f92672">^</span>ref} <span style="color:#f92672">-&gt;</span>
+        <span style="color:#a6e22e">IO</span><span style="color:#f92672">.</span>binwrite(file, chunk)
         write(ref, file, path)
-      %<span style=color:#a6e22e>AsyncEnd</span>{<span style=color:#e6db74>id</span>: <span style=color:#f92672>^</span>ref} <span style=color:#f92672>-&gt;</span>
-        <span style=color:#a6e22e>File</span><span style=color:#f92672>.</span>close(file)
-    <span style=color:#66d9ef>end</span>
-  <span style=color:#66d9ef>end</span>
-<span style=color:#66d9ef>end</span>
-</code></pre></div><p>This is our basic downloader and is ready for use. Please, keep in mind the above code is not production ready, and don&rsquo;t put system critical uses using the above sample code, but it is usable after some mission critical tweaks. All the best!</p><br><div class="p-3 border-top"><i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
-<a href=https://mangalakader.github.io/tags/elixir/ class="tags text-decoration-none text-white">elixir
-(5)</a>
-,
-<a href=https://mangalakader.github.io/tags/erlang/ class="tags text-decoration-none text-white">erlang
-(5)</a>
-,
-<a href=https://mangalakader.github.io/tags/functional-programming/ class="tags text-decoration-none text-white">functional-programming
-(3)</a></div></div><div class="container-fluid justify-content-evenly p-0 row g-0"><div class="next-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><i class="bi bi-arrow-left-circle-fill fs-2"></i><h5 class=m-0>&nbsp;&nbsp;Elixir - How to solve recompile :noop...</h5></div></a></div><div class="previous-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/add-yourself-to-sudoers/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><h5 class=m-0>Add yourself to Sudoers - No {re-}typing...&nbsp;&nbsp;</h5><i class="bi bi-arrow-right-circle-fill fs-2"></i></div></a></div></div><footer class="bg-dark bg-dark-gradient"><div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div></footer></body></html>
+      %<span style="color:#a6e22e">AsyncEnd</span>{<span style="color:#e6db74">id</span>: <span style="color:#f92672">^</span>ref} <span style="color:#f92672">-&gt;</span>
+        <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>close(file)
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>This is our basic downloader and is ready for use. Please, keep in mind the above code is not production ready, and don&rsquo;t put system critical uses using the above sample code, but it is usable after some mission critical tweaks. All the best!</p>
+
+            <br />
+            <div class="p-3 border-top">
+                
+                <i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
+                
+                
+                
+                <a href="https://mangalakader.github.io/tags/elixir/" class="tags text-decoration-none text-white">elixir
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (5)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/erlang/" class="tags text-decoration-none text-white">erlang
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (5)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/functional-programming/" class="tags text-decoration-none text-white">functional-programming
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="container-fluid justify-content-evenly p-0 row g-0">
+            <div class="next-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
+                        <h5 class="m-0">&nbsp;&nbsp;Elixir - How to solve recompile :noop...</h5>
+                    </div>
+                </a>
+                
+            </div>
+
+            <div class="previous-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/add-yourself-to-sudoers/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <h5 class="m-0">Add yourself to Sudoers - No {re-}typing...&nbsp;&nbsp;</h5>
+                        <i class="bi bi-arrow-right-circle-fill fs-2"></i>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        <footer class="bg-dark bg-dark-gradient">
+    <div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
+</footer>
+
+    </body>
+</html>
