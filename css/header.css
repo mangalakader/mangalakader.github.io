@@ -1,0 +1,52 @@
+.navbar-dark.logo{
+    color: #000 !important; 
+}
+.logo {
+  transition: background-color .2s ease-in-out,color .2s ease-in-out;
+  background-color: #fff;
+  color: #000 !important;
+  display: inline-block;
+  line-height: 1.65em;
+  padding: 0 0.15rem 0 0.35rem !important;
+  text-decoration: none;
+  font-stretch: extra-expanded;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 900;
+  letter-spacing: 0.25rem;
+}
+
+.logo:hover {
+  transition: background-color .6s ease-in-out;
+  background-color: #ffc107;
+  color: #212529 !important;
+}
+
+#offcanvasRight {
+  min-height: 100vh !important;
+}
+
+#offcanvasRight .offcanvas-body {
+  font-size: 1.3rem;
+  padding: 0;
+}
+
+#offcanvasRight  a {
+  text-decoration: none !important;
+}
+
+#offcanvasRight .list-group-item {
+  background-color: transparent !important;
+  border: 0 !important;
+  text-align: center;
+  padding: 1.2rem;
+}
+
+#offcanvasRight .list-group-item.active {
+  font-weight: bold;
+  color: #212529;
+  background-color: white !important;
+}
+
+#offcanvasRight .list-group-item:hover {
+  background-color: white !important;
+}
