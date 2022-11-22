@@ -1,246 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>Add yourself to Sudoers - No {re-}typing password! </title>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/header.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/index.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/footer.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-icons-150.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-501.min.css">
-  
-  
-     <script src="https://mangalakader.github.io/js/jquery.min.js"></script>
-  
-     <script src="https://mangalakader.github.io/js/bootstrap-501.bundle.min.js"></script>
-  
-     <script src="https://mangalakader.github.io/js/index.js"></script>
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1579889,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-</head>
-
-    <body>
-        <div class="progress-container fixed-top">
-            <span class="progress-bar"></span>
-        </div>
-        <nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
-  <div class="container-fluid px-0">
-    <a class="navbar-brand logo text-focus-in ms-3 mt-3" href="/">PMK</a>
-    <button class="bg-warning rounded-start border-0 mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chevron-double-left"></i></button>
-  </div>
-
-  <div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel" class="fw-bold">Menu</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="container-fluid p-0">
-        <ul class="list-group list-group-flush">
-          <a href="#home"><li class="list-group-item active" aria-current="true">Home</li></a>
-          <a href="#intro"><li class="list-group-item">Introduction</li></a>
-          <a href="#exp1"><li class="list-group-item">Work Experience</li></a>
-          <a href="#oss1"><li class="list-group-item">Open Source Contributions</li></a>
-          <a href="/blog"><li class="list-group-item">Blog</li></a>
-          <a href="/tags"><li class="list-group-item">Tags</li></a>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-        <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
-            <h2 class="text-dark text-center p-3 p-lg-5">Add yourself to Sudoers - No {re-}typing password!</h2>
-            <h5 class="text-dark text-center">Aug 8, 2018</h5>
-        </div>
-        <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
-            <p><strong>Note: This is for the one who is repeatedly typing his/her password in his *nix system. This tip in a personal pc/system is execellent but when used in systems accessible by others is potentially dangerous and I seriously don&rsquo;t recommend this to be used in such environments! If doing so, resulted in something terrible, I am not responsible! Thank you!</strong></p>
-<h3 id="a-little-story">A little Story&hellip;</h3>
-<p>Atleast, once in the history of using *nix as OS, we would have come across the situation, where
+<!doctype html><html lang=en><head><title>Add yourself to Sudoers - No {re-}typing password!</title><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://mangalakader.github.io/css/header.css><link rel=stylesheet href=https://mangalakader.github.io/css/index.css><link rel=stylesheet href=https://mangalakader.github.io/css/footer.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-icons-150.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-501.min.css><script src=https://mangalakader.github.io/js/jquery.min.js></script><script src=https://mangalakader.github.io/js/bootstrap-501.bundle.min.js></script><script src=https://mangalakader.github.io/js/index.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script>(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)},a._hjSettings={hjid:1579889,hjsv:6},d=c.getElementsByTagName('head')[0],b=c.createElement('script'),b.async=1,b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv,d.appendChild(b)})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')</script></head><body><div class="progress-container fixed-top"><span class=progress-bar></span></div><nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top"><div class="container-fluid px-0"><a class="navbar-brand logo text-focus-in ms-3 mt-3" href=/>PMK</a>
+<button class="bg-warning rounded-start border-0 mt-1" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasRight aria-controls=offcanvasRight><i class="bi bi-chevron-double-left"></i></button></div><div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex=-1 data-bs-scroll=true id=offcanvasRight aria-labelledby=offcanvasRightLabel><div class=offcanvas-header><h5 id=offcanvasRightLabel class=fw-bold>Menu</h5><button type=button class="btn-close text-reset" data-bs-dismiss=offcanvas aria-label=Close></button></div><div class=offcanvas-body><div class="container-fluid p-0"><ul class="list-group list-group-flush"><a href=#home><li class="list-group-item active" aria-current=true>Home</li></a><a href=#intro><li class=list-group-item>Introduction</li></a><a href=#exp1><li class=list-group-item>Work Experience</li></a><a href=#oss1><li class=list-group-item>Open Source Contributions</li></a><a href=/blog><li class=list-group-item>Blog</li></a><a href=/tags><li class=list-group-item>Tags</li></a></ul></div></div></div></nav><div id=title class="container-fluid bg-warning bg-warning-gradient p-5"><h2 class="text-dark text-center p-3 p-lg-5">Add yourself to Sudoers - No {re-}typing password!</h2><h5 class="text-dark text-center">Aug 8, 2018</h5></div><div id=content class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container"><p><strong>Note: This is for the one who is repeatedly typing his/her password in his *nix system. This tip in a personal pc/system is execellent but when used in systems accessible by others is potentially dangerous and I seriously don&rsquo;t recommend this to be used in such environments! If doing so, resulted in something terrible, I am not responsible! Thank you!</strong></p><h3 id=a-little-story>A little Story&mldr;</h3><p>Atleast, once in the history of using *nix as OS, we would have come across the situation, where
 we would have typed a command in shell, and the shell spits out a nasty <code>permission denied</code> error.
 We immediately, add a <code>sudo</code> and re-execute the same command. Now, shell asks for the user&rsquo;s password.
 For this, shell we don&rsquo;t have to type the password anymore, but I closed the shell and opened
-a new shell, and type <code>sudo {command}</code>, we must type the password to validate my presence again&hellip;..</p>
-<h3 id="lets-see-how-to-stop-retyping-the-password-after-login">Let&rsquo;s see How to stop retyping the password after login:</h3>
-<p>There are two ways of doing it,</p>
-<ul>
-<li>a risky way of adding things straight to sudoers file</li>
-<li>or a add a file to a particular folder and it will be picked up by sudoers file</li>
-</ul>
-<p>I will be elaborating just the second way, because this doesn&rsquo;t involve me directly messing with the defaults and I feel it sane, safe &amp; sound.</p>
-<h3 id="view-the-last-line-in-the-etcsudoers-file">View the Last Line in the <code>/etc/sudoers</code> file:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># This file MUST be edited with the &#39;visudo&#39; command as root.</span>
-<span style="color:#75715e"># Please consider adding local content in /etc/sudoers.d/ instead of</span>
-<span style="color:#75715e"># directly modifying this file.</span>
-<span style="color:#75715e"># See the man page for details on how to write a sudoers file.</span>
+a new shell, and type <code>sudo {command}</code>, we must type the password to validate my presence again&mldr;..</p><h3 id=lets-see-how-to-stop-retyping-the-password-after-login>Let&rsquo;s see How to stop retyping the password after login:</h3><p>There are two ways of doing it,</p><ul><li>a risky way of adding things straight to sudoers file</li><li>or a add a file to a particular folder and it will be picked up by sudoers file</li></ul><p>I will be elaborating just the second way, because this doesn&rsquo;t involve me directly messing with the defaults and I feel it sane, safe & sound.</p><h3 id=view-the-last-line-in-the-etcsudoers-file>View the Last Line in the <code>/etc/sudoers</code> file:</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># This file MUST be edited with the &#39;visudo&#39; command as root.</span>
+<span style=color:#75715e># Please consider adding local content in /etc/sudoers.d/ instead of</span>
+<span style=color:#75715e># directly modifying this file.</span>
+<span style=color:#75715e># See the man page for details on how to write a sudoers file.</span>
 Defaults	env_reset
 Defaults	mail_badpass
-Defaults	secure_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin&#34;</span>
-<span style="color:#75715e"># Host alias specification</span>
-<span style="color:#75715e"># User alias specification</span>
-<span style="color:#75715e"># Cmnd alias specification</span>
-<span style="color:#75715e"># User privilege specification</span>
-root	ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> ALL
-<span style="color:#75715e"># Members of the admin group may gain root privileges</span>
-%admin ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
-<span style="color:#75715e"># Allow members of group sudo to execute any command</span>
-%sudo	ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> ALL
-<span style="color:#75715e"># See sudoers(5) for more information on &#34;#include&#34; directives:</span>
-<span style="color:#75715e">#includedir /etc/sudoers.d</span>
+Defaults	secure_path<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin&#34;</span>
+<span style=color:#75715e># Host alias specification</span>
+<span style=color:#75715e># User alias specification</span>
+<span style=color:#75715e># Cmnd alias specification</span>
+<span style=color:#75715e># User privilege specification</span>
+root	ALL<span style=color:#f92672>=(</span>ALL:ALL<span style=color:#f92672>)</span> ALL
+<span style=color:#75715e># Members of the admin group may gain root privileges</span>
+%admin ALL<span style=color:#f92672>=(</span>ALL<span style=color:#f92672>)</span> ALL
+<span style=color:#75715e># Allow members of group sudo to execute any command</span>
+%sudo	ALL<span style=color:#f92672>=(</span>ALL:ALL<span style=color:#f92672>)</span> ALL
+<span style=color:#75715e># See sudoers(5) for more information on &#34;#include&#34; directives:</span>
+<span style=color:#75715e>#includedir /etc/sudoers.d</span>
 </code></pre></div><p>The last line <code>#includedir /etc/sudoers.d</code> is an actual directory which will be included automatically by this file.
-Let&rsquo;s add ourself to sudoers, so we can stop typing password for <code>sudo commands</code>:</p>
-<ul>
-<li>Create a <strong>file with the username</strong> in <code>/etc/sudoers.d</code>, don&rsquo;t forget to use sudo when creating the file.</li>
-<li>Now add the following to the file: Substitute <code>{username}</code> with your system&rsquo;s username</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>username<span style="color:#f92672">}</span> ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> NOPASSWD: ALL
-</code></pre></div><ul>
-<li>Save the file and do a restart for the sudo service or do a full system restart, if that doesn&rsquo;t help.</li>
-</ul>
-<p>Now, if you open a shell and type sudo commands, you will not be prompted for passwords.</p>
-<p><strong>Note: Be careful, because we are messing with sudo services, this might potentially be dangerous.</strong></p>
-
-            <br />
-            <div class="p-3 border-top">
-                
-                <i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
-                
-                
-                
-                <a href="https://mangalakader.github.io/tags/linux/" class="tags text-decoration-none text-white">linux
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    (4)</a>
-                
-                
-                , 
-                
-                <a href="https://mangalakader.github.io/tags/unix/" class="tags text-decoration-none text-white">unix
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    (4)</a>
-                
-                
-                
-            </div>
-        </div>
-        <div class="container-fluid justify-content-evenly p-0 row g-0">
-            <div class="next-post col-lg btn-secondary p-3 text-center">
-                
-                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/?ref=footer">
-                    <div class="d-inline-flex flex-row align-items-center">
-                        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
-                        <h5 class="m-0">&nbsp;&nbsp;Download Project Binaries using...</h5>
-                    </div>
-                </a>
-                
-            </div>
-
-            <div class="previous-post col-lg btn-secondary p-3 text-center">
-                
-                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/?ref=footer">
-                    <div class="d-inline-flex flex-row align-items-center">
-                        <h5 class="m-0">Delete Saved Shell Cmd History in Erlang...&nbsp;&nbsp;</h5>
-                        <i class="bi bi-arrow-right-circle-fill fs-2"></i>
-                    </div>
-                </a>
-                
-            </div>
-        </div>
-        <footer class="bg-dark bg-dark-gradient">
-    <div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
-</footer>
-
-    </body>
-</html>
+Let&rsquo;s add ourself to sudoers, so we can stop typing password for <code>sudo commands</code>:</p><ul><li>Create a <strong>file with the username</strong> in <code>/etc/sudoers.d</code>, don&rsquo;t forget to use sudo when creating the file.</li><li>Now add the following to the file: Substitute <code>{username}</code> with your system&rsquo;s username</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#f92672>{</span>username<span style=color:#f92672>}</span> ALL<span style=color:#f92672>=(</span>ALL:ALL<span style=color:#f92672>)</span> NOPASSWD: ALL
+</code></pre></div><ul><li>Save the file and do a restart for the sudo service or do a full system restart, if that doesn&rsquo;t help.</li></ul><p>Now, if you open a shell and type sudo commands, you will not be prompted for passwords.</p><p><strong>Note: Be careful, because we are messing with sudo services, this might potentially be dangerous.</strong></p><br><div class="p-3 border-top"><i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
+<a href=https://mangalakader.github.io/tags/linux/ class="tags text-decoration-none text-white">linux
+(4)</a>
+,
+<a href=https://mangalakader.github.io/tags/unix/ class="tags text-decoration-none text-white">unix
+(4)</a></div></div><div class="container-fluid justify-content-evenly p-0 row g-0"><div class="next-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><i class="bi bi-arrow-left-circle-fill fs-2"></i><h5 class=m-0>&nbsp;&nbsp;Download Project Binaries using...</h5></div></a></div><div class="previous-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><h5 class=m-0>Delete Saved Shell Cmd History in Erlang...&nbsp;&nbsp;</h5><i class="bi bi-arrow-right-circle-fill fs-2"></i></div></a></div></div><footer class="bg-dark bg-dark-gradient"><div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div></footer></body></html>

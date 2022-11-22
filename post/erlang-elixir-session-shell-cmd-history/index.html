@@ -1,277 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>Delete Saved Shell Cmd History in Erlang / Elixir </title>
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/header.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/index.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/footer.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-icons-150.css">
-  
-     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-501.min.css">
-  
-  
-     <script src="https://mangalakader.github.io/js/jquery.min.js"></script>
-  
-     <script src="https://mangalakader.github.io/js/bootstrap-501.bundle.min.js"></script>
-  
-     <script src="https://mangalakader.github.io/js/index.js"></script>
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1579889,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-</head>
-
-    <body>
-        <div class="progress-container fixed-top">
-            <span class="progress-bar"></span>
-        </div>
-        <nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
-  <div class="container-fluid px-0">
-    <a class="navbar-brand logo text-focus-in ms-3 mt-3" href="/">PMK</a>
-    <button class="bg-warning rounded-start border-0 mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chevron-double-left"></i></button>
-  </div>
-
-  <div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header">
-      <h5 id="offcanvasRightLabel" class="fw-bold">Menu</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="container-fluid p-0">
-        <ul class="list-group list-group-flush">
-          <a href="#home"><li class="list-group-item active" aria-current="true">Home</li></a>
-          <a href="#intro"><li class="list-group-item">Introduction</li></a>
-          <a href="#exp1"><li class="list-group-item">Work Experience</li></a>
-          <a href="#oss1"><li class="list-group-item">Open Source Contributions</li></a>
-          <a href="/blog"><li class="list-group-item">Blog</li></a>
-          <a href="/tags"><li class="list-group-item">Tags</li></a>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-        <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
-            <h2 class="text-dark text-center p-3 p-lg-5">Delete Saved Shell Cmd History in Erlang / Elixir</h2>
-            <h5 class="text-dark text-center">Jul 30, 2018</h5>
-        </div>
-        <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
-            <h3 id="to-enable-erlang--elixir-shell-history-across-sessions">To Enable erlang / elixir shell history across sessions:</h3>
-<p>There are lot of tutorials out there illustrating how to enable persistent shell history in erlang / elixir, one such
-example is found <a href="https://www.adiiyengar.com/blog/20180503/iex-shell-history">here</a> , so I am not going to elaborate it here.</p>
-<h2 id="what-if-you-wanted-to-delete-your-shell-history">What if you wanted to delete your shell history:</h2>
-<p>There are not many examples as to how to delete them, once they saved. People have even suggested to disable the shell
+<!doctype html><html lang=en><head><title>Delete Saved Shell Cmd History in Erlang / Elixir</title><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://mangalakader.github.io/css/header.css><link rel=stylesheet href=https://mangalakader.github.io/css/index.css><link rel=stylesheet href=https://mangalakader.github.io/css/footer.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-icons-150.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-501.min.css><script src=https://mangalakader.github.io/js/jquery.min.js></script><script src=https://mangalakader.github.io/js/bootstrap-501.bundle.min.js></script><script src=https://mangalakader.github.io/js/index.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script>(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)},a._hjSettings={hjid:1579889,hjsv:6},d=c.getElementsByTagName('head')[0],b=c.createElement('script'),b.async=1,b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv,d.appendChild(b)})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')</script></head><body><div class="progress-container fixed-top"><span class=progress-bar></span></div><nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top"><div class="container-fluid px-0"><a class="navbar-brand logo text-focus-in ms-3 mt-3" href=/>PMK</a>
+<button class="bg-warning rounded-start border-0 mt-1" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasRight aria-controls=offcanvasRight><i class="bi bi-chevron-double-left"></i></button></div><div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex=-1 data-bs-scroll=true id=offcanvasRight aria-labelledby=offcanvasRightLabel><div class=offcanvas-header><h5 id=offcanvasRightLabel class=fw-bold>Menu</h5><button type=button class="btn-close text-reset" data-bs-dismiss=offcanvas aria-label=Close></button></div><div class=offcanvas-body><div class="container-fluid p-0"><ul class="list-group list-group-flush"><a href=#home><li class="list-group-item active" aria-current=true>Home</li></a><a href=#intro><li class=list-group-item>Introduction</li></a><a href=#exp1><li class=list-group-item>Work Experience</li></a><a href=#oss1><li class=list-group-item>Open Source Contributions</li></a><a href=/blog><li class=list-group-item>Blog</li></a><a href=/tags><li class=list-group-item>Tags</li></a></ul></div></div></div></nav><div id=title class="container-fluid bg-warning bg-warning-gradient p-5"><h2 class="text-dark text-center p-3 p-lg-5">Delete Saved Shell Cmd History in Erlang / Elixir</h2><h5 class="text-dark text-center">Jul 30, 2018</h5></div><div id=content class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container"><h3 id=to-enable-erlang--elixir-shell-history-across-sessions>To Enable erlang / elixir shell history across sessions:</h3><p>There are lot of tutorials out there illustrating how to enable persistent shell history in erlang / elixir, one such
+example is found <a href=https://www.adiiyengar.com/blog/20180503/iex-shell-history>here</a> , so I am not going to elaborate it here.</p><h2 id=what-if-you-wanted-to-delete-your-shell-history>What if you wanted to delete your shell history:</h2><p>There are not many examples as to how to delete them, once they saved. People have even suggested to disable the shell
 history and re-enable them, which do not help. The saved history is persisted even then. Let&rsquo;s check the history, how
-shell history is collected.</p>
-<h2 id="prior-to-otp-20">Prior to OTP 20:</h2>
-<p>There was this little erlang package <code>erlang-history</code> written by a brilliant mind known as <a href="https://github.com/ferd">Fred Hebert</a>,
+shell history is collected.</p><h2 id=prior-to-otp-20>Prior to OTP 20:</h2><p>There was this little erlang package <code>erlang-history</code> written by a brilliant mind known as <a href=https://github.com/ferd>Fred Hebert</a>,
 which helped people save their erlang shell history, but later that package was integrated into main erlang OTP package and
-it is being used by everyone using erlang / elixir.</p>
-<h2 id="later-one-day-i-had-this-annoying-error-commands-showing-up-in-history">Later one day, I had this annoying error commands showing up in history:</h2>
-<p>I searched for hours trying to find a solution to erase the previously saved history, but they were invasive. So I decided to
+it is being used by everyone using erlang / elixir.</p><h2 id=later-one-day-i-had-this-annoying-error-commands-showing-up-in-history>Later one day, I had this annoying error commands showing up in history:</h2><p>I searched for hours trying to find a solution to erase the previously saved history, but they were invasive. So I decided to
 go in deep and explore where it is saved by default, it is done using the <code>group_history</code> module in <code>kernel</code>. <strong>Lucky, are
 those, who had enabled the history with a file name, for them they can just delete or clean the file. But for those, who stick
-to the defaults, just delete the <code>$HOME/.cache/erlang-history/*</code> or if you are looking for non-invasive solution, you got it&hellip;</strong></p>
-<p>The <code>group_history</code> module exported just two functions, namely: <code>add/1, load/0</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex"><span style="color:#75715e"># I am using elixir to illustrate the examples. The same commands can be done via erlang too...</span>
-iex(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:group_history</span><span style="color:#f92672">.</span>load()
-[<span style="color:#e6db74">&#39;:group_history.load()</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;group_history:load().</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>]
+to the defaults, just delete the <code>$HOME/.cache/erlang-history/*</code> or if you are looking for non-invasive solution, you got it&mldr;</strong></p><p>The <code>group_history</code> module exported just two functions, namely: <code>add/1, load/0</code></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ex data-lang=ex><span style=color:#75715e># I am using elixir to illustrate the examples. The same commands can be done via erlang too...</span>
+iex(<span style=color:#ae81ff>1</span>)<span style=color:#f92672>&gt;</span> <span style=color:#e6db74>:group_history</span><span style=color:#f92672>.</span>load()
+[<span style=color:#e6db74>&#39;:group_history.load()</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#39;</span>, <span style=color:#e6db74>&#39;group_history:load().</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#39;</span>]
 
-<span style="color:#a6e22e">The</span> above command gives out all the history that it had saved from beginning of time<span style="color:#f92672">.</span> <span style="color:#a6e22e">Ooooo</span>, even your practice commands too...
+<span style=color:#a6e22e>The</span> above command gives out all the history that it had saved from beginning of time<span style=color:#f92672>.</span> <span style=color:#a6e22e>Ooooo</span>, even your practice commands too...
 
 </code></pre></div><p>After a huge exploration, Fred was saving the history using <code>disk_log</code> module, that is when I found a way to clean the saved history.
-If you type the below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex">iex(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:disk_log</span><span style="color:#f92672">.</span>accessible_logs()
-{[<span style="color:#e6db74">:&#34;$</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#e6db74">group_history&#34;</span>], []}
-</code></pre></div><p>That&rsquo;s our guy who is saving all of our history, now to clean up the history use the below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex">iex(<span style="color:#ae81ff">3</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:disk_log</span><span style="color:#f92672">.</span>truncate(<span style="color:#e6db74">:&#34;$</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#e6db74">group_history&#34;</span>)
-<span style="color:#e6db74">:ok</span>
-</code></pre></div><p>That&rsquo;s all Folks! We are free from our erlang / elixir shell history.</p>
-
-            <br />
-            <div class="p-3 border-top">
-                
-                <i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
-                
-                
-                
-                <a href="https://mangalakader.github.io/tags/erlang/" class="tags text-decoration-none text-white">erlang
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    (5)</a>
-                
-                
-                , 
-                
-                <a href="https://mangalakader.github.io/tags/elixir/" class="tags text-decoration-none text-white">elixir
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    (5)</a>
-                
-                
-                , 
-                
-                <a href="https://mangalakader.github.io/tags/functional-programming/" class="tags text-decoration-none text-white">functional-programming
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    (3)</a>
-                
-                
-                
-            </div>
-        </div>
-        <div class="container-fluid justify-content-evenly p-0 row g-0">
-            <div class="next-post col-lg btn-secondary p-3 text-center">
-                
-                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/add-yourself-to-sudoers/?ref=footer">
-                    <div class="d-inline-flex flex-row align-items-center">
-                        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
-                        <h5 class="m-0">&nbsp;&nbsp;Add yourself to Sudoers - No {re-}typing...</h5>
-                    </div>
-                </a>
-                
-            </div>
-
-            <div class="previous-post col-lg btn-secondary p-3 text-center">
-                
-                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/own-github-pages-part-2/?ref=footer">
-                    <div class="d-inline-flex flex-row align-items-center">
-                        <h5 class="m-0">Your Own Bootstrap Github Page Using...&nbsp;&nbsp;</h5>
-                        <i class="bi bi-arrow-right-circle-fill fs-2"></i>
-                    </div>
-                </a>
-                
-            </div>
-        </div>
-        <footer class="bg-dark bg-dark-gradient">
-    <div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
-</footer>
-
-    </body>
-</html>
+If you type the below command:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ex data-lang=ex>iex(<span style=color:#ae81ff>2</span>)<span style=color:#f92672>&gt;</span> <span style=color:#e6db74>:disk_log</span><span style=color:#f92672>.</span>accessible_logs()
+{[<span style=color:#e6db74>:&#34;$</span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#e6db74>group_history&#34;</span>], []}
+</code></pre></div><p>That&rsquo;s our guy who is saving all of our history, now to clean up the history use the below command:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-ex data-lang=ex>iex(<span style=color:#ae81ff>3</span>)<span style=color:#f92672>&gt;</span> <span style=color:#e6db74>:disk_log</span><span style=color:#f92672>.</span>truncate(<span style=color:#e6db74>:&#34;$</span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#e6db74>group_history&#34;</span>)
+<span style=color:#e6db74>:ok</span>
+</code></pre></div><p>That&rsquo;s all Folks! We are free from our erlang / elixir shell history.</p><br><div class="p-3 border-top"><i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
+<a href=https://mangalakader.github.io/tags/erlang/ class="tags text-decoration-none text-white">erlang
+(5)</a>
+,
+<a href=https://mangalakader.github.io/tags/elixir/ class="tags text-decoration-none text-white">elixir
+(5)</a>
+,
+<a href=https://mangalakader.github.io/tags/functional-programming/ class="tags text-decoration-none text-white">functional-programming
+(3)</a></div></div><div class="container-fluid justify-content-evenly p-0 row g-0"><div class="next-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/add-yourself-to-sudoers/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><i class="bi bi-arrow-left-circle-fill fs-2"></i><h5 class=m-0>&nbsp;&nbsp;Add yourself to Sudoers - No {re-}typing...</h5></div></a></div><div class="previous-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/own-github-pages-part-2/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><h5 class=m-0>Your Own Bootstrap Github Page Using...&nbsp;&nbsp;</h5><i class="bi bi-arrow-right-circle-fill fs-2"></i></div></a></div></div><footer class="bg-dark bg-dark-gradient"><div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div></footer></body></html>
