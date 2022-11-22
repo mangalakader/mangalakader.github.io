@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1632" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1632" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1132" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1132" />
 
 <base href="https://mangalakader.github.io/post/add-yourself-to-sudoers/">
 <link rel="canonical" href="https://mangalakader.github.io/post/add-yourself-to-sudoers/" itemprop="url" />
@@ -83,32 +83,32 @@ a new shell, and type <code>sudo {command}</code>, we must type the password to 
 </ul>
 <p>I will be elaborating just the second way, because this doesn&rsquo;t involve me directly messing with the defaults and I feel it sane, safe &amp; sound.</p>
 <h3 id="view-the-last-line-in-the-etcsudoers-file">View the Last Line in the <code>/etc/sudoers</code> file:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># This file MUST be edited with the &#39;visudo&#39; command as root.</span>
-<span style="color:#75715e"># Please consider adding local content in /etc/sudoers.d/ instead of</span>
-<span style="color:#75715e"># directly modifying this file.</span>
-<span style="color:#75715e"># See the man page for details on how to write a sudoers file.</span>
-Defaults	env_reset
-Defaults	mail_badpass
-Defaults	secure_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin&#34;</span>
-<span style="color:#75715e"># Host alias specification</span>
-<span style="color:#75715e"># User alias specification</span>
-<span style="color:#75715e"># Cmnd alias specification</span>
-<span style="color:#75715e"># User privilege specification</span>
-root	ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> ALL
-<span style="color:#75715e"># Members of the admin group may gain root privileges</span>
-%admin ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
-<span style="color:#75715e"># Allow members of group sudo to execute any command</span>
-%sudo	ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> ALL
-<span style="color:#75715e"># See sudoers(5) for more information on &#34;#include&#34; directives:</span>
-<span style="color:#75715e">#includedir /etc/sudoers.d</span>
-</code></pre></div><p>The last line <code>#includedir /etc/sudoers.d</code> is an actual directory which will be included automatically by this file.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># This file MUST be edited with the &#39;visudo&#39; command as root.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Please consider adding local content in /etc/sudoers.d/ instead of</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># directly modifying this file.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See the man page for details on how to write a sudoers file.</span>
+</span></span><span style="display:flex;"><span>Defaults	env_reset
+</span></span><span style="display:flex;"><span>Defaults	mail_badpass
+</span></span><span style="display:flex;"><span>Defaults	secure_path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Host alias specification</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># User alias specification</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Cmnd alias specification</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># User privilege specification</span>
+</span></span><span style="display:flex;"><span>root	ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> ALL
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Members of the admin group may gain root privileges</span>
+</span></span><span style="display:flex;"><span>%admin ALL<span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> ALL
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Allow members of group sudo to execute any command</span>
+</span></span><span style="display:flex;"><span>%sudo	ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> ALL
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See sudoers(5) for more information on &#34;#include&#34; directives:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#includedir /etc/sudoers.d</span>
+</span></span></code></pre></div><p>The last line <code>#includedir /etc/sudoers.d</code> is an actual directory which will be included automatically by this file.
 Let&rsquo;s add ourself to sudoers, so we can stop typing password for <code>sudo commands</code>:</p>
 <ul>
 <li>Create a <strong>file with the username</strong> in <code>/etc/sudoers.d</code>, don&rsquo;t forget to use sudo when creating the file.</li>
 <li>Now add the following to the file: Substitute <code>{username}</code> with your system&rsquo;s username</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>username<span style="color:#f92672">}</span> ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> NOPASSWD: ALL
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">{</span>username<span style="color:#f92672">}</span> ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> NOPASSWD: ALL
+</span></span></code></pre></div><ul>
 <li>Save the file and do a restart for the sudo service or do a full system restart, if that doesn&rsquo;t help.</li>
 </ul>
 <p>Now, if you open a shell and type sudo commands, you will not be prompted for passwords.</p>
@@ -167,7 +167,11 @@ Let&rsquo;s add ourself to sudoers, so we can stop typing password for <code>sud
                     
                     
                     
-                    (4)</a>
+                    
+                    
+                    
+                    
+                    (5)</a>
                 
                 
                 , 
@@ -218,7 +222,11 @@ Let&rsquo;s add ourself to sudoers, so we can stop typing password for <code>sud
                     
                     
                     
-                    (4)</a>
+                    
+                    
+                    
+                    
+                    (5)</a>
                 
                 
                 

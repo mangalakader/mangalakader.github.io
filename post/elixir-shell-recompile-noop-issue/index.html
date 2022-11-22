@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-773" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-773" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-839" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-839" />
 
 <base href="https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/">
 <link rel="canonical" href="https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/" itemprop="url" />
@@ -106,7 +106,7 @@
 </ul>
 <h2 id="how-to-solve-if-you-are-using-vim">How to solve if you are using VIM:</h2>
 <p>Add the following line to your <code>~/.vimrc</code> or vim config file:</p>
-<pre tabindex="0"><code>au FileType elixir let $MIX_ENV = 'test'
+<pre tabindex="0"><code>au FileType elixir let $MIX_ENV = &#39;test&#39;
 </code></pre><p>This is an autocommand belonging to vimscript which checks for elixir filetype and exports an environment variable for linter to compile using test environment automatically if the opened filetype is elixir.</p>
 <p><strong>Now, if you make a change to your code and recompile on the shell, it will recompile without any problem! except human errors!</strong></p>
 <h2 id="why-test-environment-specifically">Why TEST environment specifically?</h2>
@@ -121,6 +121,8 @@
                 
                 
                 <a href="https://mangalakader.github.io/tags/elixir/" class="tags text-decoration-none text-white">elixir
+                    
+                    
                     
                     
                     
@@ -227,6 +229,8 @@
                     
                     
                     
+                    
+                    
                     (8)</a>
                 
                 
@@ -276,12 +280,16 @@
                     
                     
                     
+                    
+                    
                     (3)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/vim/" class="tags text-decoration-none text-white">vim
+                    
+                    
                     
                     
                     

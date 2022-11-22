@@ -23,7 +23,7 @@ Started with Jekyll Initially, I just wanted a blog to share my knowledge! I was
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
       <guid>https://mangalakader.github.io/post/own-github-pages-part-2/</guid>
-      <description>To Create your own template: Follow the directory structure: PROJECT_ROOT\  ├── assets │ ├── css │ ├── fonts │ │ └── bootstrap │ ├── images │ ├── js ├── _includes ➜ (Reusable HTML Elements) ├── _layouts ➜ (Template elements) ├── _pages ➜ (Pages for Static Sites) ├── _posts ➜ (Blog Posts) ├── _sass ➜ (CSS in SASS mode) ├── bootstrap │ └── mixins └── minima   For _pages to work, we need to define collections in _config.</description>
+      <description>To Create your own template: Follow the directory structure:  PROJECT_ROOT\  ├── assets  │ ├── css  │ ├── fonts  │ │ └── bootstrap  │ ├── images  │ ├── js  ├── _includes ➜ (Reusable HTML Elements)  ├── _layouts ➜ (Template elements)  ├── _pages ➜ (Pages for Static Sites)  ├── _posts ➜ (Blog Posts)  ├── _sass ➜ (CSS in SASS mode)  ├── bootstrap  │ └── mixins  └── minima   For _pages to work, we need to define collections in _config.</description>
     </item>
     
     <item>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terminal on PMK</title>
+    <link>https://mangalakader.github.io/tags/terminal/</link>
+    <description>Recent content in terminal on PMK</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Fortune Cookie / Random Tips - Open New Terminal</title>
+      <link>https://mangalakader.github.io/post/custom-fortune-cookie-in-your-terminal-shell/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/custom-fortune-cookie-in-your-terminal-shell/</guid>
+      <description>Those who are tired of reading the same old repetitive fortune cookies, you have come to the right place to learn the magic of configuring dynamic and more useful tips.
+Prerequisites: Kindly install the following tools from your package manager
+ curl (pull the html page) html-xml-utils (manipulate html content) w3m (display text only from html)  Create a Bash Function to pull from your desired website: For educational purposes, I&amp;rsquo;m picking up https://til.</description>
+    </item>
+    
+  </channel>
+</rss>

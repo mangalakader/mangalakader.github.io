@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1547" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1547" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-528" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-528" />
 
 <base href="https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/">
 <link rel="canonical" href="https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/" itemprop="url" />
@@ -73,9 +73,9 @@
 of the developers, when they adopt elixir, they first struggle to find the
 help documentation for erlang functions.</p>
 <p>We all would have come across this message when using:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">iex(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span> h <span style="color:#e6db74">:heart</span>
-<span style="color:#f92672">**</span>heart module <span style="color:#f92672">not</span> compiled with erlang docs 
-</code></pre></div><h2 id="so-how-do-we-enable-documentation-for-erlang-functions">So, how do we enable documentation for erlang functions:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-elixir" data-lang="elixir"><span style="display:flex;"><span>iex(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span> h <span style="color:#e6db74">:heart</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">**</span>heart module <span style="color:#f92672">not</span> compiled with erlang docs 
+</span></span></code></pre></div><h2 id="so-how-do-we-enable-documentation-for-erlang-functions">So, how do we enable documentation for erlang functions:</h2>
 <p>The solution that I&rsquo;m going to discuss is relevant with ASDF or Kerl.</p>
 <blockquote>
 <p>Asdf is a popular version manager for multiple softwares.
@@ -83,10 +83,10 @@ Kerl is a popular version manager for erlang.
 Asdf internally uses kerl for downloading, building and installing erlang.</p>
 </blockquote>
 <h4 id="put-this-environment-variable-before-installing-erlang">Put this environment variable before installing erlang</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export KERL_BUILD_DOCS<span style="color:#f92672">=</span>yes
-</code></pre></div><p>Before installing erlang the following packages are also needed for building documentation</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apt install xsltproc fop
-</code></pre></div><p>You need atleast erlang otp-23+ for enabling documentation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ export KERL_BUILD_DOCS<span style="color:#f92672">=</span>yes
+</span></span></code></pre></div><p>Before installing erlang the following packages are also needed for building documentation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ apt install xsltproc fop
+</span></span></code></pre></div><p>You need atleast erlang otp-23+ for enabling documentation</p>
 <h4 id="reinstall-erlang-and-go-into-the-iex-shell">Reinstall Erlang and go into the Iex Shell:</h4>
 
 <div class="container-fluid p-2 p-lg-5">
@@ -103,6 +103,8 @@ Asdf internally uses kerl for downloading, building and installing erlang.</p>
                 
                 
                 <a href="https://mangalakader.github.io/tags/elixir/" class="tags text-decoration-none text-white">elixir
+                    
+                    
                     
                     
                     
@@ -209,12 +211,16 @@ Asdf internally uses kerl for downloading, building and installing erlang.</p>
                     
                     
                     
+                    
+                    
                     (8)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/help/" class="tags text-decoration-none text-white">help
+                    
+                    
                     
                     
                     
@@ -299,12 +305,16 @@ Asdf internally uses kerl for downloading, building and installing erlang.</p>
                     
                     
                     
+                    
+                    
                     (1)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/iex/" class="tags text-decoration-none text-white">iex
+                    
+                    
                     
                     
                     

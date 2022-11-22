@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-651" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-651" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1247" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1247" />
 
 <base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/">
 <link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/" itemprop="url" />
@@ -74,27 +74,27 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
 <h2 id="setting-up-local-development-environment-for-mongooseim">Setting Up Local Development Environment for MongooseIM:</h2>
 <p>There are a couple of ways to set up local development environment, obviously, first one is to clone the official repo and getting started, which if you have to do it for multiple systems, becomes a tedious job. So, I&rsquo;ve written a simple Dockerfile, based on my convenience. Feel free to use it, if you want!</p>
 <p>In case, you want to upgrade the Erlang version, change <code>esl-erlang={DESIRED_VERSION}</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> ubuntu:16.04</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    apt-get install -y --install-recommends unixodbc-dev rsync <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    postgresql-client redis-tools wget git <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    make gcc g++ libc6-dev libncurses5-dev <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    libssl-dev libexpat1-dev libpam0g-dev <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    unixodbc-dev gnupg zlib1g-dev <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    unzip python2.7 wget <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    wget http://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    dpkg -i erlang-solutions_2.0_all.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    apt-get install -y esl-erlang<span style="color:#f92672">=</span>1:22.3-1 --install-recommends <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    apt-get clean <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>    rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> ln -snf python2.7 /usr/bin/python2<span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># This line makes sure the big tests passes multi-user chat based scenario</span><span style="color:#960050;background-color:#1e0010">
-</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#e6db74">&#34;127.0.0.1   muc.localhost&#34;</span> &gt;&gt; /etc/hosts<span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><p>I&rsquo;ve set it up in such a way, that I have pushed the docker image to a private repo and using them in my docker-compose file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> ubuntu:16.04</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get install -y --install-recommends unixodbc-dev rsync <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    postgresql-client redis-tools wget git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    make gcc g++ libc6-dev libncurses5-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libssl-dev libexpat1-dev libpam0g-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    unixodbc-dev gnupg zlib1g-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    unzip python2.7 wget <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    wget http://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    dpkg -i erlang-solutions_2.0_all.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get install -y esl-erlang<span style="color:#f92672">=</span>1:22.3-1 --install-recommends <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    apt-get clean <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> ln -snf python2.7 /usr/bin/python2<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># This line makes sure the big tests passes multi-user chat based scenario</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#e6db74">&#34;127.0.0.1   muc.localhost&#34;</span> &gt;&gt; /etc/hosts<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>I&rsquo;ve set it up in such a way, that I have pushed the docker image to a private repo and using them in my docker-compose file.</p>
 <h2 id="databases">Databases:</h2>
 <p>MongooseIM supports SQL and NoSQL Databases, as well as it can run without database too, if you prefer it that way. For one of my clients, I had to use a new Database(CockroachDB) which was not natively supported by MongooseIM. I had to make some changes to the core codebase and modify certain codec to make it work without issues.</p>
 <p>As I was writing this post, still support for CockroachDB has not been included by MongooseIM team. Feel free to reach out to me directly, in case you want to understand more on how things were done.</p>
@@ -102,68 +102,68 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
 <p>MongooseIM uses in-built mnesia as it&rsquo;s default session store, unless you want to switch to a more robust redis server.</p>
 <h2 id="docker-compose">Docker Compose:</h2>
 <p>We have got multiple components and managing them separately will become tedious and hence, I have got a docker-compose file with skeleton of services included, you can expand them as per your needs. Knowingly, I&rsquo;ve left out some other services, as they too much in the beginning itself.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.8&#34;</span>
-
-<span style="color:#f92672">services</span>:
-  <span style="color:#f92672">mim</span>:
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mim</span>
-    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
-    <span style="color:#f92672">working_dir</span>: <span style="color:#ae81ff">/app</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">/mim-src:/app</span>
-    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">sh -c &#34;echo &#39;127.0.0.1     muc.localhost&#39; &gt;&gt; /etc/hosts &amp;&amp; bash&#34;</span>
-    <span style="color:#f92672">environment</span>:
-      - <span style="color:#ae81ff">PGCLIENTENCODING=&#39;utf-8&#39;</span>
-    <span style="color:#f92672">depends_on</span>:
-      - <span style="color:#ae81ff">db</span>
-      - <span style="color:#ae81ff">redis</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#ae81ff">5225</span>:<span style="color:#ae81ff">5222</span>
-    <span style="color:#f92672">networks</span>:
-      - <span style="color:#ae81ff">internal</span>
-
-  <span style="color:#f92672">db</span>:
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">db</span>
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgresql:latest</span>
-    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">db</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>
-    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">./data/db:/var/lib/postgresql/data</span>
-    <span style="color:#f92672">networks</span>:
-      - <span style="color:#ae81ff">internal</span>
-
-  <span style="color:#f92672">redis</span>:
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">cache</span>
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.0.9-alpine</span>
-    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">redis-server --port 6379 --bind 0.0.0.0</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#ae81ff">6379</span>:<span style="color:#ae81ff">6379</span>
-    <span style="color:#f92672">networks</span>:
-      - <span style="color:#ae81ff">internal</span>
-
-  <span style="color:#f92672">s3</span>:
-    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">s3</span>
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">minio/minio:latest</span>
-    <span style="color:#f92672">ports</span>:
-      - <span style="color:#ae81ff">9000</span>:<span style="color:#ae81ff">9000</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#ae81ff">./data/s3:/data</span>
-    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">server /data</span>
-    <span style="color:#f92672">environment</span>:
-      - <span style="color:#ae81ff">MINIO_ACCESS_KEY=minioadmin</span>
-      - <span style="color:#ae81ff">MINIO_SECRET_KEY=minioadmin</span>
-    <span style="color:#f92672">networks</span>:
-      - <span style="color:#ae81ff">internal</span>
-
-<span style="color:#f92672">networks</span>:
-  <span style="color:#f92672">internal</span>:
-    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">bridge</span>
-</code></pre></div><h2 id="mongooseim-config-file">MongooseIM Config File:</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.8&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">mim</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mim</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">working_dir</span>: <span style="color:#ae81ff">/app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/mim-src:/app</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">sh -c &#34;echo &#39;127.0.0.1     muc.localhost&#39; &gt;&gt; /etc/hosts &amp;&amp; bash&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">PGCLIENTENCODING=&#39;utf-8&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">depends_on</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">db</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">redis</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">5225</span>:<span style="color:#ae81ff">5222</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgresql:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">db</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./data/db:/var/lib/postgresql/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">redis</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">cache</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.0.9-alpine</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">redis-server --port 6379 --bind 0.0.0.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">6379</span>:<span style="color:#ae81ff">6379</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">s3</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">s3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">minio/minio:latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">9000</span>:<span style="color:#ae81ff">9000</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./data/s3:/data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">server /data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MINIO_ACCESS_KEY=minioadmin</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">MINIO_SECRET_KEY=minioadmin</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">internal</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">internal</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">bridge</span>
+</span></span></code></pre></div><h2 id="mongooseim-config-file">MongooseIM Config File:</h2>
 <p>As I&rsquo;ve already pointed out, you can use the default mongooseim.cfg or mongooseim.toml (The Latest Versions) and mount them in the appropriate directory in the docker-compose file.</p>
 <h2 id="starting-dev-setup">Starting Dev Setup</h2>
 <ul>
@@ -184,6 +184,8 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
                 
                 
                 <a href="https://mangalakader.github.io/tags/erlang/" class="tags text-decoration-none text-white">erlang
+                    
+                    
                     
                     
                     
@@ -288,12 +290,16 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
                     
                     
                     
+                    
+                    
                     (4)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/ejabberd/" class="tags text-decoration-none text-white">ejabberd
+                    
+                    
                     
                     
                     
@@ -390,12 +396,16 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
                     
                     
                     
+                    
+                    
                     (4)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/instant-messaging/" class="tags text-decoration-none text-white">instant-messaging
+                    
+                    
                     
                     
                     
@@ -488,12 +498,16 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
                     
                     
                     
+                    
+                    
                     (2)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/docker-compose/" class="tags text-decoration-none text-white">docker-compose
+                    
+                    
                     
                     
                     

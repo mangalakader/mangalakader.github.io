@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1078" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1078" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1664" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1664" />
 
 <base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-4/">
 <link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-4/" itemprop="url" />
@@ -73,22 +73,22 @@
 <h2 id="important-files-and-hierarchies">Important files and hierarchies</h2>
 <p>Last part, we saw how a stanza is represented in Erlang Terms (erlang records). This part we&rsquo;ll be seeing the important files and how they fit into the functioning of MongooseIM.</p>
 <h2 id="folder-hierarchy">Folder Hierarchy</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Some of the directories and files have been left out for convenience</span>
-/mongooseim-src
-├── asn1
-├── asngen
-├── big_tests
-├── c_src
-├── examples
-├── include
-├── priv
-├── rel
-├── src
-├── test
-└── tools
-
-<span style="color:#ae81ff">10</span> directories
-</code></pre></div><p>As a developer, we&rsquo;ll only need to modify certain folders or files in order to achieve a certain functionality such as</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Some of the directories and files have been left out for convenience</span>
+</span></span><span style="display:flex;"><span>/mongooseim-src
+</span></span><span style="display:flex;"><span>├── asn1
+</span></span><span style="display:flex;"><span>├── asngen
+</span></span><span style="display:flex;"><span>├── big_tests
+</span></span><span style="display:flex;"><span>├── c_src
+</span></span><span style="display:flex;"><span>├── examples
+</span></span><span style="display:flex;"><span>├── include
+</span></span><span style="display:flex;"><span>├── priv
+</span></span><span style="display:flex;"><span>├── rel
+</span></span><span style="display:flex;"><span>├── src
+</span></span><span style="display:flex;"><span>├── test
+</span></span><span style="display:flex;"><span>└── tools
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">10</span> directories
+</span></span></code></pre></div><p>As a developer, we&rsquo;ll only need to modify certain folders or files in order to achieve a certain functionality such as</p>
 <ul>
 <li><code>big_tests</code> → Contains a very big test suite for most of the MongooseIM functionalities, the big tests often times run nearly an hour and sometimes even more. They contain integrated test suites which tests a range of scenarios, grouped into various hierarchies. MongooseIM team, has been generous enough to include scripts that can trigger the integrated suites for a particular scenario on a particular module, which have been very well documented <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://esl.github.io/MongooseDocs/latest/developers-guide/Testing-MongooseIM/" target="_blank" rel="noreferrer" >here</a>
 </li>
@@ -102,18 +102,18 @@
 <p>Erlang developers already know about <code>io:format(arg1, arg2)</code> method to display or inspect values in the erlang shell and also we will be tempted to use the same here. There is no harm in doing it, but we will be bypassing the log from the mongooseim&rsquo;s configured logger module, which might result in our debug statements left out from the corresponding log files.</p>
 <p>The header file contains macros to make your life easier in including debug statements. You want to add a debug log in a source file, include this header file somewhere along after module statement in the source file as <code>-include(&quot;mongoose_logger.hrl&quot;).</code></p>
 <p>Now you can simply add a debug statement, which will be shown in the mongooseim console output when the application is running. Simple example of a debug statement is as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang"><span style="color:#960050;background-color:#1e0010">#</span> without variables
-<span style="color:#f92672">?</span>DEBUG(<span style="color:#e6db74">&#34;Hello this is a sample debug message!</span><span style="color:#e6db74">~n</span><span style="color:#e6db74">&#34;</span>, []),
-...
-<span style="color:#960050;background-color:#1e0010">#</span> Console Output
-<span style="color:#ae81ff">16</span>:<span style="color:#ae81ff">25</span>:<span style="color:#ae81ff">02</span>.<span style="color:#ae81ff">374</span> [debug] Hello this is a sample debug message<span style="color:#f92672">!</span>
-<span style="color:#960050;background-color:#1e0010">#</span> with variables
-Author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jonas&#34;</span>,
-<span style="color:#f92672">?</span>DEBUG(<span style="color:#e6db74">&#34;Hello this is a sample debug message! Welcome </span><span style="color:#e6db74">~p~n</span><span style="color:#e6db74">&#34;</span>, [Author]),
-...
-<span style="color:#960050;background-color:#1e0010">#</span> Console Output
-<span style="color:#ae81ff">16</span>:<span style="color:#ae81ff">25</span>:<span style="color:#ae81ff">02</span>.<span style="color:#ae81ff">374</span> [debug] Hello this is a sample debug message<span style="color:#f92672">!</span> Welcome Jonas
-</code></pre></div><p>You don&rsquo;t have to explicitly import this header file, instead if you include the <code>include/mongoose.hrl</code> file, it already has included the mongoose_logger.hrl file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-erlang" data-lang="erlang"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> without variables
+</span></span><span style="display:flex;"><span><span style="color:#f92672">?</span>DEBUG(<span style="color:#e6db74">&#34;Hello this is a sample debug message!</span><span style="color:#e6db74">~n</span><span style="color:#e6db74">&#34;</span>, []),
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> Console Output
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">16</span>:<span style="color:#ae81ff">25</span>:<span style="color:#ae81ff">02</span>.<span style="color:#ae81ff">374</span> [debug] Hello this is a sample debug message<span style="color:#f92672">!</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> with variables
+</span></span><span style="display:flex;"><span>Author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jonas&#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#f92672">?</span>DEBUG(<span style="color:#e6db74">&#34;Hello this is a sample debug message! Welcome </span><span style="color:#e6db74">~p~n</span><span style="color:#e6db74">&#34;</span>, [Author]),
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span> Console Output
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">16</span>:<span style="color:#ae81ff">25</span>:<span style="color:#ae81ff">02</span>.<span style="color:#ae81ff">374</span> [debug] Hello this is a sample debug message<span style="color:#f92672">!</span> Welcome Jonas
+</span></span></code></pre></div><p>You don&rsquo;t have to explicitly import this header file, instead if you include the <code>include/mongoose.hrl</code> file, it already has included the mongoose_logger.hrl file.</p>
 <h4 id="includemongoose_nshrl">include/mongoose_ns.hrl</h4>
 <p>The <code>ns</code> stands for namespace which is relevant to the XML stanzas. This file holds all of supported namespaces for our XML stanzas and we can also define our custom namespaces here and use them anywhere in the source files. Any source file in mongooseim you see, they would have this file inclusion.</p>
 <p>With this covered, let&rsquo;s get on with understanding hooks and handlers in the coming parts.</p>
@@ -126,6 +126,8 @@ Author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jon
                 
                 
                 <a href="https://mangalakader.github.io/tags/erlang/" class="tags text-decoration-none text-white">erlang
+                    
+                    
                     
                     
                     
@@ -230,12 +232,16 @@ Author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jon
                     
                     
                     
+                    
+                    
                     (4)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/ejabberd/" class="tags text-decoration-none text-white">ejabberd
+                    
+                    
                     
                     
                     
@@ -332,12 +338,16 @@ Author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jon
                     
                     
                     
+                    
+                    
                     (4)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/instant-messaging/" class="tags text-decoration-none text-white">instant-messaging
+                    
+                    
                     
                     
                     
@@ -391,6 +401,13 @@ Author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jon
         </div>
         <div class="container-fluid justify-content-evenly p-0 row g-0">
             <div class="next-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/custom-fortune-cookie-in-your-terminal-shell/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
+                        <h5 class="m-0">&nbsp;&nbsp;Custom Fortune Cookie / Random Tips -...</h5>
+                    </div>
+                </a>
                 
             </div>
 

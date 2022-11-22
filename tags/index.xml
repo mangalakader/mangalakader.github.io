@@ -6,7 +6,52 @@
     <description>Recent content in Tags on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux</title>
+      <link>https://mangalakader.github.io/tags/linux/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>https://mangalakader.github.io/tags/shell/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/shell/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terminal</title>
+      <link>https://mangalakader.github.io/tags/terminal/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/terminal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>til</title>
+      <link>https://mangalakader.github.io/tags/til/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/til/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unix</title>
+      <link>https://mangalakader.github.io/tags/unix/</link>
+      <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/unix/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ejabberd</title>
       <link>https://mangalakader.github.io/tags/ejabberd/</link>
@@ -125,15 +170,6 @@
     </item>
     
     <item>
-      <title>linux</title>
-      <link>https://mangalakader.github.io/tags/linux/</link>
-      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>nspawn</title>
       <link>https://mangalakader.github.io/tags/nspawn/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
@@ -166,24 +202,6 @@
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mangalakader.github.io/tags/systemd-nspawn/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>til</title>
-      <link>https://mangalakader.github.io/tags/til/</link>
-      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/til/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>unix</title>
-      <link>https://mangalakader.github.io/tags/unix/</link>
-      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/unix/</guid>
       <description></description>
     </item>
     

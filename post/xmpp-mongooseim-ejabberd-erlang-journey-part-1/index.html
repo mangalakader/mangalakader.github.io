@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1181" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1181" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-973" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-973" />
 
 <base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/">
 <link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" itemprop="url" />
@@ -101,11 +101,11 @@ This article will be mainly about Erlang based XMPP servers such as Ejabberd and
 <li>Ejabberd has direct distribution through apt (apt install ejabberd)</li>
 <li>docker (Convenient and best approach)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console"># For Ejabberd
-docker run --name ejabberd -d -p 5222:5222 ejabberd/ecs
-# For MongooseIM
-docker run -d -t -h mongooseim-1 --name mongooseim-1 -p 5222:5222 mongooseim/mongooseim:latest
-</code></pre></div><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span># For Ejabberd
+</span></span><span style="display:flex;"><span>docker run --name ejabberd -d -p 5222:5222 ejabberd/ecs
+</span></span><span style="display:flex;"><span># For MongooseIM
+</span></span><span style="display:flex;"><span>docker run -d -t -h mongooseim-1 --name mongooseim-1 -p 5222:5222 mongooseim/mongooseim:latest
+</span></span></code></pre></div><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
 <ul>
 <li>Pick your favorite IM client from this <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/software/clients.html" target="_blank" rel="noreferrer" >page</a>
 .</li>
@@ -114,13 +114,13 @@ docker run -d -t -h mongooseim-1 --name mongooseim-1 -p 5222:5222 mongooseim/mon
 <li>For MongooseIM, the registration is done using the following commands
 <code>mongooseimctl register {HOST} {PASSWORD}</code> and  <code>mongooseimctl register_identified {USERNAME} {HOST} {PASSWORD}</code></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Registering using random username</span>
-$ mongooseimctl register localhost testpassword
-User 1596-978064-173548-9A7D4C0FBABEEF51@localhost successfully registered
-<span style="color:#75715e"># Registering using username and password</span>
-$ mongooseimctl register_identified testuser localhost testpassword
-User testuser@localhost successfully registered
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Registering using random username</span>
+</span></span><span style="display:flex;"><span>$ mongooseimctl register localhost testpassword
+</span></span><span style="display:flex;"><span>User 1596-978064-173548-9A7D4C0FBABEEF51@localhost successfully registered
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Registering using username and password</span>
+</span></span><span style="display:flex;"><span>$ mongooseimctl register_identified testuser localhost testpassword
+</span></span><span style="display:flex;"><span>User testuser@localhost successfully registered
+</span></span></code></pre></div><blockquote>
 <p>Now, you might be wondering why can&rsquo;t the user register directly?
 Indeed, the users can register themselves,</p>
 <ul>
@@ -236,12 +236,16 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
+                    
+                    
                     (8)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/mongooseim/" class="tags text-decoration-none text-white">mongooseim
+                    
+                    
                     
                     
                     
@@ -338,12 +342,16 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
+                    
+                    
                     (4)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/xmpp/" class="tags text-decoration-none text-white">xmpp
+                    
+                    
                     
                     
                     
@@ -440,12 +448,16 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
+                    
+                    
                     (4)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/docker/" class="tags text-decoration-none text-white">docker
+                    
+                    
                     
                     
                     
