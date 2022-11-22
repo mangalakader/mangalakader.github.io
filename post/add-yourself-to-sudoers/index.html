@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>Add yourself to Sudoers - No {re-}typing password! </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | Add yourself to Sudoers - No {re-}typing password!</title>
+  <meta property="og:title" content="Add yourself to Sudoers - No {re-}typing password!" />
+  <meta itemprop="name" content="Add yourself to Sudoers - No {re-}typing password!" />
+  <meta name="application-name" content="Add yourself to Sudoers - No {re-}typing password!" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/add-yourself-to-sudoers/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/add-yourself-to-sudoers/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/add-yourself-to-sudoers/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/add-yourself-to-sudoers/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -59,7 +80,7 @@ a new shell, and type <code>sudo {command}</code>, we must type the password to 
 </ul>
 <p>I will be elaborating just the second way, because this doesn&rsquo;t involve me directly messing with the defaults and I feel it sane, safe &amp; sound.</p>
 <h3 id="view-the-last-line-in-the-etcsudoers-file">View the Last Line in the <code>/etc/sudoers</code> file:</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># This file MUST be edited with the &#39;visudo&#39; command as root.</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># This file MUST be edited with the &#39;visudo&#39; command as root.</span>
 <span style="color:#75715e"># Please consider adding local content in /etc/sudoers.d/ instead of</span>
 <span style="color:#75715e"># directly modifying this file.</span>
 <span style="color:#75715e"># See the man page for details on how to write a sudoers file.</span>
@@ -83,7 +104,7 @@ Let&rsquo;s add ourself to sudoers, so we can stop typing password for <code>sud
 <li>Create a <strong>file with the username</strong> in <code>/etc/sudoers.d</code>, don&rsquo;t forget to use sudo when creating the file.</li>
 <li>Now add the following to the file: Substitute <code>{username}</code> with your system&rsquo;s username</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>username<span style="color:#f92672">}</span> ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> NOPASSWD: ALL
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>username<span style="color:#f92672">}</span> ALL<span style="color:#f92672">=(</span>ALL:ALL<span style="color:#f92672">)</span> NOPASSWD: ALL
 </code></pre></div><ul>
 <li>Save the file and do a restart for the sudo service or do a full system restart, if that doesn&rsquo;t help.</li>
 </ul>

@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>TIL: Firefox Bookmarks Export - HTML to PLAIN File </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | TIL: Firefox Bookmarks Export - HTML to PLAIN File</title>
+  <meta property="og:title" content="TIL: Firefox Bookmarks Export - HTML to PLAIN File" />
+  <meta itemprop="name" content="TIL: Firefox Bookmarks Export - HTML to PLAIN File" />
+  <meta name="application-name" content="TIL: Firefox Bookmarks Export - HTML to PLAIN File" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -51,7 +72,7 @@
 <h2 id="sed-to-the-rescue">SED to the rescue</h2>
 <p>SED - stream editor, popular choice of most of the sysadmins and hardcore developers. Once, you&rsquo;ve exported, you&rsquo;d have a html file in any destination based on your choice.</p>
 <p>In your terminal, use the following script to filter out only the <code>href</code> part from all those nasty large links:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -r -e <span style="color:#e6db74">&#39;/.* HREF=.*$/!d&#39;</span> -e <span style="color:#e6db74">&#39;s/.* HREF=&#34;(.*)\&#34; ADD_DATE.*$/\1/g&#39;</span> <span style="color:#f92672">{</span>INPUT FILE NAME<span style="color:#f92672">}</span>.html | uniq &gt; <span style="color:#f92672">{</span>OUTPUT FILE NAME<span style="color:#f92672">}</span>.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -r -e <span style="color:#e6db74">&#39;/.* HREF=.*$/!d&#39;</span> -e <span style="color:#e6db74">&#39;s/.* HREF=&#34;(.*)\&#34; ADD_DATE.*$/\1/g&#39;</span> <span style="color:#f92672">{</span>INPUT FILE NAME<span style="color:#f92672">}</span>.html | uniq &gt; <span style="color:#f92672">{</span>OUTPUT FILE NAME<span style="color:#f92672">}</span>.txt
 </code></pre></div><p>Let me breakdown the command</p>
 <ul>
 <li><code>sed</code> is the bash tool, that we&rsquo;ll be using</li>
@@ -65,7 +86,7 @@
 </ul>
 <p>Now, the output file can be managed with any VCS out there.</p>
 <h2 id="improvements-december-2020">Improvements (December, 2020):</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">parallel --pipepart -a <span style="color:#f92672">{</span>INPUT FILE NAME<span style="color:#f92672">}</span>.html -j4 --roundrobin <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">parallel --pipepart -a <span style="color:#f92672">{</span>INPUT FILE NAME<span style="color:#f92672">}</span>.html -j4 --roundrobin <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>sed<span style="color:#ae81ff">\ </span>-r<span style="color:#ae81ff">\ </span>-e<span style="color:#ae81ff">\ \&#39;</span>/.<span style="color:#ae81ff">\*\ </span>HREF<span style="color:#ae81ff">\=\&#34;\(</span>.<span style="color:#ae81ff">\*\)\\\&#34;\ </span>ADD_DATE.<span style="color:#ae81ff">\*\$</span>/<span style="color:#ae81ff">\!</span>d<span style="color:#ae81ff">\&#39;\ </span>
          -e<span style="color:#ae81ff">\ \&#39;</span>s/.<span style="color:#ae81ff">\*\ </span>HREF<span style="color:#ae81ff">\=\&#34;\(</span>.<span style="color:#ae81ff">\*\)\\\&#34;\ </span>ADD_DATE.<span style="color:#ae81ff">\*</span>.<span style="color:#ae81ff">\*\$</span>/<span style="color:#ae81ff">\\</span>1/g<span style="color:#ae81ff">\&#39;</span> | <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>uniq &gt; <span style="color:#f92672">{</span>OUTPUT FILE NAME<span style="color:#f92672">}</span>.txt
@@ -78,7 +99,7 @@
 <li><code>-j4 --roundrobin</code> 4 parallel jobs in roundrobin fashion</li>
 <li>SED command here is shell-quoted using the parallel utility as follows:</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ parallel --shellquote
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ parallel --shellquote
 parallel: Warning: Input is read from the terminal. You either know what you
 parallel: Warning: are doing <span style="color:#f92672">(</span>in which <span style="color:#66d9ef">case</span>: YOU ARE AWESOME!<span style="color:#f92672">)</span> or you forgot
 parallel: Warning: ::: or :::: or to pipe data into parallel. If so

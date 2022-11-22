@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup</title>
+  <meta property="og:title" content="Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup" />
+  <meta itemprop="name" content="Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup" />
+  <meta name="application-name" content="Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="Introduction to XMPP using Erlang - Setting Up Local Dev machine for developing new functionalities!" />
+        <meta itemprop="description" content="Introduction to XMPP using Erlang - Setting Up Local Dev machine for developing new functionalities!" />
+        <meta property="og:description" content="Introduction to XMPP using Erlang - Setting Up Local Dev machine for developing new functionalities!" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -50,7 +71,7 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
 <h2 id="setting-up-local-development-environment-for-mongooseim">Setting Up Local Development Environment for MongooseIM:</h2>
 <p>There are a couple of ways to set up local development environment, obviously, first one is to clone the official repo and getting started, which if you have to do it for multiple systems, becomes a tedious job. So, I&rsquo;ve written a simple Dockerfile, based on my convenience. Feel free to use it, if you want!</p>
 <p>In case, you want to upgrade the Erlang version, change <code>esl-erlang={DESIRED_VERSION}</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> ubuntu:16.04</span><span style="color:#960050;background-color:#1e0010">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> ubuntu:16.04</span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010">
 </span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>    apt-get install -y --install-recommends unixodbc-dev rsync <span style="color:#ae81ff">\
@@ -78,7 +99,7 @@ as on July 2021. So, if you want to refer to the latest documentation, feel free
 <p>MongooseIM uses in-built mnesia as it&rsquo;s default session store, unless you want to switch to a more robust redis server.</p>
 <h2 id="docker-compose">Docker Compose:</h2>
 <p>We have got multiple components and managing them separately will become tedious and hence, I have got a docker-compose file with skeleton of services included, you can expand them as per your needs. Knowingly, I&rsquo;ve left out some other services, as they too much in the beginning itself.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.8&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.8&#34;</span>
 
 <span style="color:#f92672">services</span>:
   <span style="color:#f92672">mim</span>:

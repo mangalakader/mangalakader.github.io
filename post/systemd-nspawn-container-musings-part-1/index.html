@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>systemd-nspawn - Containerization - Part 1 </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | systemd-nspawn - Containerization - Part 1</title>
+  <meta property="og:title" content="systemd-nspawn - Containerization - Part 1" />
+  <meta itemprop="name" content="systemd-nspawn - Containerization - Part 1" />
+  <meta name="application-name" content="systemd-nspawn - Containerization - Part 1" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -72,22 +93,22 @@
 </li>
 </ul>
 <p>Don&rsquo;t rush to download it, we will be doing it using <code>machinectl</code> command. You can run the following commands as <code>root</code> (if you&rsquo;re daring!)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ machinectl pull-tar http://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-root.tar.gz xenial
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ machinectl pull-tar http://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-root.tar.gz xenial
 $ machinectl pull-tar <span style="color:#f92672">[</span>LINK<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>CONTAINER NAME<span style="color:#f92672">]</span>
 ......PROGRESS NOTIFICATION.........
 </code></pre></div><p>Poof! where did my image go? Don&rsquo;t worry, it&rsquo;s safe in <code>/var/lib/machines/xenial</code> directory. By default, all images pulled using machinectl goto that directory.</p>
 <h2 id="power-on-your-first-specialised-container">Power on your first specialised container:</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemd-nspawn -D /var/lib/machines/alpine -U -M xenial
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemd-nspawn -D /var/lib/machines/alpine -U -M xenial
 Spawning container xenial on /var/lib/machines/xenial.
 Press ^<span style="color:#f92672">]</span> three times within 1s to kill container.
 Selected user namespace base <span style="color:#ae81ff">706150400</span> and range 65536.
 root@xenial:~#
 </code></pre></div><p>Anything you do from now on is inside the container and make sure you&rsquo;re not doing it on your actual machine.</p>
 <h2 id="add-a-new-user">Add a new user:</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@xenial:~# adduser test-user
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@xenial:~# adduser test-user
 ......Normal User addition steps...........
 </code></pre></div><h2 id="add-instance-name-to-hosts-file">Add instance name to hosts file:</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@xenial:~# echo <span style="color:#e6db74">&#34;127.0.0.1 xenial&#34;</span> &gt;&gt; /etc/hosts
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@xenial:~# echo <span style="color:#e6db74">&#34;127.0.0.1 xenial&#34;</span> &gt;&gt; /etc/hosts
 <span style="color:#75715e"># If this is not done, then we&#39;ll keep getting an error `unable to resolve hostname: xenial` when executing commands.</span>
 </code></pre></div><h2 id="adding-a-default-network-interface-inside-the-container-optional">Adding a default network interface inside the container (Optional)</h2>
 <p>If you don&rsquo;t want to complicate your container setup by adding separate network for the container, then you can skip and proceed to the usage part. By default, the container talks to the host through a <code>host0</code> network interface, we need to add it the interfaces to autostart, when the container boots.</p>
@@ -100,7 +121,7 @@ root@xenial:~#
 <ul>
 <li>For a wired network, it is straight forward, you create a bridge network between your container&rsquo;s virtual network and the wired connection using <code>brctl</code> (bridge-utils) in your host machine</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brctl addbr virxen
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brctl addbr virxen
 $ brctl show virxen
 bridge name     bridge id               STP enabled     interfaces
 virxen           8000.000000000000       no
@@ -108,7 +129,7 @@ $ brctl addif <span style="color:#f92672">[</span>host internet connected wired 
 </code></pre></div><ul>
 <li>If you do have a <code>dhcp service</code> running in your container, then you can add this in your container&rsquo;s network interfaces, which automatically gets an ip assigned for this container.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># systemd-nspawn -D /var/lib/machines/alpine -U -M xenial</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># systemd-nspawn -D /var/lib/machines/alpine -U -M xenial</span>
 Spawning container xenial on /var/lib/machines/xenial.
 Press ^<span style="color:#f92672">]</span> three times within 1s to kill container.
 Selected user namespace base <span style="color:#ae81ff">706150400</span> and range 65536.
@@ -117,7 +138,7 @@ root@xenial:~# echo <span style="color:#e6db74">&#39;iface host0 inet dhcp&#39;<
 </code></pre></div><ul>
 <li>Now create a file named <code>xenial.nspawn</code> or any other name you&rsquo;ve created your container with the following contents:</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Exec<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>Exec<span style="color:#f92672">]</span>
 <span style="color:#75715e"># Writable bind mounts don&#39;t with user namespacing</span>
 PrivateUsers<span style="color:#f92672">=</span>no
 <span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
@@ -134,7 +155,7 @@ Bridge<span style="color:#f92672">=</span>virxen
 <li>Since, I want to provide a static ip address to my bridge interface, I did the below steps.</li>
 <li>If you have a properly configured dhcp service, you can make use of it.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ip addr add 192.168.30.1/24 brd + dev <span style="color:#f92672">[</span>your brigde name<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ip addr add 192.168.30.1/24 brd + dev <span style="color:#f92672">[</span>your brigde name<span style="color:#f92672">]</span>
 <span style="color:#75715e"># verify using the next command</span>
 $ ip a
 ...........Many other network interfaces................
@@ -145,7 +166,7 @@ $ ip a
 </code></pre></div><ul>
 <li>For adding the NAT rules</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo iptables -t nat -A POSTROUTING -s 192.168.30.0/24 ! -d 192.168.30.0/24 <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo iptables -t nat -A POSTROUTING -s 192.168.30.0/24 ! -d 192.168.30.0/24 <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>&gt; -o <span style="color:#f92672">[</span>Your Internet Connected Wireles Interface Name<span style="color:#f92672">]</span> -j MASQUERADE
 <span style="color:#75715e"># Note: If you worry about security a lot, tweak the rule as per your requirement, as it a very generous rule</span>
 <span style="color:#75715e"># verify using the next command</span>
@@ -163,7 +184,7 @@ MASQUERADE  all  --  192.168.30.0/24     !192.168.30.0/24
 <li>Also, we need to tell our iptables to accept packets from our bridge to our wireless network interface. This is essential for our dns resolvers to work, otherwise
 dns resolution will fail</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo iptables -A FORWARD -i virxen -o <span style="color:#f92672">[</span>your wireless interface name<span style="color:#f92672">]</span> -j ACCEPT
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo iptables -A FORWARD -i virxen -o <span style="color:#f92672">[</span>your wireless interface name<span style="color:#f92672">]</span> -j ACCEPT
 <span style="color:#75715e"># verify using the next command</span>
 $ sudo iptables -L --verbose --line-numbers FORWARD
 Chain FORWARD <span style="color:#f92672">(</span>policy DROP <span style="color:#ae81ff">0</span> packets, <span style="color:#ae81ff">0</span> bytes<span style="color:#f92672">)</span>

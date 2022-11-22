@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>Erlang Help Docs on Elixir Shell - Using ASDF or Kerl </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | Erlang Help Docs on Elixir Shell - Using ASDF or Kerl</title>
+  <meta property="og:title" content="Erlang Help Docs on Elixir Shell - Using ASDF or Kerl" />
+  <meta itemprop="name" content="Erlang Help Docs on Elixir Shell - Using ASDF or Kerl" />
+  <meta name="application-name" content="Erlang Help Docs on Elixir Shell - Using ASDF or Kerl" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -49,7 +70,7 @@
 of the developers, when they adopt elixir, they first struggle to find the
 help documentation for erlang functions.</p>
 <p>We all would have come across this message when using:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">iex(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span> h <span style="color:#e6db74">:heart</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">iex(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span> h <span style="color:#e6db74">:heart</span>
 <span style="color:#f92672">**</span>heart module <span style="color:#f92672">not</span> compiled with erlang docs 
 </code></pre></div><h2 id="so-how-do-we-enable-documentation-for-erlang-functions">So, how do we enable documentation for erlang functions:</h2>
 <p>The solution that I&rsquo;m going to discuss is relevant with ASDF or Kerl.</p>
@@ -59,9 +80,9 @@ Kerl is a popular version manager for erlang.
 Asdf internally uses kerl for downloading, building and installing erlang.</p>
 </blockquote>
 <h4 id="put-this-environment-variable-before-installing-erlang">Put this environment variable before installing erlang</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export KERL_BUILD_DOCS<span style="color:#f92672">=</span>yes
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ export KERL_BUILD_DOCS<span style="color:#f92672">=</span>yes
 </code></pre></div><p>Before installing erlang the following packages are also needed for building documentation</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apt install xsltproc fop
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ apt install xsltproc fop
 </code></pre></div><p>You need atleast erlang otp-23+ for enabling documentation</p>
 <h4 id="reinstall-erlang-and-go-into-the-iex-shell">Reinstall Erlang and go into the Iex Shell:</h4>
 

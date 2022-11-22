@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>systemd-nspawn - Containerization - Part 2 </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | systemd-nspawn - Containerization - Part 2</title>
+  <meta property="og:title" content="systemd-nspawn - Containerization - Part 2" />
+  <meta itemprop="name" content="systemd-nspawn - Containerization - Part 2" />
+  <meta name="application-name" content="systemd-nspawn - Containerization - Part 2" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -54,18 +75,18 @@
 <ul>
 <li>create a file named <code>ds-identity.cfg</code> with the following contents</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">datasource</span>: <span style="color:#ae81ff">NoCloud</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">datasource</span>: <span style="color:#ae81ff">NoCloud</span>
 <span style="color:#f92672">policy</span>: <span style="color:#ae81ff">search,found=first,maybe=none,notfound=disabled</span>
 </code></pre></div><p>This file is telling the cloud-init to use the datasource as <code>NoCloud</code>, which will not do any lookup with cloud vendors</p>
 <ul>
 <li>create a folder <code>nocloud</code> and put three files in them, namely:
 <ul>
 <li><code>meta-data</code> with the following contents
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">instance-id</span>: <span style="color:#ae81ff">xenial</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">instance-id</span>: <span style="color:#ae81ff">xenial</span>
 <span style="color:#f92672">local-hostname</span>: <span style="color:#ae81ff">xenial</span>
 </code></pre></div></li>
 <li><code>user-data</code> with the following contents (or anything else based on your requirements)
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#cloud-config</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">#cloud-config</span>
 <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">xenial</span>
 <span style="color:#75715e"># Any package that you&#39;d like to install in the container</span>
 <span style="color:#f92672">packages</span>:
@@ -104,7 +125,7 @@
       <span style="color:#f92672">condition</span>: <span style="color:#ae81ff">if [ -e /var/run/reboot-required ];then exit 0; else exit 1; fi</span>
 </code></pre></div></li>
 <li><code>network-config</code>, this is optional, only if you want to configure network at boot. This is necessary for me as my setup demands it.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#ae81ff">2</span>
 <span style="color:#f92672">ethernets</span>:
   <span style="color:#f92672">host0</span>:
       <span style="color:#f92672">set-name</span>: <span style="color:#ae81ff">host0</span>
@@ -118,7 +139,7 @@
 </li>
 <li>You should now be having the following directory structure</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tree
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ tree
 .
 ├── ds-identity.cfg
 ├── nocloud
@@ -129,7 +150,7 @@
 <span style="color:#ae81ff">1</span> directory, <span style="color:#ae81ff">5</span> files
 </code></pre></div><h2 id="our-mount-file-for-container---xenialnspawn">Our mount file for container - xenial.nspawn:</h2>
 <p>Always have a copy of this file <code>xenial.nspawn</code> stored somewhere, as the container removal leads to deletion of this file. Copy this file to <code>/etc/systemd/nspawn</code> directory.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">Exec</span>]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">Exec</span>]
 <span style="color:#75715e"># Writable bind mounts don&#39;t with user namespacing</span>
 <span style="color:#a6e22e">PrivateUsers</span>=<span style="color:#a6e22e">pick</span>
 [<span style="color:#a6e22e">Files</span>]
@@ -143,16 +164,16 @@
 <span style="color:#a6e22e">VirtualEthernet</span>=<span style="color:#a6e22e">yes</span>
 <span style="color:#a6e22e">Bridge</span>=<span style="color:#a6e22e">virxen</span>
 </code></pre></div><h2 id="lets-fire-up-our-container">Let&rsquo;s fire up our container:</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemd-nspawn -D /var/lib/machines/xenial -U -b -M xenial
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemd-nspawn -D /var/lib/machines/xenial -U -b -M xenial
 <span style="color:#75715e"># -b flag means boot, which boots our container</span>
 ...............System Startup messages.............................
 ......................Login Page...................................
 </code></pre></div><p>You need to wait for sometime, for the cloud-init to complete, then only we can use the <code>testuser</code> created with the config file. You will see the familiar output logs from cloud-vendors. Use the below command to view the system setup and once, it comes to a halt, use the username and password from the cloud-init config file to login to your new container. Voila!!!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo journalctl -M xenial -f
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo journalctl -M xenial -f
 .....................Cloud-Init Output Logs........................
 </code></pre></div><h2 id="those-who-want-an-easier-way-out-of-this-setup">Those who want an easier way out of this setup:</h2>
 <p>Please use <code>debootsrap</code> as follows:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo mkdir -p /var/lib/machines/<span style="color:#f92672">{</span>any name of your choice<span style="color:#f92672">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo mkdir -p /var/lib/machines/<span style="color:#f92672">{</span>any name of your choice<span style="color:#f92672">}</span>
 $ sudo debootstrap --arch<span style="color:#f92672">=</span>amd64 jessie /var/lib/machines/<span style="color:#f92672">{</span>any name of your choice<span style="color:#f92672">}</span>/
 </code></pre></div><p>If you don&rsquo;t specify any network in the <code>xenial.nspawn</code> file, the container will see all network interfaces of the host and acts like it&rsquo;s an application inside the host using the same ip addresses.</p>
 <p>Once, again, some of the steps might be volatile, such as networks, so please make a backup of them if you want to persist. Follow, these tutorials for making them persistent across system reboots.</p>

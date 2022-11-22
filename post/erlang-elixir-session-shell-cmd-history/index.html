@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>Delete Saved Shell Cmd History in Erlang / Elixir </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | Delete Saved Shell Cmd History in Erlang / Elixir</title>
+  <meta property="og:title" content="Delete Saved Shell Cmd History in Erlang / Elixir" />
+  <meta itemprop="name" content="Delete Saved Shell Cmd History in Erlang / Elixir" />
+  <meta name="application-name" content="Delete Saved Shell Cmd History in Erlang / Elixir" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -61,7 +82,7 @@ go in deep and explore where it is saved by default, it is done using the <code>
 those, who had enabled the history with a file name, for them they can just delete or clean the file. But for those, who stick
 to the defaults, just delete the <code>$HOME/.cache/erlang-history/*</code> or if you are looking for non-invasive solution, you got it&hellip;</strong></p>
 <p>The <code>group_history</code> module exported just two functions, namely: <code>add/1, load/0</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex"><span style="color:#75715e"># I am using elixir to illustrate the examples. The same commands can be done via erlang too...</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex"><span style="color:#75715e"># I am using elixir to illustrate the examples. The same commands can be done via erlang too...</span>
 iex(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:group_history</span><span style="color:#f92672">.</span>load()
 [<span style="color:#e6db74">&#39;:group_history.load()</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74">&#39;group_history:load().</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span>]
 
@@ -69,10 +90,10 @@ iex(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&gt;</span>
 
 </code></pre></div><p>After a huge exploration, Fred was saving the history using <code>disk_log</code> module, that is when I found a way to clean the saved history.
 If you type the below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex">iex(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:disk_log</span><span style="color:#f92672">.</span>accessible_logs()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex">iex(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:disk_log</span><span style="color:#f92672">.</span>accessible_logs()
 {[<span style="color:#e6db74">:&#34;$</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#e6db74">group_history&#34;</span>], []}
 </code></pre></div><p>That&rsquo;s our guy who is saving all of our history, now to clean up the history use the below command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex">iex(<span style="color:#ae81ff">3</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:disk_log</span><span style="color:#f92672">.</span>truncate(<span style="color:#e6db74">:&#34;$</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#e6db74">group_history&#34;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ex" data-lang="ex">iex(<span style="color:#ae81ff">3</span>)<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">:disk_log</span><span style="color:#f92672">.</span>truncate(<span style="color:#e6db74">:&#34;$</span><span style="color:#960050;background-color:#1e0010">#</span><span style="color:#e6db74">group_history&#34;</span>)
 <span style="color:#e6db74">:ok</span>
 </code></pre></div><p>That&rsquo;s all Folks! We are free from our erlang / elixir shell history.</p>
 

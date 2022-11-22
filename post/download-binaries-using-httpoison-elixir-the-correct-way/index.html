@@ -1,7 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-  <title>Download Project Binaries using HTTPoison - Elixir </title>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+          <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <title itemprop="name">"Mangala Kader" | Download Project Binaries using HTTPoison - Elixir</title>
+  <meta property="og:title" content="Download Project Binaries using HTTPoison - Elixir" />
+  <meta itemprop="name" content="Download Project Binaries using HTTPoison - Elixir" />
+  <meta name="application-name" content="Download Project Binaries using HTTPoison - Elixir" />
+  <meta property="og:site_name" content="Online Portfolio" />
+  <base href="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/">
+  <link rel="canonical" href="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/" itemprop="url" />
+  <meta name="url" content="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/" />
+  <meta property="og:url" content="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/" />
+  <meta property="og:locale" content="en">
+  <meta name="language" content="">
+   
+  
+  <meta itemprop="image" content="https://mangalakader.github.io" />
+  <meta property="og:image" content="https://mangalakader.github.io" />
+  
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,8 +27,11 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-</head>
 
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
     <body>
         <div class="progress-container fixed-top">
             <span class="progress-bar"></span>
@@ -64,7 +85,7 @@
 <li>Create a basic mix task (<a href="https://medium.com/defmethod-works/writing-mix-tasks-for-fun-and-profit-61dd609e7263">Reference</a>)</li>
 </ul>
 <h1 id="getting-started">Getting Started</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#75715e"># Your example mix task should be like the one below</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#75715e"># Your example mix task should be like the one below</span>
 <span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Mix.Tasks.Hello</span> <span style="color:#66d9ef">do</span>
   <span style="color:#a6e22e">@shortdoc</span> <span style="color:#e6db74">~S(&#34;Example mix task for showing hello world&#34;)</span>
   
@@ -83,20 +104,20 @@
 <li>Timeout: 5 minutes (5 * 60 * 1000)</li>
 </ul>
 <p>With the above things ready, we are nearly ready to get into coding. Make sure to either keep the download url in config or use the <code>OptionsParser</code> in Elixir.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
   {<span style="color:#e6db74">:ok</span>, file} <span style="color:#f92672">=</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;path/filename&#34;</span>, [<span style="color:#e6db74">:write</span>, <span style="color:#e6db74">:exclusive</span>])
     ...to continue
 <span style="color:#66d9ef">end</span>
 </code></pre></div><p>One main thing to remember is that, since it is a mix task, you are supposed to start HTTpoison before starting the download. If you are writing a mix application, just starting HTTPoison in the <code>mix.exs</code> is enough.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
   <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>start() <span style="color:#75715e">#Mandatory if you are using it in a mix task</span>
   {<span style="color:#e6db74">:ok</span>, file} <span style="color:#f92672">=</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;path/filename&#34;</span>, [<span style="color:#e6db74">:write</span>, <span style="color:#e6db74">:exclusive</span>])
 <span style="color:#66d9ef">end</span>
 </code></pre></div><h1 id="using-httpoison-get">Using HTTPoison get</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>get(url, [<span style="color:#e6db74">&#34;Accept&#34;</span>: <span style="color:#e6db74">&#34;application/octet-stream&#34;</span>], [<span style="color:#e6db74">follow_redirect</span>: <span style="color:#66d9ef">true</span>, <span style="color:#e6db74">stream_to</span>: self(), <span style="color:#e6db74">recv_timeout</span>: <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>])
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>get(url, [<span style="color:#e6db74">&#34;Accept&#34;</span>: <span style="color:#e6db74">&#34;application/octet-stream&#34;</span>], [<span style="color:#e6db74">follow_redirect</span>: <span style="color:#66d9ef">true</span>, <span style="color:#e6db74">stream_to</span>: self(), <span style="color:#e6db74">recv_timeout</span>: <span style="color:#ae81ff">5</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">60</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span>])
 </code></pre></div><p>When you just need to hit an endpoint, the syntax is as simple as <code>HTTPoison.get(url, [])</code> but since, we want to download, I am using the necessary headers and <code>follow_redirect</code> is optional because, some sites redirect you to cloud storage services, where you will get the file and you can also control, you redirection limit. The <code>stream_to</code> is the interesting part, which is the thing that let&rsquo;s us download without blocking the IO. So, the above command gives a tuple in the form <code>{:ok, %HTTPoison.AsyncResponse{id: ref}}</code>. The tuple contains a reference to the downloading process.</p>
 <p>Now the code will look like the following:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">def</span> download(url, path) <span style="color:#66d9ef">do</span>
   <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>start()
   {<span style="color:#e6db74">:ok</span>, file} <span style="color:#f92672">=</span> <span style="color:#a6e22e">File</span><span style="color:#f92672">.</span>open(<span style="color:#e6db74">&#34;path/filename&#34;</span>, [<span style="color:#e6db74">:write</span>, <span style="color:#e6db74">:exclusive</span>])
   with {<span style="color:#e6db74">:ok</span>, %<span style="color:#a6e22e">HTTPoison.AsyncResponse</span>{<span style="color:#e6db74">id</span>: ref}} <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>get(url, [<span style="color:#e6db74">&#34;Accept&#34;</span>: <span style="color:#e6db74">&#34;application/octet-stream&#34;</span>],
@@ -112,7 +133,7 @@
 <p>The HTTPoison provides certain structs to understand the response from the server it hits and provides easier interface to interpret each type of struct and consume them.</p>
 <p><code>alias HTTPoison.{AsyncHeaders, AsyncRedirect, AsyncResponse, AsyncStatus, AsyncChunk, AysncEnd}</code></p>
 <p>The above aliases and our function in the previous snippet <code>write_data(ref, file, path)</code> are closely related.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">defp</span> write_data(ref, file, path) <span style="color:#66d9ef">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">defp</span> write_data(ref, file, path) <span style="color:#66d9ef">do</span>
   <span style="color:#66d9ef">receive</span> <span style="color:#66d9ef">do</span>
     %<span style="color:#a6e22e">AsyncStatus</span>{<span style="color:#e6db74">code</span>: <span style="color:#ae81ff">200</span>} <span style="color:#f92672">-&gt;</span>
       write(ref, file, path)
@@ -136,7 +157,7 @@
 <li>the end indicates the completion of streaming from the process.</li>
 </ul>
 <h1 id="finally-our-download-task-is-ready">Finally our download task is ready</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Mix.Tasks.Hello</span> <span style="color:#66d9ef">do</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#66d9ef">defmodule</span> <span style="color:#a6e22e">Mix.Tasks.Hello</span> <span style="color:#66d9ef">do</span>
   <span style="color:#a6e22e">@shortdoc</span> <span style="color:#e6db74">~S(&#34;Example mix task for showing hello world&#34;)</span>
   <span style="color:#f92672">use</span> <span style="color:#a6e22e">Mix.Task</span>
   <span style="color:#f92672">alias</span> <span style="color:#a6e22e">HTTPoison</span><span style="color:#f92672">.</span>{<span style="color:#a6e22e">AsyncHeaders</span>, <span style="color:#a6e22e">AsyncRedirect</span>, <span style="color:#a6e22e">AsyncResponse</span>, <span style="color:#a6e22e">AsyncStatus</span>, <span style="color:#a6e22e">AsyncChunk</span>, <span style="color:#a6e22e">AysncEnd</span>}
