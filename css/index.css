@@ -149,6 +149,10 @@ pre > code {
   color: #ffc107 !important;
 }
 
+.post-container {
+  text-align: justify !important;
+}
+
 @media (min-width: 768px) {
   main section {
     min-height: 100vh;

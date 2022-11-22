@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-  <title>Instant Messaging using erlang and XMPP - Part 1 </title>
+  <title>Instant Messaging using Erlang and XMPP — Part 1 </title>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,50 +69,50 @@
 </nav>
 
         <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
-            <h2 class="text-dark text-center p-3 p-lg-5">Instant Messaging using erlang and XMPP - Part 1</h2>
+            <h2 class="text-dark text-center p-3 p-lg-5">Instant Messaging using Erlang and XMPP — Part 1</h2>
             <h5 class="text-dark text-center">Aug 9, 2020</h5>
         </div>
         <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
             <h2 id="instant-messaging">Instant Messaging</h2>
-<p>It&rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up - <a href="https://en.wikipedia.org/wiki/Instant_messaging" target="_blank" >here</a>
+<p>It&rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up <a href="https://en.wikipedia.org/wiki/Instant_messaging" target="_blank" >here</a>
 </p>
 <h2 id="underlying-basics">Underlying Basics</h2>
-<p>There are couple of things, we need to understand about real-time technologies:</p>
+<p>There are a couple of things, we need to understand about real-time technologies:</p>
 <ul>
-<li>The underlying protocol is not HTTP/HTTPS, but raw TCP with TLS which is equivalent to HTTPS per say</li>
-<li>also there is a websocket which has been recently gaining popularity in the recent years</li>
+<li>The underlying protocol is not HTTP/HTTPS, but raw TCP with TLS which is equivalent to HTTPS per se</li>
+<li>also there is a web socket which has been recently gaining popularity in the recent years</li>
 </ul>
-<p>The afore mentioned protocols heavily rely on keeping the connection to the servers alive until the user
+<p>The fore mentioned protocols heavily rely on keeping the connection to the servers alive until the user
 forcefully disconnects, whereas the HTTP ones are open and close for every request strategy and not suitable
 when you want to hit real-time messaging.</p>
-<h2 id="xmpp---short-and-sweet">XMPP - short and sweet</h2>
+<h2 id="xmpp--short-and-sweet">XMPP — short and sweet</h2>
 <p>Extensible Messaging and Presence Protocol(XMPP) is a protocol which defines how the text transmission should
-happen over the wire and it is lightweight compared to the traditional HTTP.</p>
-<p>A detailed components of XMPP are - <a href="https://xmpp.org/about/technology-overview.html" target="_blank" >here</a>
+happen over the wire, and it is lightweight compared to the traditional HTTP.</p>
+<p>A detailed component of XMPP are <a href="https://xmpp.org/about/technology-overview.html" target="_blank" >here</a>
 .</p>
 <p><strong>Note: It&rsquo;s utmost important to understand what is XMPP and how it works to understand the servers that use XMPP</strong></p>
-<h2 id="xmpp-and-erlang---why">XMPP and Erlang - Why?</h2>
+<h2 id="xmpp-and-erlang--why">XMPP and Erlang — Why?</h2>
 <p>Erlang as we all know is fault-tolerant, scalable and can be easily decentralized by the right approach. The XMPP can
 be implemented in any language and already there are plenty of open-source projects using XMPP with other languages.
-This article will be mainly about erlang based XMPP servers such as Ejabberd and MongooseIM.</p>
+This article will be mainly about Erlang based XMPP servers such as Ejabberd and MongooseIM.</p>
 <p>Thanks to the contributors of those projects that made the Chat industry a huge market for many ventures.</p>
-<p>For more XMPP servers, please look - <a href="https://xmpp.org/software/servers.html" target="_blank" >here</a>
+<p>For more XMPP servers, please look <a href="https://xmpp.org/software/servers.html" target="_blank" >here</a>
 </p>
 <h2 id="getting-started">Getting Started</h2>
 <h4 id="installation-for-test-drive">Installation for Test Drive</h4>
 <ul>
-<li>Clone from git and use make to install either ejabberd or MongooseIM.</li>
+<li>Clone from git and use make to install either Ejabberd or MongooseIM.</li>
 <li>MongooseIM - install file can be downloaded from Erlang Solutions website</li>
 <li>Ejabberd has direct distribution through apt (apt install ejabberd)</li>
 <li>docker (Convenient and best approach)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># For Ejabberd</span>
+<pre><code class="language-console" data-lang="console"># For Ejabberd
 docker run --name ejabberd -d -p 5222:5222 ejabberd/ecs
-<span style="color:#75715e"># For MongooseIM</span>
+# For MongooseIM
 docker run -d -t -h mongooseim-1 --name mongooseim-1 -p 5222:5222 mongooseim/mongooseim:latest
-</code></pre></div><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
+</code></pre><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
 <ul>
-<li>Pick your favourite IM client from this - <a href="https://xmpp.org/software/clients.html" target="_blank" >page</a>
+<li>Pick your favorite IM client from this <a href="https://xmpp.org/software/clients.html" target="_blank" >page</a>
 .</li>
 <li>To start chatting, you will need an account registered with our local server. The registration process is known as <strong>- <a href="https://xmpp.org/extensions/xep-0077.html" target="_blank" >In-Band Registration</a>
 </strong>.</li>
@@ -126,18 +126,18 @@ User 1596-978064-173548-9A7D4C0FBABEEF51@localhost successfully registered
 $ mongooseimctl register_identified testuser localhost testpassword
 User testuser@localhost successfully registered
 </code></pre></div><blockquote>
-<p>Now, you might be wondering, why can&rsquo;t the user register directly?
+<p>Now, you might be wondering why can&rsquo;t the user register directly?
 Indeed, the users can register themselves,</p>
 <ul>
 <li>if the in-band registration is enabled in the server</li>
 <li>It is disabled by default to prevent SPAM</li>
-<li>most services use XMPP as a add-on in their service, which also means the registration has already been carried out</li>
+<li>most services use XMPP as an add-on in their service, which also means the registration has already been carried out</li>
 <li>we don&rsquo;t want to have second-time registration separately</li>
 <li>We can indirectly register the user using our service to communicate with our XMPP server</li>
 </ul>
 <p>We will get in-depth about configuring our XMPP server later in the series of posts</p>
 </blockquote>
-<h4 id="gajim---the-chosen-one">Gajim - The chosen one</h4>
+<h4 id="gajim--the-chosen-one">Gajim — The chosen one</h4>
 <p>I have chosen Gajim as my demo chat client.
 
 <div class="container-fluid p-2 p-lg-5">
@@ -154,7 +154,7 @@ Indeed, the users can register themselves,</p>
 </div>
 
 <ul>
-<li>Now, the other user user will receive a subscription request, you will need to <code>Authorize</code> it to be able to chat with the user</li>
+<li>Now, the other user will receive a subscription request, you will need to <code>Authorize</code> it to be able to chat with the user</li>
 </ul>
 
 <div class="container-fluid p-2 p-lg-5">
@@ -162,7 +162,7 @@ Indeed, the users can register themselves,</p>
 </div>
 
 <ul>
-<li>Double click on the username to start chatting and have fun for a while, before we go a bit deep.</li>
+<li>Double-click on the username to start chatting and have fun for a while, before we go a bit deep.</li>
 </ul>
 
 <div class="container-fluid p-2 p-lg-5">
@@ -178,7 +178,7 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
 </div>
 
 <p>You can see all the nice XML stanzas going in and out!</p>
-<p>Wrapping up the part one with this tip! Stay tuned for more detailed posts about how to configure, deploy or develop a XMPP server.</p>
+<p>Wrapping up the part one with this tip! Stay tuned for more detailed posts about how to configure, deploy or develop an XMPP server.</p>
 
             <br />
             <div class="p-3 border-top">
@@ -229,7 +229,11 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
-                    (5)</a>
+                    
+                    
+                    
+                    
+                    (6)</a>
                 
                 
                 , 
@@ -268,7 +272,11 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
-                    (1)</a>
+                    
+                    
+                    
+                    
+                    (2)</a>
                 
                 
                 , 
@@ -307,7 +315,11 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
-                    (1)</a>
+                    
+                    
+                    
+                    
+                    (2)</a>
                 
                 
                 , 
@@ -346,12 +358,18 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
-                    (1)</a>
+                    
+                    
+                    
+                    
+                    (2)</a>
                 
                 
                 , 
                 
                 <a href="https://mangalakader.github.io/tags/instant-messaging/" class="tags text-decoration-none text-white">instant-messaging
+                    
+                    
                     
                     
                     
@@ -424,7 +442,11 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     
                     
                     
-                    (1)</a>
+                    
+                    
+                    
+                    
+                    (2)</a>
                 
                 
                 

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <title>Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup </title>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/header.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/index.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/footer.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-icons-150.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap.min.css">
+  
+  
+     <script src="https://mangalakader.github.io/js/jquery.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/bootstrap.bundle.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/index.js"></script>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1579889,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+
+    <body>
+        <div class="progress-container fixed-top">
+            <span class="progress-bar"></span>
+        </div>
+        <nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand logo text-focus-in ms-3 mt-3" href="/">PMK</a>
+    <button class="bg-warning rounded-start border-0 mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chevron-double-left"></i>&nbsp;&nbsp;Menu</button>
+  </div>
+
+  <div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel" class="fw-bold">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container-fluid p-0">
+        <ul class="list-group list-group-flush">
+          <a href="/"><li class="list-group-item">Home</li></a>
+          <a href="/blog"><li class="list-group-item">Blog</li></a>
+          <a href="/tags"><li class="list-group-item">Tags</li></a>
+          <a href="/index.xml"><li class="list-group-item">RSS</li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+        <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
+            <h2 class="text-dark text-center p-3 p-lg-5">Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup</h2>
+            <h5 class="text-dark text-center">Jul 20, 2021</h5>
+        </div>
+        <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
+            <p><strong>Note: When I started writing this, I was using customized MongooseIM version 3.7.1, now latest updates using TOML config and such have come up
+as on July 2021. So, if you want to refer to the latest documentation, feel free to read it <a href="https://esl.github.io/MongooseDocs/latest/" target="_blank" >here</a>
+</strong>.</p>
+<h2 id="setting-up-local-development-environment-for-mongooseim">Setting Up Local Development Environment for MongooseIM:</h2>
+<p>There are a couple of ways to set up local development environment, obviously, first one is to clone the official repo and getting started, which if you have to do it for multiple systems, becomes a tedious job. So, I&rsquo;ve written a simple Dockerfile, based on my convenience. Feel free to use it, if you want!</p>
+<p>In case, you want to upgrade the Erlang version, change <code>esl-erlang={DESIRED_VERSION}</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> ubuntu:16.04</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    apt-get install -y --install-recommends unixodbc-dev rsync <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    postgresql-client redis-tools wget git <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    make gcc g++ libc6-dev libncurses5-dev <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    libssl-dev libexpat1-dev libpam0g-dev <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    unixodbc-dev gnupg zlib1g-dev <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    unzip python2.7 wget <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    wget http://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    dpkg -i erlang-solutions_2.0_all.deb <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    apt-get update <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    apt-get install -y esl-erlang<span style="color:#f92672">=</span>1:22.3-1 --install-recommends <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    apt-get clean <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> ln -snf python2.7 /usr/bin/python2<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># This line makes sure the big tests passes multi-user chat based scenario</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> echo <span style="color:#e6db74">&#34;127.0.0.1   muc.localhost&#34;</span> &gt;&gt; /etc/hosts<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>I&rsquo;ve set it up in such a way, that I have pushed the docker image to a private repo and using them in my docker-compose file.</p>
+<h2 id="databases">Databases:</h2>
+<p>MongooseIM supports SQL and NoSQL Databases, as well as it can run without database too, if you prefer it that way. For one of my clients, I had to use a new Database(CockroachDB) which was not natively supported by MongooseIM. I had to make some changes to the core codebase and modify certain codec to make it work without issues.</p>
+<p>As I was writing this post, still support for CockroachDB has not been included by MongooseIM team. Feel free to reach out to me directly, in case you want to understand more on how things were done.</p>
+<h2 id="session-store">Session Store:</h2>
+<p>MongooseIM uses in-built mnesia as it&rsquo;s default session store, unless you want to switch to a more robust redis server.</p>
+<h2 id="docker-compose">Docker Compose:</h2>
+<p>We have got multiple components and managing them separately will become tedious and hence, I have got a docker-compose file with skeleton of services included, you can expand them as per your needs. Knowingly, I&rsquo;ve left out some other services, as they too much in the beginning itself.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#34;3.8&#34;</span>
+
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">mim</span>:
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">mim</span>
+    <span style="color:#f92672">build</span>: <span style="color:#ae81ff">.</span>
+    <span style="color:#f92672">working_dir</span>: <span style="color:#ae81ff">/app</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">/mim-src:/app</span>
+    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">sh -c &#34;echo &#39;127.0.0.1     muc.localhost&#39; &gt;&gt; /etc/hosts &amp;&amp; bash&#34;</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">PGCLIENTENCODING=&#39;utf-8&#39;</span>
+    <span style="color:#f92672">depends_on</span>:
+      - <span style="color:#ae81ff">db</span>
+      - <span style="color:#ae81ff">redis</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">5225</span>:<span style="color:#ae81ff">5222</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">internal</span>
+
+  <span style="color:#f92672">db</span>:
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">db</span>
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgresql:latest</span>
+    <span style="color:#f92672">hostname</span>: <span style="color:#ae81ff">db</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">5432</span>:<span style="color:#ae81ff">5432</span>
+    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./data/db:/var/lib/postgresql/data</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">internal</span>
+
+  <span style="color:#f92672">redis</span>:
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">cache</span>
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">redis:6.0.9-alpine</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">redis-server --port 6379 --bind 0.0.0.0</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">6379</span>:<span style="color:#ae81ff">6379</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">internal</span>
+
+  <span style="color:#f92672">s3</span>:
+    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">s3</span>
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">minio/minio:latest</span>
+    <span style="color:#f92672">ports</span>:
+      - <span style="color:#ae81ff">9000</span>:<span style="color:#ae81ff">9000</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">./data/s3:/data</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">server /data</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">MINIO_ACCESS_KEY=minioadmin</span>
+      - <span style="color:#ae81ff">MINIO_SECRET_KEY=minioadmin</span>
+    <span style="color:#f92672">networks</span>:
+      - <span style="color:#ae81ff">internal</span>
+
+<span style="color:#f92672">networks</span>:
+  <span style="color:#f92672">internal</span>:
+    <span style="color:#f92672">driver</span>: <span style="color:#ae81ff">bridge</span>
+</code></pre></div><h2 id="mongooseim-config-file">MongooseIM Config File:</h2>
+<p>As I&rsquo;ve already pointed out, you can use the default mongooseim.cfg or mongooseim.toml (The Latest Versions) and mount them in the appropriate directory in the docker-compose file.</p>
+<h2 id="starting-dev-setup">Starting Dev Setup</h2>
+<ul>
+<li>Clone the actual MongooseIM source code from <a href="https://github.com/esl/MongooseIM.git" target="_blank" >GitHub</a>
+</li>
+<li>start the docker-compose with the above one or your modified yaml file</li>
+<li>Once the docker-compose has started, enter into the shell using <code>docker exec -it mim bash</code></li>
+<li>Once, you&rsquo;re in the bash shell, you can start the development XMPP server using <code>./rebar3 shell</code> or if the makefile needs to be used <code>make shell</code>. The Makefile has a lot of info about how to generate default config file, development ssl certificates, etc.,</li>
+</ul>
+<p>This will start a default development server with the default config, if you have not added a mongooseim.cfg or mongooseim.toml file.</p>
+<p>Well folks! This must have been a tedious journey. We still have a long journey ahead of us! Wrapping up the part two! Stay tuned for more.</p>
+
+            <br />
+            <div class="p-3 border-top">
+                
+                <i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
+                
+                
+                
+                <a href="https://mangalakader.github.io/tags/erlang/" class="tags text-decoration-none text-white">erlang
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (6)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/mongooseim/" class="tags text-decoration-none text-white">mongooseim
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (2)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/ejabberd/" class="tags text-decoration-none text-white">ejabberd
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (2)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/xmpp/" class="tags text-decoration-none text-white">xmpp
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (2)</a>
+                
+                
+                , 
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/docker/" class="tags text-decoration-none text-white">docker
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (2)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/docker-compose/" class="tags text-decoration-none text-white">docker-compose
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (1)</a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="container-fluid justify-content-evenly p-0 row g-0">
+            <div class="next-post col-lg btn-secondary p-3 text-center">
+                
+            </div>
+
+            <div class="previous-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/journey-to-hugo/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <h5 class="m-0">Journey to Hugo&nbsp;&nbsp;</h5>
+                        <i class="bi bi-arrow-right-circle-fill fs-2"></i>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        <footer class="bg-dark bg-dark-gradient">
+    <div class="d-flex justify-content-center py-3 container-fluid text-white">
+            <a href="https://github.com/mangalakader" target="_blank" class="text-decoration-none">
+            <i class="bi-github text-white px-3 fs-2" role="img" aria-label="GitHub"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/pmkader" target="_blank" class="text-decoration-none">
+            <i class="bi-linkedin text-white px-3 fs-2" role="img" aria-label="LinkedIn"></i>
+            </a>
+            <a href="/index.xml" target="_blank" class="text-decoration-none">
+            <i class="bi-rss-fill text-white px-3 fs-2" role="img" aria-label="RSS"></i>
+            </a>
+    </div>
+    <div class="d-flex justify-content-center pb-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
+</footer>
+
+    </body>
+</html>

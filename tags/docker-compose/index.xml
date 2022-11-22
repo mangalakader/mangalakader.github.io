@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker-compose on Mangala Kader</title>
+    <link>https://mangalakader.github.io/tags/docker-compose/</link>
+    <description>Recent content in docker-compose on Mangala Kader</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup</title>
+      <link>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/</guid>
+      <description>Note: When I started writing this, I was using customized MongooseIM version 3.7.1, now latest updates using TOML config and such have come up as on July 2021. So, if you want to refer to the latest documentation, feel free to read it here .
+Setting Up Local Development Environment for MongooseIM: There are a couple of ways to set up local development environment, obviously, first one is to clone the official repo and getting started, which if you have to do it for multiple systems, becomes a tedious job.</description>
+    </item>
+    
+  </channel>
+</rss>

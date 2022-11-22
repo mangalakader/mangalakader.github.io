@@ -6,7 +6,70 @@
     <description>Recent content in Tags on Mangala Kader</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Jun 2021 17:29:12 +0530</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://mangalakader.github.io/tags/docker/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>https://mangalakader.github.io/tags/docker-compose/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ejabberd</title>
+      <link>https://mangalakader.github.io/tags/ejabberd/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/ejabberd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>erlang</title>
+      <link>https://mangalakader.github.io/tags/erlang/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/erlang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>instant-messaging</title>
+      <link>https://mangalakader.github.io/tags/instant-messaging/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/instant-messaging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mongooseim</title>
+      <link>https://mangalakader.github.io/tags/mongooseim/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/mongooseim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xmpp</title>
+      <link>https://mangalakader.github.io/tags/xmpp/</link>
+      <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/tags/xmpp/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gatsby</title>
       <link>https://mangalakader.github.io/tags/gatsby/</link>
@@ -197,15 +260,6 @@
     </item>
     
     <item>
-      <title>erlang</title>
-      <link>https://mangalakader.github.io/tags/erlang/</link>
-      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/erlang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>help</title>
       <link>https://mangalakader.github.io/tags/help/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
@@ -220,51 +274,6 @@
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>https://mangalakader.github.io/tags/iex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://mangalakader.github.io/tags/docker/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ejabberd</title>
-      <link>https://mangalakader.github.io/tags/ejabberd/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/ejabberd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>instant-messaging</title>
-      <link>https://mangalakader.github.io/tags/instant-messaging/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/instant-messaging/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mongooseim</title>
-      <link>https://mangalakader.github.io/tags/mongooseim/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/mongooseim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>xmpp</title>
-      <link>https://mangalakader.github.io/tags/xmpp/</link>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://mangalakader.github.io/tags/xmpp/</guid>
       <description></description>
     </item>
     
