@@ -3,7 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mangalakader.github.io/blog/</loc>
-    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/post/source-compile-vim-macos-monterey-12-or-ventura-13/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/tags/macos/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/tags/macos-12/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/tags/macos-13/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/tags/monterey/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/tags/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/tags/ventura/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mangalakader.github.io/tags/vim/</loc>
+    <lastmod>2022-11-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mangalakader.github.io/post/custom-fortune-cookie-in-your-terminal-shell/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
@@ -11,13 +38,7 @@
     <loc>https://mangalakader.github.io/tags/linux/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mangalakader.github.io/</loc>
-    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://mangalakader.github.io/tags/shell/</loc>
-    <lastmod>2022-04-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mangalakader.github.io/tags/</loc>
     <lastmod>2022-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mangalakader.github.io/tags/terminal/</loc>
@@ -156,9 +177,6 @@
     <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mangalakader.github.io/tags/functional-programming/</loc>
-    <lastmod>2018-11-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mangalakader.github.io/tags/vim/</loc>
     <lastmod>2018-11-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/</loc>
