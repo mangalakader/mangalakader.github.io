@@ -1,3 +1,7 @@
+html body {
+  font-family: 'Montserrat' !important;
+}
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -15,10 +19,6 @@
   font-style: normal;
   font-weight: 700;
   src: url(/fonts/montserrat-700.ttf) format('truetype');
-}
-
-body {
-  font-family: 'Montserrat' !important;
 }
 
 .progress-container {
