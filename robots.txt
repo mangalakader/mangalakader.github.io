@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /blog
+Disallow: /
+Sitemap: https://mangalakader.github.io/sitemap-pages.xml
+Host: https://mangalakader.github.io
