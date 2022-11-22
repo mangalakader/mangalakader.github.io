@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-868" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-868" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-670" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-670" />
 
 <base href="https://mangalakader.github.io/post/own-github-pages-part-2/">
 <link rel="canonical" href="https://mangalakader.github.io/post/own-github-pages-part-2/" itemprop="url" />
@@ -90,9 +90,9 @@
 <p>For _pages to work, we need to define collections in <code>_config.yml</code> as below:<br>
 <strong>Adding this will give us neat project directory by allowing us to organise the pages inside _pages directory instead of PROJECT ROOT.</strong>
 One more major issue with having collections for pages, is that, it doesn&rsquo;t support pagination, and github pages doesn&rsquo;t support other paginate plugins,
-so, if you want to use pagination with collections, go for <strong><a href="https://github.com/luis-almeida/jPages" target="_blank" rel="noreferrer" >jQuery based plugins</a>
+so, if you want to use pagination with collections, go for <strong><a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://github.com/luis-almeida/jPages" target="_blank" rel="noreferrer" >jQuery based plugins</a>
 </strong>:</p>
-<pre><code>collections:
+<pre tabindex="0"><code>collections:
 pages:
 output:  true
 permalink:  /:path
@@ -114,7 +114,7 @@ permalink:  /:path
 only <a href="https://help.github.com/articles/configuring-jekyll-plugins/">defaults plugins</a> will be allowed, otherwise github pages reports an error as unrecognized tag.
 This is the code sample, that I have used in this website, which is using liquid, it can be customised according to your own requirements,
 In Case you want to list based on extension of the file:</p>
-<pre><code>{% raw %}{% if file.extname == &quot;.jpg&quot; %}{% endraw %}
+<pre tabindex="0"><code>{% raw %}{% if file.extname == &quot;.jpg&quot; %}{% endraw %}
 {% highlight liquid%}
 {% raw %}
 {% for file in site.static_files %}
@@ -128,13 +128,13 @@ In Case you want to list based on extension of the file:</p>
 </ul>
 <h5 id="references-">References :</h5>
 <ul>
-<li><a href="https://jekyllrb.com/docs/structure/" target="_blank" rel="noreferrer" >https://jekyllrb.com/docs/structure/</a>
+<li><a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://jekyllrb.com/docs/structure/" target="_blank" rel="noreferrer" >https://jekyllrb.com/docs/structure/</a>
 </li>
-<li><a href="https://jekyllrb.com/tutorials/home/" target="_blank" rel="noreferrer" >https://jekyllrb.com/tutorials/home</a>
+<li><a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://jekyllrb.com/tutorials/home/" target="_blank" rel="noreferrer" >https://jekyllrb.com/tutorials/home</a>
 </li>
-<li><a href="https://help.shopify.com/themes/liquid" target="_blank" rel="noreferrer" >https://help.shopify.com/themes/liquid</a>
+<li><a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://help.shopify.com/themes/liquid" target="_blank" rel="noreferrer" >https://help.shopify.com/themes/liquid</a>
 </li>
-<li><a href="https://github.com/luis-almeida/jPages" target="_blank" rel="noreferrer" >https://github.com/luis-almeida/jPages</a>
+<li><a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://github.com/luis-almeida/jPages" target="_blank" rel="noreferrer" >https://github.com/luis-almeida/jPages</a>
 </li>
 </ul>
 

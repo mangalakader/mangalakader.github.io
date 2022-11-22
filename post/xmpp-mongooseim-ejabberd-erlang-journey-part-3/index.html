@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-115" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-115" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1729" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1729" />
 
 <base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/">
 <link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/" itemprop="url" />
@@ -68,7 +68,7 @@
             <h5 class="text-dark text-center">Sep 9, 2021</h5>
         </div>
         <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
-            <p><strong>Note: When I started writing this, I was using customized mongooseim version 3.7.1, now latest updates using TOML config and such have come up as on July 2021. So, if you want to refer to the latest documentation, feel free to read it <a href="https://esl.github.io/MongooseDocs/latest/" target="_blank" rel="noreferrer" >here</a>
+            <p><strong>Note: When I started writing this, I was using customized mongooseim version 3.7.1, now latest updates using TOML config and such have come up as on July 2021. So, if you want to refer to the latest documentation, feel free to read it <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://esl.github.io/MongooseDocs/latest/" target="_blank" rel="noreferrer" >here</a>
 </strong>.</p>
 <h2 id="xmpp-jargon">XMPP Jargon</h2>
 <h5 id="client-to-server-c2s">Client to Server (C2S)</h5>
@@ -113,7 +113,7 @@ There are three basic stanzas, that we&rsquo;ll use to satisfy most of our needs
 <h4 id="how-a-stanza-is-represented-in-mongooseim">How a stanza is represented in MongooseIM:</h4>
 <p>Before we dive into it, I&rsquo;m using MongooseIM to demonstrate, as ejabberd uses a different library for parsing xml files. So, there are going to be subtle differences in a very major way.</p>
 <p>MongooseIM uses a library called <code>exml</code> and some old modules might be referring to <code>xml</code> to parse to actual xml stanzas from erlang records. Here, we have a common erlang record to define xml stanzas.</p>
-<p>If you&rsquo;re familiar with erlang, you are probably already aware of <code>RECORDS</code>. To put it simply, erlang record is equivalent to a C struct. For more detailed description, you can check <a href="https://learnyousomeerlang.com/a-short-visit-to-common-data-structures#records" target="_blank" rel="noreferrer" >here</a>
+<p>If you&rsquo;re familiar with erlang, you are probably already aware of <code>RECORDS</code>. To put it simply, erlang record is equivalent to a C struct. For more detailed description, you can check <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://learnyousomeerlang.com/a-short-visit-to-common-data-structures#records" target="_blank" rel="noreferrer" >here</a>
 .</p>
 <p>The stanza as an erlang record is represented as Follows:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">#xmlel{
@@ -145,8 +145,8 @@ There are three basic stanzas, that we&rsquo;ll use to satisfy most of our needs
 <li>attrs ⇛ XML ELEMENT ATTRIBUTES</li>
 <li>children ⇛ XML_ELEMENTS_INSIDE_THE_PARENT_XML_ELEMENT</li>
 </ul>
-<p>I&rsquo;m assuming that you&rsquo;d set up mongooseim in your machine already using docker or else please read my <a href="/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" target="_blank" rel="noreferrer" >Part 1</a>
- and <a href="/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/" target="_blank" rel="noreferrer" >Part 2</a>
+<p>I&rsquo;m assuming that you&rsquo;d set up mongooseim in your machine already using docker or else please read my <a style="text-decoration: none !important;color: red;font-weight: bold;" href="/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" target="_blank" rel="noreferrer" >Part 1</a>
+ and <a style="text-decoration: none !important;color: red;font-weight: bold;" href="/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/" target="_blank" rel="noreferrer" >Part 2</a>
 .</p>
 <ul>
 <li>Get into the running mongooseim container using <code>docker exec -it mongooseim bash</code></li>
@@ -164,7 +164,7 @@ There are three basic stanzas, that we&rsquo;ll use to satisfy most of our needs
 </code></pre></div><ul>
 <li>Call the following function <code>exml:parse(ANY VARIABLE NAME)</code></li>
 </ul>
-<pre><code>(mongooseim@localhost)5&gt; {ok, B} = exml:parse(A).   
+<pre tabindex="0"><code>(mongooseim@localhost)5&gt; {ok, B} = exml:parse(A).   
 {ok,{xmlel,&lt;&lt;&quot;message&quot;&gt;&gt;,
            [{&lt;&lt;&quot;xmlns&quot;&gt;&gt;,&lt;&lt;&quot;jabber:client&quot;&gt;&gt;},
             {&lt;&lt;&quot;id&quot;&gt;&gt;,&lt;&lt;&quot;43a6d6be-de78-47d7-a283-e391ae7b2d83&quot;&gt;&gt;},

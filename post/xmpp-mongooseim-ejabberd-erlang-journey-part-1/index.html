@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-682" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-682" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1978" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1978" />
 
 <base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/">
 <link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" itemprop="url" />
@@ -69,7 +69,7 @@
         </div>
         <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
             <h2 id="instant-messaging">Instant Messaging</h2>
-<p>It&rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up <a href="https://en.wikipedia.org/wiki/Instant_messaging" target="_blank" rel="noreferrer" >here</a>
+<p>It&rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://en.wikipedia.org/wiki/Instant_messaging" target="_blank" rel="noreferrer" >here</a>
 </p>
 <h2 id="underlying-basics">Underlying Basics</h2>
 <p>There are a couple of things, we need to understand about real-time technologies:</p>
@@ -83,7 +83,7 @@ when you want to hit real-time messaging.</p>
 <h2 id="xmpp--short-and-sweet">XMPP — short and sweet</h2>
 <p>Extensible Messaging and Presence Protocol(XMPP) is a protocol which defines how the text transmission should
 happen over the wire, and it is lightweight compared to the traditional HTTP.</p>
-<p>A detailed component of XMPP are <a href="https://xmpp.org/about/technology-overview.html" target="_blank" rel="noreferrer" >here</a>
+<p>A detailed component of XMPP are <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/about/technology-overview.html" target="_blank" rel="noreferrer" >here</a>
 .</p>
 <p><strong>Note: It&rsquo;s utmost important to understand what is XMPP and how it works to understand the servers that use XMPP</strong></p>
 <h2 id="xmpp-and-erlang--why">XMPP and Erlang — Why?</h2>
@@ -91,7 +91,7 @@ happen over the wire, and it is lightweight compared to the traditional HTTP.</p
 be implemented in any language and already there are plenty of open-source projects using XMPP with other languages.
 This article will be mainly about Erlang based XMPP servers such as Ejabberd and MongooseIM.</p>
 <p>Thanks to the contributors of those projects that made the Chat industry a huge market for many ventures.</p>
-<p>For more XMPP servers, please look <a href="https://xmpp.org/software/servers.html" target="_blank" rel="noreferrer" >here</a>
+<p>For more XMPP servers, please look <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/software/servers.html" target="_blank" rel="noreferrer" >here</a>
 </p>
 <h2 id="getting-started">Getting Started</h2>
 <h4 id="installation-for-test-drive">Installation for Test Drive</h4>
@@ -101,15 +101,15 @@ This article will be mainly about Erlang based XMPP servers such as Ejabberd and
 <li>Ejabberd has direct distribution through apt (apt install ejabberd)</li>
 <li>docker (Convenient and best approach)</li>
 </ul>
-<pre><code class="language-console" data-lang="console"># For Ejabberd
+<pre tabindex="0"><code class="language-console" data-lang="console"># For Ejabberd
 docker run --name ejabberd -d -p 5222:5222 ejabberd/ecs
 # For MongooseIM
 docker run -d -t -h mongooseim-1 --name mongooseim-1 -p 5222:5222 mongooseim/mongooseim:latest
 </code></pre><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
 <ul>
-<li>Pick your favorite IM client from this <a href="https://xmpp.org/software/clients.html" target="_blank" rel="noreferrer" >page</a>
+<li>Pick your favorite IM client from this <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/software/clients.html" target="_blank" rel="noreferrer" >page</a>
 .</li>
-<li>To start chatting, you will need an account registered with our local server. The registration process is known as <strong>- <a href="https://xmpp.org/extensions/xep-0077.html" target="_blank" rel="noreferrer" >In-Band Registration</a>
+<li>To start chatting, you will need an account registered with our local server. The registration process is known as <strong>- <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/extensions/xep-0077.html" target="_blank" rel="noreferrer" >In-Band Registration</a>
 </strong>.</li>
 <li>For MongooseIM, the registration is done using the following commands
 <code>mongooseimctl register {HOST} {PASSWORD}</code> and  <code>mongooseimctl register_identified {USERNAME} {HOST} {PASSWORD}</code></li>
