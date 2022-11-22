@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on Mangala Kader</title>
+    <link>https://mangalakader.github.io/tags/vim/</link>
+    <description>Recent content in vim on Mangala Kader</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir - How to solve recompile :noop Issue using VIM</title>
+      <link>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</guid>
+      <description>Many of us are using more advanced editors such as Vim, Visual Studio Code, etc,. We all depend on the linters too much to correct our mistakes such as syntax errors. So, what is this specific topic related to? If you have started asking this question and you have found this link means, you are in the right place.
+Let&amp;rsquo;s consider our normal dev course:  Below is a dummy test app of my making.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>functional-programming on Mangala Kader</title>
+    <link>https://mangalakader.github.io/tags/functional-programming/</link>
+    <description>Recent content in functional-programming on Mangala Kader</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elixir - How to solve recompile :noop Issue using VIM</title>
+      <link>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</guid>
+      <description>Many of us are using more advanced editors such as Vim, Visual Studio Code, etc,. We all depend on the linters too much to correct our mistakes such as syntax errors. So, what is this specific topic related to? If you have started asking this question and you have found this link means, you are in the right place.
+Let&amp;rsquo;s consider our normal dev course:  Below is a dummy test app of my making.</description>
+    </item>
+    
+    <item>
+      <title>Download Project Binaries using HTTPoison - Elixir</title>
+      <link>https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/</link>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/</guid>
+      <description>There are tons of methods for organising binaries into a particular project in different programming languages. But, I am writing this method particularly to illustrate the pure usage of elixir and joy of learning it! This tutorial is for intermediate users with enough experience in using elixir. I hope you enjoy it!
+How can you leverage it? It could be anyone of the following:
+ a mix task a genserver a function a escript etc.</description>
+    </item>
+    
+    <item>
+      <title>Delete Saved Shell Cmd History in Erlang / Elixir</title>
+      <link>https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/</guid>
+      <description>To Enable erlang / elixir shell history across sessions: There are lot of tutorials out there illustrating how to enable persistent shell history in erlang / elixir, one such example is found here , so I am not going to elaborate it here.
+What if you wanted to delete your shell history: There are not many examples as to how to delete them, once they saved. People have even suggested to disable the shell history and re-enable them, which do not help.</description>
+    </item>
+    
+  </channel>
+</rss>
