@@ -101,13 +101,13 @@ host0:
 <pre><code class="language-toml">[Exec]
 # Writable bind mounts don't with user namespacing
 PrivateUsers=pick
-PrivateUsersChown=yes
-# PrivateUsersChown is an expensive operation according to the documentation
 [Files]
 # these lines should be familiar for those who are using docker
 # this is a simple read-only volume mount for the cloud-init files
 BindReadOnly=/home/user/cloud-init/ds-identity.cfg:/etc/cloud/ds-identity.cfg
 BindReadOnly=/home/user/cloud-init/nocloud:/var/lib/cloud/seed/nocloud
+PrivateUsersChown=yes
+# PrivateUsersChown is an expensive operation according to the documentation
 [Network]
 VirtualEthernet=yes
 Bridge=virxen
@@ -128,7 +128,13 @@ Bridge=virxen
 $ sudo debootstrap --arch=amd64 jessie /var/lib/machines/{any name of your choice}/
 </code></pre>
 <p>If you don't specify any network in the <code>xenial.nspawn</code> file, the container will see all network interfaces of the host and acts like it's an application inside the host using the same ip addresses.</p>
-<p>Once, again, some of the steps might be volatile, such as networks, so please make a backup of them if you want to persist.</p>
+<p>Once, again, some of the steps might be volatile, such as networks, so please make a backup of them if you want to persist. Follow, these tutorials for making them persistent across system reboots.</p>
+<ul>
+<li><a href="https://upcloud.com/community/tutorials/configure-iptables-ubuntu/">How to configure iptables on Ubuntu</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-iptables-on-ubuntu-14-04">How To Set Up a Firewall Using Iptables on Ubuntu 14.04</a></li>
+<li><a href="https://pupli.net/2019/08/make-iptables-rules-persistent-after-reboot-on-ubuntu-18-04/">Make iptables rules persistent after reboot on Ubuntu 18.04</a></li>
+<li><a href="https://linuxconfig.org/how-to-make-iptables-rules-persistent-after-reboot-on-linux">How to make iptables rules persistent after reboot on Linux</a></li>
+</ul>
 <h2>Problems that might arise and solutions:</h2>
 <ul>
 <li>Network connectivity, please check the container ip adresses and journalctl (in host) for reason of failure and address them. Sometime, tweaking the iptables based on your host setup can help.</li>
