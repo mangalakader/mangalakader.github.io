@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+    <head itemscope itemtype="https://mangalakader.github.io">
+        <meta name="google-site-verification" content="zbY1XBwjYLe6aeNN808FhPJMrqimMq1LEG2wU8Kot5w" />
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+<title itemprop="name">Mangala Kader | Instant Messaging using erlang and XMPP — Part 3</title>
+<meta property="og:title" content="Instant Messaging using erlang and XMPP — Part 3" />
+<meta itemprop="name" content="Instant Messaging using erlang and XMPP — Part 3" />
+<meta name="application-name" content="Instant Messaging using erlang and XMPP — Part 3" />
+<meta property="og:site_name" content="Online Portfolio" />
+
+
+
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1181" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1181" />
+
+<base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/">
+<link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/" itemprop="url" />
+<meta name="url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/" />
+<meta property="og:url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/" />
+<meta property="og:locale" content="en">
+<meta name="language" content="en">
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+        <meta name="keywords" content="erlang, mongooseim, ejabberd, xmpp, instant-messaging" />
+        <meta name="description" content="" />
+        <meta itemprop="description" content="" />
+        <meta property="og:description" content="" />
+    </head>
+    <body>
+        <div class="progress-container fixed-top">
+            <span class="progress-bar"></span>
+        </div>
+        <nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand logo text-focus-in ms-3 mt-3" href="/">PMK</a>
+    <button class="bg-warning rounded-start border-0 mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chevron-double-left"></i>&nbsp;&nbsp;Menu</button>
+  </div>
+
+  <div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel" class="fw-bold">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container-fluid p-0">
+        <ul class="list-group list-group-flush">
+          <a href="/"><li class="list-group-item">Home</li></a>
+          <a href="/blog"><li class="list-group-item">Blog</li></a>
+          <a href="/tags"><li class="list-group-item">Tags</li></a>
+          <a href="/index.xml"><li class="list-group-item">RSS</li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+        <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
+            <h2 class="text-dark text-center p-3 p-lg-5">Instant Messaging using erlang and XMPP — Part 3</h2>
+            <h5 class="text-dark text-center">Sep 9, 2021</h5>
+        </div>
+        <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
+            <p><strong>Note: When I started writing this, I was using customized mongooseim version 3.7.1, now latest updates using TOML config and such have come up as on July 2021. So, if you want to refer to the latest documentation, feel free to read it <a href="https://esl.github.io/MongooseDocs/latest/" target="_blank" rel="noreferrer" >here</a>
+</strong>.</p>
+<h2 id="xmpp-jargon">XMPP Jargon</h2>
+<h5 id="client-to-server-c2s">Client to Server (C2S)</h5>
+<p>The client can be any medium such as mobile, web or any application that knows to talk in XMPP protocol</p>
+<h5 id="server-to-server-s2s">Server to Server (S2S)</h5>
+<p>Any other XMPP Server that knows how to connect to an XMPP based Server.</p>
+<h5 id="federation">Federation</h5>
+<p>Inter-connecting different XMPP servers, such as <code>a.chat.com</code> can be federated to talk to <code>b.chatty.org</code>. Note, the difference in domain <code>chat.com</code> and <code>chatty.org</code>.</p>
+<h5 id="xml-namespace-xmlns">XML Namespace (xmlns)</h5>
+<p>A specific set of resource or route or functions, that are identified by the namespaces</p>
+<h5 id="jid-or-jabber-id">Jid or Jabber ID</h5>
+<p>A</p>
+<h2 id="understanding-xmpp">Understanding XMPP</h2>
+<p>XMPP is not a technology or a language, instead a protocol using structured XML to instruct the server to put or get data. The XML queries are called Stanzas.
+There are three basic stanzas, that we&rsquo;ll use to satisfy most of our needs:</p>
+<ul>
+<li><code>&lt;iq&gt;</code> — Info(rmation) Query Stanza, used mainly for command exchanges</li>
+<li><code>&lt;message&gt;</code> — Message Stanza, used mainly for transferring messages</li>
+<li><code>&lt;presence&gt;</code> — Presence Stanza, used mainly for exchanging presence (online status, other user status messages, etc., )</li>
+</ul>
+<h2 id="iq-stanza-sample">IQ stanza Sample</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!-- (IQ Stanza sent to Server) --&gt;</span>
+<span style="color:#f92672">&lt;iq</span> <span style="color:#a6e22e">from=</span><span style="color:#e6db74">&#39;user@example.com/mobile&#39;</span> <span style="color:#a6e22e">to=</span><span style="color:#e6db74">&#39;user@example.com&#39;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#39;x13&#39;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#39;get&#39;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;query</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#39;http://jabber.org/protocol/disco#info&#39;</span><span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/iq&gt;</span>
+<span style="color:#75715e">&lt;!-- (IQ Stanza received from Server) --&gt;</span>
+<span style="color:#f92672">&lt;iq</span> <span style="color:#a6e22e">from=</span><span style="color:#e6db74">&#39;juliet@capulet.lit&#39;</span> <span style="color:#a6e22e">to=</span><span style="color:#e6db74">&#39;juliet@capulet.lit/balcony&#39;</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#39;disco1&#39;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#39;result&#39;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;query</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#39;http://jabber.org/protocol/disco#info&#39;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;identity</span> <span style="color:#a6e22e">category=</span><span style="color:#e6db74">&#39;account&#39;</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#39;registered&#39;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;feature</span> <span style="color:#a6e22e">var=</span><span style="color:#e6db74">&#39;urn:xmpp:push:0&#39;</span><span style="color:#f92672">/&gt;</span>
+    ...
+  <span style="color:#f92672">&lt;/query&gt;</span>
+<span style="color:#f92672">&lt;/iq&gt;</span>
+</code></pre></div><p>In the above example, all we&rsquo;re trying to do is query the supported features from the server. If you examine closely, you might be wondering what is <code>from</code>, <code>to</code>, <code>id</code>, <code>type</code>, etc., . Those who are familiar with XML, know it as <code>attributes</code>.</p>
+<p>There are 4 types of IQ stanzas:</p>
+<ul>
+<li><code>get</code>: Retrieving something from the server</li>
+<li><code>set</code>: Storing something in the Server&rsquo;s Database</li>
+<li><code>result</code>: Server sends back some query results</li>
+<li><code>error</code>: Server sends an error stanza with details</li>
+</ul>
+<h4 id="how-a-stanza-is-represented-in-mongooseim">How a stanza is represented in MongooseIM:</h4>
+<p>Before we dive into it, I&rsquo;m using MongooseIM to demonstrate, as ejabberd uses a different library for parsing xml files. So, there are going to be subtle differences in a very major way.</p>
+<p>MongooseIM uses a library called <code>exml</code> and some old modules might be referring to <code>xml</code> to parse to actual xml stanzas from erlang records. Here, we have a common erlang record to define xml stanzas.</p>
+<p>If you&rsquo;re familiar with erlang, you are probably already aware of <code>RECORDS</code>. To put it simply, erlang record is equivalent to a C struct. For more detailed description, you can check <a href="https://learnyousomeerlang.com/a-short-visit-to-common-data-structures#records" target="_blank" rel="noreferrer" >here</a>
+.</p>
+<p>The stanza as an erlang record is represented as Follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">#xmlel{
+  name <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;message&#34;</span><span style="color:#f92672">&gt;&gt;</span>,
+  attrs <span style="color:#f92672">=</span> [
+    {<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;xmlns&#34;</span><span style="color:#f92672">&gt;&gt;</span>, <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;jabber:client&#34;</span><span style="color:#f92672">&gt;&gt;</span>},
+    {<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">&gt;&gt;</span>, <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;43a6d6be-de78-47d7-a283-e391ae7b2d83&#34;</span><span style="color:#f92672">&gt;&gt;</span>}, 
+    {<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;from&#34;</span><span style="color:#f92672">&gt;&gt;</span>, <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;test@jabber.fr&#34;</span><span style="color:#f92672">&gt;&gt;</span>}, 
+    {<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;to&#34;</span><span style="color:#f92672">&gt;&gt;</span>, <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;friend@jabber.fr&#34;</span><span style="color:#f92672">&gt;&gt;</span>}
+  ],
+  children <span style="color:#f92672">=</span> [
+    #xmlel{
+      name <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;body&#34;</span><span style="color:#f92672">&gt;&gt;</span>,
+      children <span style="color:#f92672">=</span> [
+        #xmlcdata{ content <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Hello, world!&#34;</span><span style="color:#f92672">&gt;&gt;</span> }
+      ]
+    }
+  ]
+}
+
+<span style="color:#75715e">%% The above record when you convert to XML String will be as follows:
+</span><span style="color:#75715e"></span><span style="color:#f92672">&lt;</span>message xmlns<span style="color:#f92672">=</span>&#39;jabber:client&#39; id<span style="color:#f92672">=</span>&#39;43a6d6be-de78-47d7-a283-e391ae7b2d83&#39; from<span style="color:#f92672">=</span>&#39;test@jabber.fr&#39; to<span style="color:#f92672">=</span>&#39;friend@jabber.fr&#39;<span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;</span>body<span style="color:#f92672">&gt;</span>Hello, world<span style="color:#f92672">!&lt;/</span>body<span style="color:#f92672">&gt;</span>
+<span style="color:#f92672">&lt;/</span>message<span style="color:#f92672">&gt;</span>
+</code></pre></div><p>Any Stanzas that reach the server will go through a series of steps and then get converted to the <code>xmlel</code> record and that is what will be passed around most of the time. It is very much essential to get an understanding how to read, manipulate the stanzas in order to be working with them.</p>
+<ul>
+<li>xmlel ⇛ Erlang Record Name</li>
+<li>name ⇛ XML ELEMENT NAME</li>
+<li>attrs ⇛ XML ELEMENT ATTRIBUTES</li>
+<li>children ⇛ XML_ELEMENTS_INSIDE_THE_PARENT_XML_ELEMENT</li>
+</ul>
+<p>I&rsquo;m assuming that you&rsquo;d set up mongooseim in your machine already using docker or else please read my <a href="/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" target="_blank" rel="noreferrer" >Part 1</a>
+ and <a href="/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/" target="_blank" rel="noreferrer" >Part 2</a>
+.</p>
+<ul>
+<li>Get into the running mongooseim container using <code>docker exec -it mongooseim bash</code></li>
+<li>Run the command <code>make shell</code> or <code>./rebar3 shell</code>, which will automatically compile the src files and drop you in an interactive erlang shell with mongooseim running</li>
+</ul>
+<p><strong>Note: You will see a lot of logs being printed out as a part of boot up process.</strong></p>
+<p>Now this gets interesting, in the shell:</p>
+<ul>
+<li>Copy and paste the above XML string stanza assigning it to an Erlang Variable</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang">(mongooseim@localhost)<span style="color:#ae81ff">2</span><span style="color:#f92672">&gt;</span> A <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;&lt;message xmlns=&#39;jabber:client&#39; id=&#39;43a6d6be-de78-47d7-a283-e391ae7b2d83&#39; from=&#39;test@jabber.fr&#39; to=&#39;friend@jabber.fr&#39;&gt;
+</span><span style="color:#e6db74">(mongooseim@localhost)2&gt;   &lt;body&gt;Hello, world!&lt;/body&gt;
+</span><span style="color:#e6db74">(mongooseim@localhost)2&gt; &lt;/message&gt;&#34;</span><span style="color:#f92672">&gt;&gt;</span>.
+<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;&lt;message xmlns=&#39;jabber:client&#39; id=&#39;43a6d6be-de78-47d7-a283-e391ae7b2d83&#39; from=&#39;test@jabber.fr&#39; to=&#39;friend@jabber.fr&#39;&#34;</span>...<span style="color:#f92672">&gt;&gt;</span>
+</code></pre></div><ul>
+<li>Call the following function <code>exml:parse(ANY VARIABLE NAME)</code></li>
+</ul>
+<pre><code>(mongooseim@localhost)5&gt; {ok, B} = exml:parse(A).   
+{ok,{xmlel,&lt;&lt;&quot;message&quot;&gt;&gt;,
+           [{&lt;&lt;&quot;xmlns&quot;&gt;&gt;,&lt;&lt;&quot;jabber:client&quot;&gt;&gt;},
+            {&lt;&lt;&quot;id&quot;&gt;&gt;,&lt;&lt;&quot;43a6d6be-de78-47d7-a283-e391ae7b2d83&quot;&gt;&gt;},
+            {&lt;&lt;&quot;from&quot;&gt;&gt;,&lt;&lt;&quot;test@jabber.fr&quot;&gt;&gt;},
+            {&lt;&lt;&quot;to&quot;&gt;&gt;,&lt;&lt;&quot;friend@jabber.fr&quot;&gt;&gt;}],
+           [{xmlel,&lt;&lt;&quot;body&quot;&gt;&gt;,[],[{xmlcdata,&lt;&lt;&quot;Hello, world!&quot;&gt;&gt;}]}]}}
+(mongooseim@localhost)6&gt; exml:to_pretty_iolist(B).
+&lt;&lt;&quot;&lt;message xmlns='jabber:client' id='43a6d6be-de78-47d7-a283-e391ae7b2d83' from='test@jabber.fr' to='friend@jabber.fr'&quot;...&gt;&gt;
+</code></pre><p>In the illustration above, I have shown how to encode and decode XML stanzas from String to Erlang Records and Vice Versa.</p>
+<p>Important thing to remember, most of the XML elements or components are represented as Erlang Records in MongooseIM, for example, Jabber ID/Jid is a record and so on.</p>
+<p>With this, I&rsquo;ll be wrapping us this part and continue with more information in the next part&hellip;</p>
+
+            <br />
+            <div class="p-3 border-top">
+                
+                <i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
+                
+                
+                
+                <a href="https://mangalakader.github.io/tags/erlang/" class="tags text-decoration-none text-white">erlang
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (7)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/mongooseim/" class="tags text-decoration-none text-white">mongooseim
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/ejabberd/" class="tags text-decoration-none text-white">ejabberd
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/xmpp/" class="tags text-decoration-none text-white">xmpp
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/instant-messaging/" class="tags text-decoration-none text-white">instant-messaging
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="container-fluid justify-content-evenly p-0 row g-0">
+            <div class="next-post col-lg btn-secondary p-3 text-center">
+                
+            </div>
+
+            <div class="previous-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <h5 class="m-0">Instant Messaging using Erlang and XMPP...&nbsp;&nbsp;</h5>
+                        <i class="bi bi-arrow-right-circle-fill fs-2"></i>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        <footer class="bg-dark bg-dark-gradient">
+    <div class="d-flex justify-content-center py-3 container-fluid text-white">
+        <a href="https://github.com/mangalakader" target="_blank" class="text-decoration-none" rel="noreferrer">
+            <i class="bi-github text-white px-3 fs-2" role="img" aria-label="GitHub"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/pmkader" target="_blank" class="text-decoration-none" rel="noreferrer">
+            <i class="bi-linkedin text-white px-3 fs-2" role="img" aria-label="LinkedIn"></i>
+        </a>
+        <a href="/index.xml" target="_blank" class="text-decoration-none" rel="noreferrer">
+            <i class="bi-rss-fill text-white px-3 fs-2" role="img" aria-label="RSS"></i>
+        </a>
+    </div>
+    <div class="d-flex justify-content-center pb-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
+</footer>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link prefetch="true" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://mangalakader.github.io/css/header.css">
+
+<link rel="stylesheet" href="https://mangalakader.github.io/css/index.css">
+
+<link rel="stylesheet" href="https://mangalakader.github.io/css/footer.css">
+
+
+<script src="https://mangalakader.github.io/js/index.js" defer></script>
+
+
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1579889,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    </body>
+</html>

@@ -6,7 +6,17 @@
     <description>Recent content in erlang on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Jul 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/erlang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/erlang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instant Messaging using erlang and XMPP — Part 3</title>
+      <link>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/</guid>
+      <description>Note: When I started writing this, I was using customized mongooseim version 3.7.1, now latest updates using TOML config and such have come up as on July 2021. So, if you want to refer to the latest documentation, feel free to read it here .
+XMPP Jargon Client to Server (C2S) The client can be any medium such as mobile, web or any application that knows to talk in XMPP protocol</description>
+    </item>
+    
     <item>
       <title>Instant Messaging using Erlang and XMPP — Part 2 — Local Dev Setup</title>
       <link>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-2/</link>
