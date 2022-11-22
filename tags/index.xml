@@ -2,368 +2,368 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on PMK</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://mangalakader.github.io/tags/</link>
     <description>Recent content in Tags on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
+      <link>https://mangalakader.github.io/tags/linux/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/linux/</guid>
+      <guid>https://mangalakader.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell</title>
-      <link>http://localhost:1313/tags/shell/</link>
+      <link>https://mangalakader.github.io/tags/shell/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/shell/</guid>
+      <guid>https://mangalakader.github.io/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>terminal</title>
-      <link>http://localhost:1313/tags/terminal/</link>
+      <link>https://mangalakader.github.io/tags/terminal/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/terminal/</guid>
+      <guid>https://mangalakader.github.io/tags/terminal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>til</title>
-      <link>http://localhost:1313/tags/til/</link>
+      <link>https://mangalakader.github.io/tags/til/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/til/</guid>
+      <guid>https://mangalakader.github.io/tags/til/</guid>
       <description></description>
     </item>
     
     <item>
       <title>unix</title>
-      <link>http://localhost:1313/tags/unix/</link>
+      <link>https://mangalakader.github.io/tags/unix/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/unix/</guid>
+      <guid>https://mangalakader.github.io/tags/unix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ejabberd</title>
-      <link>http://localhost:1313/tags/ejabberd/</link>
+      <link>https://mangalakader.github.io/tags/ejabberd/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/ejabberd/</guid>
+      <guid>https://mangalakader.github.io/tags/ejabberd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>erlang</title>
-      <link>http://localhost:1313/tags/erlang/</link>
+      <link>https://mangalakader.github.io/tags/erlang/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/erlang/</guid>
+      <guid>https://mangalakader.github.io/tags/erlang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>instant-messaging</title>
-      <link>http://localhost:1313/tags/instant-messaging/</link>
+      <link>https://mangalakader.github.io/tags/instant-messaging/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/instant-messaging/</guid>
+      <guid>https://mangalakader.github.io/tags/instant-messaging/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mongooseim</title>
-      <link>http://localhost:1313/tags/mongooseim/</link>
+      <link>https://mangalakader.github.io/tags/mongooseim/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/mongooseim/</guid>
+      <guid>https://mangalakader.github.io/tags/mongooseim/</guid>
       <description></description>
     </item>
     
     <item>
       <title>xmpp</title>
-      <link>http://localhost:1313/tags/xmpp/</link>
+      <link>https://mangalakader.github.io/tags/xmpp/</link>
       <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/xmpp/</guid>
+      <guid>https://mangalakader.github.io/tags/xmpp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker</title>
-      <link>http://localhost:1313/tags/docker/</link>
+      <link>https://mangalakader.github.io/tags/docker/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/docker/</guid>
+      <guid>https://mangalakader.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>docker-compose</title>
-      <link>http://localhost:1313/tags/docker-compose/</link>
+      <link>https://mangalakader.github.io/tags/docker-compose/</link>
       <pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/docker-compose/</guid>
+      <guid>https://mangalakader.github.io/tags/docker-compose/</guid>
       <description></description>
     </item>
     
     <item>
       <title>gatsby</title>
-      <link>http://localhost:1313/tags/gatsby/</link>
+      <link>https://mangalakader.github.io/tags/gatsby/</link>
       <pubDate>Wed, 30 Jun 2021 17:29:12 +0530</pubDate>
       
-      <guid>http://localhost:1313/tags/gatsby/</guid>
+      <guid>https://mangalakader.github.io/tags/gatsby/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>http://localhost:1313/tags/hugo/</link>
+      <link>https://mangalakader.github.io/tags/hugo/</link>
       <pubDate>Wed, 30 Jun 2021 17:29:12 +0530</pubDate>
       
-      <guid>http://localhost:1313/tags/hugo/</guid>
+      <guid>https://mangalakader.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jekyll</title>
-      <link>http://localhost:1313/tags/jekyll/</link>
+      <link>https://mangalakader.github.io/tags/jekyll/</link>
       <pubDate>Wed, 30 Jun 2021 17:29:12 +0530</pubDate>
       
-      <guid>http://localhost:1313/tags/jekyll/</guid>
+      <guid>https://mangalakader.github.io/tags/jekyll/</guid>
       <description></description>
     </item>
     
     <item>
       <title>static-site-generator</title>
-      <link>http://localhost:1313/tags/static-site-generator/</link>
+      <link>https://mangalakader.github.io/tags/static-site-generator/</link>
       <pubDate>Wed, 30 Jun 2021 17:29:12 +0530</pubDate>
       
-      <guid>http://localhost:1313/tags/static-site-generator/</guid>
+      <guid>https://mangalakader.github.io/tags/static-site-generator/</guid>
       <description></description>
     </item>
     
     <item>
       <title>containers</title>
-      <link>http://localhost:1313/tags/containers/</link>
+      <link>https://mangalakader.github.io/tags/containers/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/containers/</guid>
+      <guid>https://mangalakader.github.io/tags/containers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>development</title>
-      <link>http://localhost:1313/tags/development/</link>
+      <link>https://mangalakader.github.io/tags/development/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/development/</guid>
+      <guid>https://mangalakader.github.io/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nspawn</title>
-      <link>http://localhost:1313/tags/nspawn/</link>
+      <link>https://mangalakader.github.io/tags/nspawn/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/nspawn/</guid>
+      <guid>https://mangalakader.github.io/tags/nspawn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>script</title>
-      <link>http://localhost:1313/tags/script/</link>
+      <link>https://mangalakader.github.io/tags/script/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/script/</guid>
+      <guid>https://mangalakader.github.io/tags/script/</guid>
       <description></description>
     </item>
     
     <item>
       <title>systemd</title>
-      <link>http://localhost:1313/tags/systemd/</link>
+      <link>https://mangalakader.github.io/tags/systemd/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/systemd/</guid>
+      <guid>https://mangalakader.github.io/tags/systemd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>systemd-nspawn</title>
-      <link>http://localhost:1313/tags/systemd-nspawn/</link>
+      <link>https://mangalakader.github.io/tags/systemd-nspawn/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/systemd-nspawn/</guid>
+      <guid>https://mangalakader.github.io/tags/systemd-nspawn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bash</title>
-      <link>http://localhost:1313/tags/bash/</link>
+      <link>https://mangalakader.github.io/tags/bash/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/bash/</guid>
+      <guid>https://mangalakader.github.io/tags/bash/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bookmarks</title>
-      <link>http://localhost:1313/tags/bookmarks/</link>
+      <link>https://mangalakader.github.io/tags/bookmarks/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/bookmarks/</guid>
+      <guid>https://mangalakader.github.io/tags/bookmarks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>firefox</title>
-      <link>http://localhost:1313/tags/firefox/</link>
+      <link>https://mangalakader.github.io/tags/firefox/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/firefox/</guid>
+      <guid>https://mangalakader.github.io/tags/firefox/</guid>
       <description></description>
     </item>
     
     <item>
       <title>parallel</title>
-      <link>http://localhost:1313/tags/parallel/</link>
+      <link>https://mangalakader.github.io/tags/parallel/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/parallel/</guid>
+      <guid>https://mangalakader.github.io/tags/parallel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sed</title>
-      <link>http://localhost:1313/tags/sed/</link>
+      <link>https://mangalakader.github.io/tags/sed/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/sed/</guid>
+      <guid>https://mangalakader.github.io/tags/sed/</guid>
       <description></description>
     </item>
     
     <item>
       <title>sh</title>
-      <link>http://localhost:1313/tags/sh/</link>
+      <link>https://mangalakader.github.io/tags/sh/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/sh/</guid>
+      <guid>https://mangalakader.github.io/tags/sh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>documentation</title>
-      <link>http://localhost:1313/tags/documentation/</link>
+      <link>https://mangalakader.github.io/tags/documentation/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/documentation/</guid>
+      <guid>https://mangalakader.github.io/tags/documentation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>elixir</title>
-      <link>http://localhost:1313/tags/elixir/</link>
+      <link>https://mangalakader.github.io/tags/elixir/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/elixir/</guid>
+      <guid>https://mangalakader.github.io/tags/elixir/</guid>
       <description></description>
     </item>
     
     <item>
       <title>help</title>
-      <link>http://localhost:1313/tags/help/</link>
+      <link>https://mangalakader.github.io/tags/help/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/help/</guid>
+      <guid>https://mangalakader.github.io/tags/help/</guid>
       <description></description>
     </item>
     
     <item>
       <title>iex</title>
-      <link>http://localhost:1313/tags/iex/</link>
+      <link>https://mangalakader.github.io/tags/iex/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/iex/</guid>
+      <guid>https://mangalakader.github.io/tags/iex/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mfa</title>
-      <link>http://localhost:1313/tags/mfa/</link>
+      <link>https://mangalakader.github.io/tags/mfa/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/mfa/</guid>
+      <guid>https://mangalakader.github.io/tags/mfa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>one-time-password</title>
-      <link>http://localhost:1313/tags/one-time-password/</link>
+      <link>https://mangalakader.github.io/tags/one-time-password/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/one-time-password/</guid>
+      <guid>https://mangalakader.github.io/tags/one-time-password/</guid>
       <description></description>
     </item>
     
     <item>
       <title>phoenix</title>
-      <link>http://localhost:1313/tags/phoenix/</link>
+      <link>https://mangalakader.github.io/tags/phoenix/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/phoenix/</guid>
+      <guid>https://mangalakader.github.io/tags/phoenix/</guid>
       <description></description>
     </item>
     
     <item>
       <title>totp</title>
-      <link>http://localhost:1313/tags/totp/</link>
+      <link>https://mangalakader.github.io/tags/totp/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/totp/</guid>
+      <guid>https://mangalakader.github.io/tags/totp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>functional-programming</title>
-      <link>http://localhost:1313/tags/functional-programming/</link>
+      <link>https://mangalakader.github.io/tags/functional-programming/</link>
       <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/functional-programming/</guid>
+      <guid>https://mangalakader.github.io/tags/functional-programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vim</title>
-      <link>http://localhost:1313/tags/vim/</link>
+      <link>https://mangalakader.github.io/tags/vim/</link>
       <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/vim/</guid>
+      <guid>https://mangalakader.github.io/tags/vim/</guid>
       <description></description>
     </item>
     
     <item>
       <title>css</title>
-      <link>http://localhost:1313/tags/css/</link>
+      <link>https://mangalakader.github.io/tags/css/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/css/</guid>
+      <guid>https://mangalakader.github.io/tags/css/</guid>
       <description></description>
     </item>
     
     <item>
       <title>html</title>
-      <link>http://localhost:1313/tags/html/</link>
+      <link>https://mangalakader.github.io/tags/html/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/html/</guid>
+      <guid>https://mangalakader.github.io/tags/html/</guid>
       <description></description>
     </item>
     

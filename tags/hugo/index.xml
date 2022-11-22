@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hugo on PMK</title>
-    <link>http://localhost:1313/tags/hugo/</link>
+    <link>https://mangalakader.github.io/tags/hugo/</link>
     <description>Recent content in hugo on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Jun 2021 17:29:12 +0530</lastBuildDate><atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Jun 2021 17:29:12 +0530</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Journey to Hugo</title>
-      <link>http://localhost:1313/post/journey-to-hugo/</link>
+      <link>https://mangalakader.github.io/post/journey-to-hugo/</link>
       <pubDate>Wed, 30 Jun 2021 17:29:12 +0530</pubDate>
       
-      <guid>http://localhost:1313/post/journey-to-hugo/</guid>
+      <guid>https://mangalakader.github.io/post/journey-to-hugo/</guid>
       <description>This is a very opinionated blog post describing, why I chose Hugo for my blog. I have no intent on hurting or producing wrong facts about whatsoever, also not trying to praise one over the other.
 Started with Jekyll Initially, I just wanted a blog to share my knowledge! I was in the middle of my career and didn&amp;rsquo;t have enough time to actively write posts. So, I had done some research and stumbled upon GitHub pages for hosting and Jekyll as static site generator.</description>
     </item>

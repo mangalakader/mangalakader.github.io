@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>unix on PMK</title>
-    <link>http://localhost:1313/tags/unix/</link>
+    <link>https://mangalakader.github.io/tags/unix/</link>
     <description>Recent content in unix on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/unix/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/unix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Custom Fortune Cookie / Random Tips - Open New Terminal</title>
-      <link>http://localhost:1313/post/custom-fortune-cookie-in-your-terminal-shell/</link>
+      <link>https://mangalakader.github.io/post/custom-fortune-cookie-in-your-terminal-shell/</link>
       <pubDate>Tue, 12 Apr 2022 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/custom-fortune-cookie-in-your-terminal-shell/</guid>
+      <guid>https://mangalakader.github.io/post/custom-fortune-cookie-in-your-terminal-shell/</guid>
       <description>Those who are tired of reading the same old repetitive fortune cookies, you have come to the right place to learn the magic of configuring dynamic and more useful tips.
 Prerequisites: Kindly install the following tools from your package manager
 curl (pull the html page) html-xml-utils (manipulate html content) w3m (display text only from html) Create a Bash Function to pull from your desired website: For educational purposes, I&amp;rsquo;m picking up https://til.</description>
@@ -20,40 +20,40 @@ curl (pull the html page) html-xml-utils (manipulate html content) w3m (display 
     
     <item>
       <title>systemd-nspawn - Containerization - Part 2</title>
-      <link>http://localhost:1313/post/systemd-nspawn-container-musings-part-2/</link>
+      <link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</link>
       <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/systemd-nspawn-container-musings-part-2/</guid>
+      <guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</guid>
       <description>Recap: In the last part of the series, we saw how to configure the network in host for containers and learnt how to pull images using machinectl. If you haven&amp;rsquo;t gone through that first, please do so.
 Before Booting your container for the first time: I&amp;rsquo;m using an cloud based ubuntu image, as it provides cloud-init support, which lets me configure my container during the boot itself. I&amp;rsquo;m not going to go into the details of cloud-init, but I&amp;rsquo;ll give you some idea about minimising full-blown cloud setup.</description>
     </item>
     
     <item>
       <title>systemd-nspawn - Containerization - Part 1</title>
-      <link>http://localhost:1313/post/systemd-nspawn-container-musings-part-1/</link>
+      <link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</link>
       <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/systemd-nspawn-container-musings-part-1/</guid>
+      <guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</guid>
       <description>What is systemd-nspawn? systemd is known as INIT system, which is used in many unix and linux distributions. systemd-nspawn is available as a part of default systemd package and if it is not available, install the following packages:
 systemd-container (MAIN) bridge-utils (OPTIONAL - For managing networks) systemd-nspawn can be used to run raw images or docker images without installing additional software tools and it is controlled by systemd, with the help of namespaces all the networks and logs are separated in our host itself.</description>
     </item>
     
     <item>
       <title>TIL: Firefox Bookmarks Export - HTML to PLAIN File</title>
-      <link>http://localhost:1313/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</link>
+      <link>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</link>
       <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</guid>
+      <guid>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</guid>
       <description>Today I Learned Long long time ago, I started using browser bookmarks and the burden of carrying around them system to system has been a pain. I hope, there are people like me, want to carry forward the legacy bookmarks to beyond.
 I&amp;rsquo;m not going to be giving the steps for exporting the bookmarks from firefox, as they are already straight forward. Still, if somebody needs help, please look - here .</description>
     </item>
     
     <item>
       <title>Add yourself to Sudoers - No {re-}typing password!</title>
-      <link>http://localhost:1313/post/add-yourself-to-sudoers/</link>
+      <link>https://mangalakader.github.io/post/add-yourself-to-sudoers/</link>
       <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/add-yourself-to-sudoers/</guid>
+      <guid>https://mangalakader.github.io/post/add-yourself-to-sudoers/</guid>
       <description>Note: This is for the one who is repeatedly typing his/her password in his *nix system. This tip in a personal pc/system is execellent but when used in systems accessible by others is potentially dangerous and I seriously don&amp;rsquo;t recommend this to be used in such environments! If doing so, resulted in something terrible, I am not responsible! Thank you!
 A little Story&amp;hellip; Atleast, once in the history of using *nix as OS, we would have come across the situation, where we would have typed a command in shell, and the shell spits out a nasty permission denied error.</description>
     </item>
