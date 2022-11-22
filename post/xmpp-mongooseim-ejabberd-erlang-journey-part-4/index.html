@@ -4,21 +4,21 @@
         <meta name="google-site-verification" content="zbY1XBwjYLe6aeNN808FhPJMrqimMq1LEG2wU8Kot5w" />
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
-<title itemprop="name">Mangala Kader | Instant Messaging using Erlang and XMPP — Part 1</title>
-<meta property="og:title" content="Instant Messaging using Erlang and XMPP — Part 1" />
-<meta itemprop="name" content="Instant Messaging using Erlang and XMPP — Part 1" />
-<meta name="application-name" content="Instant Messaging using Erlang and XMPP — Part 1" />
+<title itemprop="name">Mangala Kader | Instant Messaging using erlang and XMPP — Part 4</title>
+<meta property="og:title" content="Instant Messaging using erlang and XMPP — Part 4" />
+<meta itemprop="name" content="Instant Messaging using erlang and XMPP — Part 4" />
+<meta name="application-name" content="Instant Messaging using erlang and XMPP — Part 4" />
 <meta property="og:site_name" content="Online Portfolio" />
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-991" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-991" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1799" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1799" />
 
-<base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/">
-<link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" itemprop="url" />
-<meta name="url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" />
-<meta property="og:url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" />
+<base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-4/">
+<link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-4/" itemprop="url" />
+<meta name="url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-4/" />
+<meta property="og:url" content="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-4/" />
 <meta property="og:locale" content="en">
 <meta name="language" content="en">
 <meta charset="utf-8" />
@@ -30,10 +30,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-        <meta name="keywords" content="erlang, mongooseim, ejabberd, xmpp, instant-messaging, docker" />
-        <meta name="description" content="Introduction to XMPP using Erlang - Basics of Mongooseim / Ejabberd using docker. Gajim is used to demonstrate IM in the local machine." />
-        <meta itemprop="description" content="Introduction to XMPP using Erlang - Basics of Mongooseim / Ejabberd using docker. Gajim is used to demonstrate IM in the local machine." />
-        <meta property="og:description" content="Introduction to XMPP using Erlang - Basics of Mongooseim / Ejabberd using docker. Gajim is used to demonstrate IM in the local machine." />
+        <meta name="keywords" content="erlang, mongooseim, ejabberd, xmpp, instant-messaging" />
+        <meta name="description" content="Introduction to XMPP using Erlang - Understanding Building Blocks of MongooseIM - Part 4" />
+        <meta itemprop="description" content="Introduction to XMPP using Erlang - Understanding Building Blocks of MongooseIM - Part 4" />
+        <meta property="og:description" content="Introduction to XMPP using Erlang - Understanding Building Blocks of MongooseIM - Part 4" />
     </head>
     <body>
         <div class="progress-container fixed-top">
@@ -64,116 +64,59 @@
 </nav>
 
         <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
-            <h2 class="text-dark text-center p-3 p-lg-5">Instant Messaging using Erlang and XMPP — Part 1</h2>
-            <h5 class="text-dark text-center">Aug 9, 2020</h5>
+            <h2 class="text-dark text-center p-3 p-lg-5">Instant Messaging using erlang and XMPP — Part 4</h2>
+            <h5 class="text-dark text-center">Sep 16, 2021</h5>
         </div>
         <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
-            <h2 id="instant-messaging">Instant Messaging</h2>
-<p>It&rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://en.wikipedia.org/wiki/Instant_messaging" target="_blank" rel="noreferrer" >here</a>
-</p>
-<h2 id="underlying-basics">Underlying Basics</h2>
-<p>There are a couple of things, we need to understand about real-time technologies:</p>
+            <p><strong>Note: When I started writing this, I was using customized mongooseim version 3.7.1, now latest updates using TOML config and such have come up as on July 2021. So, if you want to refer to the latest documentation, feel free to read it <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://esl.github.io/MongooseDocs/latest/" target="_blank" rel="noreferrer" >here</a>
+</strong>.</p>
+<h2 id="important-files-and-hierarchies">Important files and hierarchies</h2>
+<p>Last part, we saw how a stanza is represented in Erlang Terms (erlang records). This part we&rsquo;ll be seeing the important files and how they fit into the functioning of MongooseIM.</p>
+<h2 id="folder-hierarchy">Folder Hierarchy</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Some of the directories and files have been left out for convenience</span>
+/mongooseim-src
+├── asn1
+├── asngen
+├── big_tests
+├── c_src
+├── examples
+├── include
+├── priv
+├── rel
+├── src
+├── test
+└── tools
+
+<span style="color:#ae81ff">10</span> directories
+</code></pre></div><p>As a developer, we&rsquo;ll only need to modify certain folders or files in order to achieve a certain functionality such as</p>
 <ul>
-<li>The underlying protocol is not HTTP/HTTPS, but raw TCP with TLS which is equivalent to HTTPS per se</li>
-<li>also there is a web socket which has been recently gaining popularity in the recent years</li>
+<li><code>big_tests</code> → Contains a very big test suite for most of the MongooseIM functionalities, the big tests often times run nearly an hour and sometimes even more. They contain integrated test suites which tests a range of scenarios, grouped into various hierarchies. MongooseIM team, has been generous enough to include scripts that can trigger the integrated suites for a particular scenario on a particular module, which have been very well documented <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://esl.github.io/MongooseDocs/latest/developers-guide/Testing-MongooseIM/" target="_blank" rel="noreferrer" >here</a>
+</li>
+<li><code>include</code> → Contains Erlang Header files, which define the commonly used erlang records and such</li>
+<li><code>priv</code> → Contains the database schema files for different supported databases and internationalization files</li>
+<li><code>rel</code> → Contains templates for variations of mongooseim configurations with support for federation, registration and such. Template files are changed when you want to configure mongooseim for a specific release with this configuration.</li>
+<li><code>src</code> → Contains source code for the mongooseim modules and this is where you&rsquo;ll be working mostly</li>
+<li><code>test</code> → Contains smaller unit tests for the mongooseim modules</li>
 </ul>
-<p>The fore mentioned protocols heavily rely on keeping the connection to the servers alive until the user
-forcefully disconnects, whereas the HTTP ones are open and close for every request strategy and not suitable
-when you want to hit real-time messaging.</p>
-<h2 id="xmpp--short-and-sweet">XMPP — short and sweet</h2>
-<p>Extensible Messaging and Presence Protocol(XMPP) is a protocol which defines how the text transmission should
-happen over the wire, and it is lightweight compared to the traditional HTTP.</p>
-<p>A detailed component of XMPP are <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/about/technology-overview.html" target="_blank" rel="noreferrer" >here</a>
-.</p>
-<p><strong>Note: It&rsquo;s utmost important to understand what is XMPP and how it works to understand the servers that use XMPP</strong></p>
-<h2 id="xmpp-and-erlang--why">XMPP and Erlang — Why?</h2>
-<p>Erlang as we all know is fault-tolerant, scalable and can be easily decentralized by the right approach. The XMPP can
-be implemented in any language and already there are plenty of open-source projects using XMPP with other languages.
-This article will be mainly about Erlang based XMPP servers such as Ejabberd and MongooseIM.</p>
-<p>Thanks to the contributors of those projects that made the Chat industry a huge market for many ventures.</p>
-<p>For more XMPP servers, please look <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/software/servers.html" target="_blank" rel="noreferrer" >here</a>
-</p>
-<h2 id="getting-started">Getting Started</h2>
-<h4 id="installation-for-test-drive">Installation for Test Drive</h4>
-<ul>
-<li>Clone from git and use make to install either Ejabberd or MongooseIM.</li>
-<li>MongooseIM - install file can be downloaded from Erlang Solutions website</li>
-<li>Ejabberd has direct distribution through apt (apt install ejabberd)</li>
-<li>docker (Convenient and best approach)</li>
-</ul>
-<pre tabindex="0"><code class="language-console" data-lang="console"># For Ejabberd
-docker run --name ejabberd -d -p 5222:5222 ejabberd/ecs
-# For MongooseIM
-docker run -d -t -h mongooseim-1 --name mongooseim-1 -p 5222:5222 mongooseim/mongooseim:latest
-</code></pre><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
-<ul>
-<li>Pick your favorite IM client from this <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/software/clients.html" target="_blank" rel="noreferrer" >page</a>
-.</li>
-<li>To start chatting, you will need an account registered with our local server. The registration process is known as <strong>- <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/extensions/xep-0077.html" target="_blank" rel="noreferrer" >In-Band Registration</a>
-</strong>.</li>
-<li>For MongooseIM, the registration is done using the following commands
-<code>mongooseimctl register {HOST} {PASSWORD}</code> and  <code>mongooseimctl register_identified {USERNAME} {HOST} {PASSWORD}</code></li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Registering using random username</span>
-$ mongooseimctl register localhost testpassword
-User 1596-978064-173548-9A7D4C0FBABEEF51@localhost successfully registered
-<span style="color:#75715e"># Registering using username and password</span>
-$ mongooseimctl register_identified testuser localhost testpassword
-User testuser@localhost successfully registered
-</code></pre></div><blockquote>
-<p>Now, you might be wondering why can&rsquo;t the user register directly?
-Indeed, the users can register themselves,</p>
-<ul>
-<li>if the in-band registration is enabled in the server</li>
-<li>It is disabled by default to prevent SPAM</li>
-<li>most services use XMPP as an add-on in their service, which also means the registration has already been carried out</li>
-<li>we don&rsquo;t want to have second-time registration separately</li>
-<li>We can indirectly register the user using our service to communicate with our XMPP server</li>
-</ul>
-<p>We will get in-depth about configuring our XMPP server later in the series of posts</p>
-</blockquote>
-<h4 id="gajim--the-chosen-one">Gajim — The chosen one</h4>
-<p>I have chosen Gajim as my demo chat client.
-
-<div class="container-fluid p-2 p-lg-5">
-  <img loading="lazy" src="/images/2020-08-09-gajim.png" alt="Gajim Version Screenshot" class="img-fluid img-thumbnail rounded mx-auto d-block">
-</div>
-</p>
-<ul>
-<li>Login to your accounts using the registered username, host and password <code>(also known as JabberID, which is of the form ({username}@{host}/{resource}))</code></li>
-<li>After logging in, add the other account as contact using <code>right-click on account name &gt; Add Contact &gt; Fill details &gt; Add</code></li>
-</ul>
-
-<div class="container-fluid p-2 p-lg-5">
-  <img loading="lazy" src="/images/2020-08-09-add-contact-gajim.png" alt="Gajim - Adding a Contact Screenshot" class="img-fluid img-thumbnail rounded mx-auto d-block">
-</div>
-
-<ul>
-<li>Now, the other user will receive a subscription request, you will need to <code>Authorize</code> it to be able to chat with the user</li>
-</ul>
-
-<div class="container-fluid p-2 p-lg-5">
-  <img loading="lazy" src="/images/2020-08-09-sub-request-gajim.png" alt="Gajim - Subscription Request Screenshot" class="img-fluid img-thumbnail rounded mx-auto d-block">
-</div>
-
-<ul>
-<li>Double-click on the username to start chatting and have fun for a while, before we go a bit deep.</li>
-</ul>
-
-<div class="container-fluid p-2 p-lg-5">
-  <img loading="lazy" src="/images/2020-08-09-chat-gajim.png" alt="Gajim - Chatting Screenshot" class="img-fluid img-thumbnail rounded mx-auto d-block">
-</div>
-
-<h4 id="why-all-of-this">Why all of this?</h4>
-<p>Gajim has a nice feature for introspection on the communication between the Chat Client and Chat Server.
-To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt; XML Console</code></p>
-
-<div class="container-fluid p-2 p-lg-5">
-  <img loading="lazy" src="/images/2020-08-09-xml-console-gajim.png" alt="Gajim - XML Console Screenshot" class="img-fluid img-thumbnail rounded mx-auto d-block">
-</div>
-
-<p>You can see all the nice XML stanzas going in and out!</p>
-<p>Wrapping up the part one with this tip! Stay tuned for more detailed posts about how to configure, deploy or develop an XMPP server.</p>
+<h4 id="includemongoose_loggerhrl">include/mongoose_logger.hrl</h4>
+<p>Erlang developers already know about <code>io:format(arg1, arg2)</code> method to display or inspect values in the erlang shell and also we will be tempted to use the same here. There is no harm in doing it, but we will be bypassing the log from the mongooseim&rsquo;s configured logger module, which might result in our debug statements left out from the corresponding log files.</p>
+<p>The header file contains macros to make your life easier in including debug statements. You want to add a debug log in a source file, include this header file somewhere along after module statement in the source file as <code>-include(&quot;mongoose_logger.hrl&quot;).</code></p>
+<p>Now you can simply add a debug statement, which will be shown in the mongooseim console output when the application is running. Simple example of a debug statement is as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-erlang" data-lang="erlang"><span style="color:#960050;background-color:#1e0010">#</span> without variables
+<span style="color:#f92672">?</span>DEBUG(<span style="color:#e6db74">&#34;Hello this is a sample debug message!</span><span style="color:#e6db74">~n</span><span style="color:#e6db74">&#34;</span>, []),
+...
+<span style="color:#960050;background-color:#1e0010">#</span> Console Output
+<span style="color:#ae81ff">16</span>:<span style="color:#ae81ff">25</span>:<span style="color:#ae81ff">02</span>.<span style="color:#ae81ff">374</span> [debug] Hello this is a sample debug message<span style="color:#f92672">!</span>
+<span style="color:#960050;background-color:#1e0010">#</span> with variables
+Author <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Jonas&#34;</span>,
+<span style="color:#f92672">?</span>DEBUG(<span style="color:#e6db74">&#34;Hello this is a sample debug message! Welcome </span><span style="color:#e6db74">~p~n</span><span style="color:#e6db74">&#34;</span>, [Author]),
+...
+<span style="color:#960050;background-color:#1e0010">#</span> Console Output
+<span style="color:#ae81ff">16</span>:<span style="color:#ae81ff">25</span>:<span style="color:#ae81ff">02</span>.<span style="color:#ae81ff">374</span> [debug] Hello this is a sample debug message<span style="color:#f92672">!</span> Welcome Jonas
+</code></pre></div><p>You don&rsquo;t have to explicitly import this header file, instead if you include the <code>include/mongoose.hrl</code> file, it already has included the mongoose_logger.hrl file.</p>
+<h4 id="includemongoose_nshrl">include/mongoose_ns.hrl</h4>
+<p>The <code>ns</code> stands for namespace which is relevant to the XML stanzas. This file holds all of supported namespaces for our XML stanzas and we can also define our custom namespaces here and use them anywhere in the source files. Any source file in mongooseim you see, they would have this file inclusion.</p>
+<p>With this covered, let&rsquo;s get on with understanding hooks and handlers in the coming parts.</p>
 
             <br />
             <div class="p-3 border-top">
@@ -443,73 +386,19 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
                     (4)</a>
                 
                 
-                , 
-                
-                <a href="https://mangalakader.github.io/tags/docker/" class="tags text-decoration-none text-white">docker
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    (2)</a>
-                
-                
                 
             </div>
         </div>
         <div class="container-fluid justify-content-evenly p-0 row g-0">
             <div class="next-post col-lg btn-secondary p-3 text-center">
                 
-                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/?ref=footer">
-                    <div class="d-inline-flex flex-row align-items-center">
-                        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
-                        <h5 class="m-0">&nbsp;&nbsp;Erlang Help Docs on Elixir Shell - Using...</h5>
-                    </div>
-                </a>
-                
             </div>
 
             <div class="previous-post col-lg btn-secondary p-3 text-center">
                 
-                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/?ref=footer">
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-3/?ref=footer">
                     <div class="d-inline-flex flex-row align-items-center">
-                        <h5 class="m-0">Taking MFA to next level - A new...&nbsp;&nbsp;</h5>
+                        <h5 class="m-0">Instant Messaging using erlang and XMPP...&nbsp;&nbsp;</h5>
                         <i class="bi bi-arrow-right-circle-fill fs-2"></i>
                     </div>
                 </a>
