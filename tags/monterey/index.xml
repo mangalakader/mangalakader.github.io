@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>monterey on PMK</title>
+    <link>https://mangalakader.github.io/tags/monterey/</link>
+    <description>Recent content in monterey on PMK</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/monterey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Compile VIM from source for MacOS Monterey 12 or MacOS Ventura 13</title>
+      <link>https://mangalakader.github.io/post/source-compile-vim-macos-monterey-12-or-ventura-13/</link>
+      <pubDate>Tue, 22 Nov 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/source-compile-vim-macos-monterey-12-or-ventura-13/</guid>
+      <description>Introduction Starting MacOS 12, python2 has been deprecated from the system applications and VIM requires python2 or python3 support for some of the plugins to work properly, like ultisnips, etc., When I tried to compile VIM from source, python3 from the system applications wouldn&amp;rsquo;t get compiled along with it for some reason.
+The easiest solution would be install python3 using homebrew and compile VIM with it, but you have to make this the default python for the whole system or atleast configure it in VIM using vimrc, which didn&amp;rsquo;t sit well with me, so I decided to do my own research and came across a solution to compile VIM with system default python3 but it requires a bit of patience and editing skills.</description>
+    </item>
+    
+  </channel>
+</rss>
