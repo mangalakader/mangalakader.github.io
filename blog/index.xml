@@ -1,14 +1,142 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs on Mangala Kader</title><link>https://mangalakader.github.io/blog/</link><description>Recent content in Blogs on Mangala Kader</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 28 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>systemd-nspawn - Containerization - Part 2</title><link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</link><pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</guid><description>Recap: In the last part of the series, we saw how to configure the network in host for containers and learnt how to pull images using machinectl. If you haven&amp;rsquo;t gone through that first, please do so.
-Before Booting your container for the first time: I&amp;rsquo;m using an cloud based ubuntu image, as it provides cloud-init support, which lets me configure my container during the boot itself. I&amp;rsquo;m not going to go into the details of cloud-init, but I&amp;rsquo;ll give you some idea about minimising full-blown cloud setup.</description></item><item><title>systemd-nspawn - Containerization - Part 1</title><link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</link><pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</guid><description>What is systemd-nspawn? systemd is known as INIT system, which is used in many unix and linux distributions. systemd-nspawn is available as a part of default systemd package and if it is not available, install the following packages:
-systemd-container (MAIN) bridge-utils (OPTIONAL - For managing networks) systemd-nspawn can be used to run raw images or docker images without installing additional software tools and it is controlled by systemd, with the help of namespaces all the networks and logs are separated in our host itself.</description></item><item><title>TIL: Firefox Bookmarks Export - HTML to PLAIN File</title><link>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</link><pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</guid><description>Today I Learned Long long time ago, I started using browser bookmarks and the burden of carrying around them system to system has been a pain. I hope, there are people like me, want to carry forward the legacy bookmarks to beyond.
-I&amp;rsquo;m not going to be giving the steps for exporting the bookmarks from firefox, as they are already straight forward. Still, if somebody needs help, please look - here .</description></item><item><title>Erlang Help Docs on Elixir Shell - Using ASDF or Kerl</title><link>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</link><pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</guid><description>Note: Proceed if you&amp;rsquo;re already using ASDF or Kerl for Elixir/Erlang Version Management
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Mangala Kader</title>
+    <link>https://mangalakader.github.io/blog/</link>
+    <description>Recent content in Blogs on Mangala Kader</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Jun 2021 17:29:12 +0530</lastBuildDate><atom:link href="https://mangalakader.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Journey to Hugo</title>
+      <link>https://mangalakader.github.io/post/journey-to-hugo/</link>
+      <pubDate>Wed, 30 Jun 2021 17:29:12 +0530</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/journey-to-hugo/</guid>
+      <description>This is a very opinionated blog post describing, why I chose Hugo for my blog. I have no intent on hurting or producing wrong facts about whatsoever, also not trying to praise one over the other.
+Started with Jekyll Initially, I just wanted a blog to share my knowledge! I was in the middle of my career and didn&amp;rsquo;t have enough time to actively write posts. So, I had done some research and stumbled upon GitHub pages for hosting and Jekyll as static site generator.</description>
+    </item>
+    
+    <item>
+      <title>systemd-nspawn - Containerization - Part 2</title>
+      <link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-2/</guid>
+      <description>Recap: In the last part of the series, we saw how to configure the network in host for containers and learnt how to pull images using machinectl. If you haven&amp;rsquo;t gone through that first, please do so.
+Before Booting your container for the first time: I&amp;rsquo;m using an cloud based ubuntu image, as it provides cloud-init support, which lets me configure my container during the boot itself. I&amp;rsquo;m not going to go into the details of cloud-init, but I&amp;rsquo;ll give you some idea about minimising full-blown cloud setup.</description>
+    </item>
+    
+    <item>
+      <title>systemd-nspawn - Containerization - Part 1</title>
+      <link>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</link>
+      <pubDate>Sun, 22 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/systemd-nspawn-container-musings-part-1/</guid>
+      <description>What is systemd-nspawn? systemd is known as INIT system, which is used in many unix and linux distributions. systemd-nspawn is available as a part of default systemd package and if it is not available, install the following packages:
+ systemd-container (MAIN) bridge-utils (OPTIONAL - For managing networks)  systemd-nspawn can be used to run raw images or docker images without installing additional software tools and it is controlled by systemd, with the help of namespaces all the networks and logs are separated in our host itself.</description>
+    </item>
+    
+    <item>
+      <title>TIL: Firefox Bookmarks Export - HTML to PLAIN File</title>
+      <link>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</guid>
+      <description>Today I Learned Long long time ago, I started using browser bookmarks and the burden of carrying around them system to system has been a pain. I hope, there are people like me, want to carry forward the legacy bookmarks to beyond.
+I&amp;rsquo;m not going to be giving the steps for exporting the bookmarks from firefox, as they are already straight forward. Still, if somebody needs help, please look - here .</description>
+    </item>
+    
+    <item>
+      <title>Erlang Help Docs on Elixir Shell - Using ASDF or Kerl</title>
+      <link>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</guid>
+      <description>Note: Proceed if you&amp;rsquo;re already using ASDF or Kerl for Elixir/Erlang Version Management
 Elixir is very well known for it&amp;rsquo;s documentation and community involvement and most of the developers, when they adopt elixir, they first struggle to find the help documentation for erlang functions.
 We all would have come across this message when using:
-iex(1)&amp;gt; h :heart **heart module not compiled with erlang docs So, how do we enable documentation for erlang functions: The solution that I&amp;rsquo;m going to discuss is relevant with ASDF or Kerl.</description></item><item><title>Instant Messaging using erlang and XMPP - Part 1</title><link>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</link><pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</guid><description>Instant Messaging It&amp;rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up - here Underlying Basics There are couple of things, we need to understand about real-time technologies:
-The underlying protocol is not HTTP/HTTPS, but raw TCP with TLS which is equivalent to HTTPS per say also there is a websocket which has been recently gaining popularity in the recent years The afore mentioned protocols heavily rely on keeping the connection to the servers alive until the user forcefully disconnects, whereas the HTTP ones are open and close for every request strategy and not suitable when you want to hit real-time messaging.</description></item><item><title>Taking MFA to next level - A new approach!</title><link>https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/</link><pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/</guid><description>What is TOTP? Those who have enabled multi-factor authentication (mfa) in his/her Google accounts, major vendors out there are aware of the importance of having them. For others, who are not aware of what mfa is and how it works, please look into the following wiki link: TOTP Wiki PageTraditional Approach of TOTP apps: Most of the Authenticator apps out there, starts providing One Time Password easily, when you:
-scan the QR code provided to you Enter the secret text provided to you Why this might not be the completely safest approach?</description></item><item><title>Elixir - How to solve recompile :noop Issue using VIM</title><link>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</link><pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</guid><description>Many of us are using more advanced editors such as Vim, Visual Studio Code, etc,. We all depend on the linters too much to correct our mistakes such as syntax errors. So, what is this specific topic related to? If you have started asking this question and you have found this link means, you are in the right place.
-Let&amp;rsquo;s consider our normal dev course: Below is a dummy test app of my making.</description></item><item><title>Download Project Binaries using HTTPoison - Elixir</title><link>https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/</link><pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/</guid><description>There are tons of methods for organising binaries into a particular project in different programming languages. But, I am writing this method particularly to illustrate the pure usage of elixir and joy of learning it! This tutorial is for intermediate users with enough experience in using elixir. I hope you enjoy it!
+iex(1)&amp;gt; h :heart **heart module not compiled with erlang docs So, how do we enable documentation for erlang functions: The solution that I&amp;rsquo;m going to discuss is relevant with ASDF or Kerl.</description>
+    </item>
+    
+    <item>
+      <title>Instant Messaging using erlang and XMPP - Part 1</title>
+      <link>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/</guid>
+      <description>Instant Messaging It&amp;rsquo;s a type of real-time text transmission over the internet and if you want detailed description of what it is please look it up - here Underlying Basics There are couple of things, we need to understand about real-time technologies:
+ The underlying protocol is not HTTP/HTTPS, but raw TCP with TLS which is equivalent to HTTPS per say also there is a websocket which has been recently gaining popularity in the recent years  The afore mentioned protocols heavily rely on keeping the connection to the servers alive until the user forcefully disconnects, whereas the HTTP ones are open and close for every request strategy and not suitable when you want to hit real-time messaging.</description>
+    </item>
+    
+    <item>
+      <title>Taking MFA to next level - A new approach!</title>
+      <link>https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/</link>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/</guid>
+      <description>What is TOTP? Those who have enabled multi-factor authentication (mfa) in his/her Google accounts, major vendors out there are aware of the importance of having them. For others, who are not aware of what mfa is and how it works, please look into the following wiki link: TOTP Wiki PageTraditional Approach of TOTP apps: Most of the Authenticator apps out there, starts providing One Time Password easily, when you:
+ scan the QR code provided to you Enter the secret text provided to you  Why this might not be the completely safest approach?</description>
+    </item>
+    
+    <item>
+      <title>Elixir - How to solve recompile :noop Issue using VIM</title>
+      <link>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</link>
+      <pubDate>Thu, 15 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/elixir-shell-recompile-noop-issue/</guid>
+      <description>Many of us are using more advanced editors such as Vim, Visual Studio Code, etc,. We all depend on the linters too much to correct our mistakes such as syntax errors. So, what is this specific topic related to? If you have started asking this question and you have found this link means, you are in the right place.
+Let&amp;rsquo;s consider our normal dev course:  Below is a dummy test app of my making.</description>
+    </item>
+    
+    <item>
+      <title>Download Project Binaries using HTTPoison - Elixir</title>
+      <link>https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/</link>
+      <pubDate>Sat, 08 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/</guid>
+      <description>There are tons of methods for organising binaries into a particular project in different programming languages. But, I am writing this method particularly to illustrate the pure usage of elixir and joy of learning it! This tutorial is for intermediate users with enough experience in using elixir. I hope you enjoy it!
 How can you leverage it? It could be anyone of the following:
-a mix task a genserver a function a escript etc.</description></item><item><title>Add yourself to Sudoers - No {re-}typing password!</title><link>https://mangalakader.github.io/post/add-yourself-to-sudoers/</link><pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/add-yourself-to-sudoers/</guid><description>Note: This is for the one who is repeatedly typing his/her password in his *nix system. This tip in a personal pc/system is execellent but when used in systems accessible by others is potentially dangerous and I seriously don&amp;rsquo;t recommend this to be used in such environments! If doing so, resulted in something terrible, I am not responsible! Thank you!
-A little Story&amp;hellip; Atleast, once in the history of using *nix as OS, we would have come across the situation, where we would have typed a command in shell, and the shell spits out a nasty permission denied error.</description></item><item><title>Delete Saved Shell Cmd History in Erlang / Elixir</title><link>https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/</link><pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/</guid><description>To Enable erlang / elixir shell history across sessions: There are lot of tutorials out there illustrating how to enable persistent shell history in erlang / elixir, one such example is found here , so I am not going to elaborate it here.
-What if you wanted to delete your shell history: There are not many examples as to how to delete them, once they saved. People have even suggested to disable the shell history and re-enable them, which do not help.</description></item><item><title>Your Own Bootstrap Github Page Using Jekyll ? - Part 2</title><link>https://mangalakader.github.io/post/own-github-pages-part-2/</link><pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/own-github-pages-part-2/</guid><description>To Create your own template: Follow the directory structure: PROJECT_ROOT\ ├── assets │ ├── css │ ├── fonts │ │ └── bootstrap │ ├── images │ ├── js ├── _includes ➜ (Reusable HTML Elements) ├── _layouts ➜ (Template elements) ├── _pages ➜ (Pages for Static Sites) ├── _posts ➜ (Blog Posts) ├── _sass ➜ (CSS in SASS mode) ├── bootstrap │ └── mixins └── minima For _pages to work, we need to define collections in _config.</description></item><item><title>Your Own Bootstrap Github Page Using Jekyll ? - Part 1</title><link>https://mangalakader.github.io/post/own-github-pages-part-1/</link><pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/own-github-pages-part-1/</guid><description>To setup Github: Login to your Github and create a new public repository with your Github Username.github.io Goto repository settings and enable the repository for rendering github pages. To Integrate Bootstrap: Jekyll is used by Github Pages and it has it&amp;rsquo;s own default minima theme. Jekyll supports only Sass, but bootstrap is using Less. If you want to customize themes based on bootstrap, then follow the below steps: Download the sass bootstrap file from the following url SASS BOOTSTRAP.</description></item></channel></rss>
+ a mix task a genserver a function a escript etc.</description>
+    </item>
+    
+    <item>
+      <title>Add yourself to Sudoers - No {re-}typing password!</title>
+      <link>https://mangalakader.github.io/post/add-yourself-to-sudoers/</link>
+      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/add-yourself-to-sudoers/</guid>
+      <description>Note: This is for the one who is repeatedly typing his/her password in his *nix system. This tip in a personal pc/system is execellent but when used in systems accessible by others is potentially dangerous and I seriously don&amp;rsquo;t recommend this to be used in such environments! If doing so, resulted in something terrible, I am not responsible! Thank you!
+A little Story&amp;hellip; Atleast, once in the history of using *nix as OS, we would have come across the situation, where we would have typed a command in shell, and the shell spits out a nasty permission denied error.</description>
+    </item>
+    
+    <item>
+      <title>Delete Saved Shell Cmd History in Erlang / Elixir</title>
+      <link>https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/</guid>
+      <description>To Enable erlang / elixir shell history across sessions: There are lot of tutorials out there illustrating how to enable persistent shell history in erlang / elixir, one such example is found here , so I am not going to elaborate it here.
+What if you wanted to delete your shell history: There are not many examples as to how to delete them, once they saved. People have even suggested to disable the shell history and re-enable them, which do not help.</description>
+    </item>
+    
+    <item>
+      <title>Your Own Bootstrap Github Page Using Jekyll ? - Part 2</title>
+      <link>https://mangalakader.github.io/post/own-github-pages-part-2/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/own-github-pages-part-2/</guid>
+      <description>To Create your own template: Follow the directory structure: PROJECT_ROOT\  ├── assets │ ├── css │ ├── fonts │ │ └── bootstrap │ ├── images │ ├── js ├── _includes ➜ (Reusable HTML Elements) ├── _layouts ➜ (Template elements) ├── _pages ➜ (Pages for Static Sites) ├── _posts ➜ (Blog Posts) ├── _sass ➜ (CSS in SASS mode) ├── bootstrap │ └── mixins └── minima   For _pages to work, we need to define collections in _config.</description>
+    </item>
+    
+    <item>
+      <title>Your Own Bootstrap Github Page Using Jekyll ? - Part 1</title>
+      <link>https://mangalakader.github.io/post/own-github-pages-part-1/</link>
+      <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/own-github-pages-part-1/</guid>
+      <description>To setup Github:  Login to your Github and create a new public repository with your Github Username.github.io Goto repository settings and enable the repository for rendering github pages.  To Integrate Bootstrap:  Jekyll is used by Github Pages and it has it&amp;rsquo;s own default minima theme. Jekyll supports only Sass, but bootstrap is using Less. If you want to customize themes based on bootstrap, then follow the below steps:  Download the sass bootstrap file from the following url SASS BOOTSTRAP.</description>
+    </item>
+    
+  </channel>
+</rss>

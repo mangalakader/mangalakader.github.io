@@ -1,2 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sed on Mangala Kader</title><link>https://mangalakader.github.io/tags/sed/</link><description>Recent content in sed on Mangala Kader</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/sed/index.xml" rel="self" type="application/rss+xml"/><item><title>TIL: Firefox Bookmarks Export - HTML to PLAIN File</title><link>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</link><pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</guid><description>Today I Learned Long long time ago, I started using browser bookmarks and the burden of carrying around them system to system has been a pain. I hope, there are people like me, want to carry forward the legacy bookmarks to beyond.
-I&amp;rsquo;m not going to be giving the steps for exporting the bookmarks from firefox, as they are already straight forward. Still, if somebody needs help, please look - here .</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sed on Mangala Kader</title>
+    <link>https://mangalakader.github.io/tags/sed/</link>
+    <description>Recent content in sed on Mangala Kader</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 31 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/sed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TIL: Firefox Bookmarks Export - HTML to PLAIN File</title>
+      <link>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</link>
+      <pubDate>Sat, 31 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/til-bookmarks-firefox-html-to-plain-file-and-manage-using-version-control/</guid>
+      <description>Today I Learned Long long time ago, I started using browser bookmarks and the burden of carrying around them system to system has been a pain. I hope, there are people like me, want to carry forward the legacy bookmarks to beyond.
+I&amp;rsquo;m not going to be giving the steps for exporting the bookmarks from firefox, as they are already straight forward. Still, if somebody needs help, please look - here .</description>
+    </item>
+    
+  </channel>
+</rss>

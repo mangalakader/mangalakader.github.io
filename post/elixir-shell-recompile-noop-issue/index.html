@@ -1,14 +1,335 @@
-<!doctype html><html lang=en><head><title>Elixir - How to solve recompile :noop Issue using VIM</title><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://mangalakader.github.io/css/header.css><link rel=stylesheet href=https://mangalakader.github.io/css/index.css><link rel=stylesheet href=https://mangalakader.github.io/css/footer.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-icons-150.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-501.min.css><script src=https://mangalakader.github.io/js/jquery.min.js></script><script src=https://mangalakader.github.io/js/bootstrap-501.bundle.min.js></script><script src=https://mangalakader.github.io/js/index.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script>(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)},a._hjSettings={hjid:1579889,hjsv:6},d=c.getElementsByTagName('head')[0],b=c.createElement('script'),b.async=1,b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv,d.appendChild(b)})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')</script></head><body><div class="progress-container fixed-top"><span class=progress-bar></span></div><nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top"><div class="container-fluid px-0"><a class="navbar-brand logo text-focus-in ms-3 mt-3" href=/>PMK</a>
-<button class="bg-warning rounded-start border-0 mt-1" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasRight aria-controls=offcanvasRight><i class="bi bi-chevron-double-left"></i></button></div><div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex=-1 data-bs-scroll=true id=offcanvasRight aria-labelledby=offcanvasRightLabel><div class=offcanvas-header><h5 id=offcanvasRightLabel class=fw-bold>Menu</h5><button type=button class="btn-close text-reset" data-bs-dismiss=offcanvas aria-label=Close></button></div><div class=offcanvas-body><div class="container-fluid p-0"><ul class="list-group list-group-flush"><a href=/#home><li class="list-group-item active" aria-current=true>Home</li></a><a href=/#intro><li class=list-group-item>Introduction</li></a><a href=/#exp1><li class=list-group-item>Work Experience</li></a><a href=/#oss1><li class=list-group-item>Open Source Contributions</li></a><a href=/blog><li class=list-group-item>Blog</li></a><a href=/tags><li class=list-group-item>Tags</li></a></ul></div></div></div></nav><div id=title class="container-fluid bg-warning bg-warning-gradient p-5"><h2 class="text-dark text-center p-3 p-lg-5">Elixir - How to solve recompile :noop Issue using VIM</h2><h5 class="text-dark text-center">Nov 15, 2018</h5></div><div id=content class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container"><p>Many of us are using more advanced editors such as Vim, Visual Studio Code, etc,. We all depend on the linters too much to correct our mistakes such as syntax errors. So, what is this specific topic related to? If you have started asking this question and you have found this link means, you are in the right place.</p><h2 id=lets-consider-our-normal-dev-course>Let&rsquo;s consider our normal dev course:</h2><ul><li>Below is a dummy test app of my making.</li></ul><div class="container-fluid p-2 p-lg-5"><img src=/images/2018-11-15-recompile-noop.png alt=Elixir-Shell-Recompile-Noop-Issue-Dummy-App-Screenshot class="img-fluid img-thumbnail rounded mx-auto d-block"></div><ul><li>I have done some changes and then try to recompile it! <strong>BOOM</strong> The <code>:noop</code> crops up!!!!!</li></ul><div class="container-fluid p-2 p-lg-5"><img src=/images/2018-11-15-recompile-noop-1.png alt=Elixir-Shell-Recompile-Noop-Issue-Dummy-App-Screenshot class="img-fluid img-thumbnail rounded mx-auto d-block"></div><h2 id=whats-happening>What&rsquo;s happening?</h2><p>Most of the elixir developers know why it is showing and unfortunately, there isn&rsquo;t a proper tool to solve it except manually exporting or aliasing the environment variable. Most of us are good with them! But for the new comers, I&rsquo;m going to elaborate as to why this is happening!</p><ul><li>If you are using an elixir extension for linting, then you will be facing this situation</li><li>The linter asynchronously compiles your code in default <code>MIX_ENV</code> mode which is dev mode</li><li>And reports the errors or does syntax check, then displays it to you through the editor interface</li><li>You would have already started the server in <code>dev</code> mode and hence, when you try to compile the compiled code</li><li>IEx reports <code>:noop</code></li></ul><h2 id=environment-variable-as-solution>Environment Variable as Solution:</h2><ul><li><p>Whenever you are starting your editor you would have to start it with a different environment other than <code>dev(MIX_ENV={other environment} {your editor invoking})</code>.</p></li><li><p>Next thing is creating an alias with the editor invoking command along with <code>MIX ENVIRONMENT</code>.</p></li></ul><h2 id=how-to-solve-if-you-are-using-vim>How to solve if you are using VIM:</h2><p>Add the following line to your <code>~/.vimrc</code> or vim config file:</p><pre><code>au FileType elixir let $MIX_ENV = 'test'
-</code></pre><p>This is an autocommand belonging to vimscript which checks for elixir filetype and exports an environment variable for linter to compile using test environment automatically if the opened filetype is elixir.</p><p><strong>Now, if you make a change to your code and recompile on the shell, it will recompile without any problem! except human errors!</strong></p><h2 id=why-test-environment-specifically>Why TEST environment specifically?</h2><p>Because, the environment variable that you are exporting are by default are the compile time configs <code>dev.exs, prod.exs and test.exs</code>, any other variable that you specify will result in compile time error, making you elixir based extensions fail!</p><p>For example, if you export <code>MIX_ENV=dummy</code>, the your extensions will fail with an error, <code>dummy.exs config file not found</code>!.</p><br><div class="p-3 border-top"><i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
-<a href=https://mangalakader.github.io/tags/elixir/ class="tags text-decoration-none text-white">elixir
-(5)</a>
-,
-<a href=https://mangalakader.github.io/tags/erlang/ class="tags text-decoration-none text-white">erlang
-(5)</a>
-,
-<a href=https://mangalakader.github.io/tags/functional-programming/ class="tags text-decoration-none text-white">functional-programming
-(3)</a>
-,
-<a href=https://mangalakader.github.io/tags/vim/ class="tags text-decoration-none text-white">vim
-(1)</a></div></div><div class="container-fluid justify-content-evenly p-0 row g-0"><div class="next-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><i class="bi bi-arrow-left-circle-fill fs-2"></i><h5 class=m-0>&nbsp;&nbsp;Taking MFA to next level - A new...</h5></div></a></div><div class="previous-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><h5 class=m-0>Download Project Binaries using...&nbsp;&nbsp;</h5><i class="bi bi-arrow-right-circle-fill fs-2"></i></div></a></div></div><footer class="bg-dark bg-dark-gradient"><div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <title>Elixir - How to solve recompile :noop Issue using VIM </title>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/header.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/index.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/footer.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-icons-150.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-501.min.css">
+  
+  
+     <script src="https://mangalakader.github.io/js/jquery.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/bootstrap-501.bundle.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/index.js"></script>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1579889,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+
+    <body>
+        <div class="progress-container fixed-top">
+            <span class="progress-bar"></span>
+        </div>
+        <nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand logo text-focus-in ms-3 mt-3" href="/">PMK</a>
+    <button class="bg-warning rounded-start border-0 mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chevron-double-left"></i></button>
+  </div>
+
+  <div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel" class="fw-bold">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container-fluid p-0">
+        <ul class="list-group list-group-flush">
+          <a href="/#home"><li class="list-group-item active" aria-current="true">Home</li></a>
+          <a href="/#intro"><li class="list-group-item">Introduction</li></a>
+          <a href="/#exp1"><li class="list-group-item">Work Experience</li></a>
+          <a href="/#oss1"><li class="list-group-item">Open Source Contributions</li></a>
+          <a href="/blog"><li class="list-group-item">Blog</li></a>
+          <a href="/tags"><li class="list-group-item">Tags</li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+        <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
+            <h2 class="text-dark text-center p-3 p-lg-5">Elixir - How to solve recompile :noop Issue using VIM</h2>
+            <h5 class="text-dark text-center">Nov 15, 2018</h5>
+        </div>
+        <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
+            <p>Many of us are using more advanced editors such as Vim, Visual Studio Code, etc,. We all depend on the linters too much to correct our mistakes such as syntax errors. So, what is this specific topic related to? If you have started asking this question and you have found this link means, you are in the right place.</p>
+<h2 id="lets-consider-our-normal-dev-course">Let&rsquo;s consider our normal dev course:</h2>
+<ul>
+<li>Below is a dummy test app of my making.</li>
+</ul>
+
+<div class="container-fluid p-2 p-lg-5">
+  <img src="/images/2018-11-15-recompile-noop.png" alt="Elixir-Shell-Recompile-Noop-Issue-Dummy-App-Screenshot" class="img-fluid img-thumbnail rounded mx-auto d-block">
+</div>
+
+<ul>
+<li>I have done some changes and then try to recompile it! <strong>BOOM</strong> The <code>:noop</code> crops up!!!!!</li>
+</ul>
+
+<div class="container-fluid p-2 p-lg-5">
+  <img src="/images/2018-11-15-recompile-noop-1.png" alt="Elixir-Shell-Recompile-Noop-Issue-Dummy-App-Screenshot" class="img-fluid img-thumbnail rounded mx-auto d-block">
+</div>
+
+<h2 id="whats-happening">What&rsquo;s happening?</h2>
+<p>Most of the elixir developers know why it is showing and unfortunately, there isn&rsquo;t a proper tool to solve it except manually exporting or aliasing the environment variable. Most of us are good with them! But for the new comers, I&rsquo;m going to elaborate as to why this is happening!</p>
+<ul>
+<li>If you are using an elixir extension for linting, then you will be facing this situation</li>
+<li>The linter asynchronously compiles your code in default <code>MIX_ENV</code> mode which is dev mode</li>
+<li>And reports the errors or does syntax check, then displays it to you through the editor interface</li>
+<li>You would have already started the server in <code>dev</code> mode and hence, when you try to compile the compiled code</li>
+<li>IEx reports <code>:noop</code></li>
+</ul>
+<h2 id="environment-variable-as-solution">Environment Variable as Solution:</h2>
+<ul>
+<li>
+<p>Whenever you are starting your editor you would have to start it with a different environment other than <code>dev(MIX_ENV={other environment} {your editor invoking})</code>.</p>
+</li>
+<li>
+<p>Next thing is creating an alias with the editor invoking command along with <code>MIX ENVIRONMENT</code>.</p>
+</li>
+</ul>
+<h2 id="how-to-solve-if-you-are-using-vim">How to solve if you are using VIM:</h2>
+<p>Add the following line to your <code>~/.vimrc</code> or vim config file:</p>
+<pre><code>au FileType elixir let $MIX_ENV = 'test'
+</code></pre><p>This is an autocommand belonging to vimscript which checks for elixir filetype and exports an environment variable for linter to compile using test environment automatically if the opened filetype is elixir.</p>
+<p><strong>Now, if you make a change to your code and recompile on the shell, it will recompile without any problem! except human errors!</strong></p>
+<h2 id="why-test-environment-specifically">Why TEST environment specifically?</h2>
+<p>Because, the environment variable that you are exporting are by default are the compile time configs <code>dev.exs, prod.exs and test.exs</code>, any other variable that you specify will result in compile time error, making you elixir based extensions fail!</p>
+<p>For example, if you export <code>MIX_ENV=dummy</code>, the your extensions will fail with an error, <code>dummy.exs config file not found</code>!.</p>
+
+            <br />
+            <div class="p-3 border-top">
+                
+                <i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
+                
+                
+                
+                <a href="https://mangalakader.github.io/tags/elixir/" class="tags text-decoration-none text-white">elixir
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (5)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/erlang/" class="tags text-decoration-none text-white">erlang
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (5)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/functional-programming/" class="tags text-decoration-none text-white">functional-programming
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/vim/" class="tags text-decoration-none text-white">vim
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (1)</a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="container-fluid justify-content-evenly p-0 row g-0">
+            <div class="next-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
+                        <h5 class="m-0">&nbsp;&nbsp;Taking MFA to next level - A new...</h5>
+                    </div>
+                </a>
+                
+            </div>
+
+            <div class="previous-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/download-binaries-using-httpoison-elixir-the-correct-way/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <h5 class="m-0">Download Project Binaries using...&nbsp;&nbsp;</h5>
+                        <i class="bi bi-arrow-right-circle-fill fs-2"></i>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        <footer class="bg-dark bg-dark-gradient">
+    <div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
+</footer>
+
+    </body>
+</html>

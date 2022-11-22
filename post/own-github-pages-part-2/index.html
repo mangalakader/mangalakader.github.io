@@ -1,30 +1,127 @@
-<!doctype html><html lang=en><head><title>Your Own Bootstrap Github Page Using Jekyll ? - Part 2</title><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://mangalakader.github.io/css/header.css><link rel=stylesheet href=https://mangalakader.github.io/css/index.css><link rel=stylesheet href=https://mangalakader.github.io/css/footer.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-icons-150.css><link rel=stylesheet href=https://mangalakader.github.io/css/bootstrap-501.min.css><script src=https://mangalakader.github.io/js/jquery.min.js></script><script src=https://mangalakader.github.io/js/bootstrap-501.bundle.min.js></script><script src=https://mangalakader.github.io/js/index.js></script><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><script>(function(a,c,e,f,d,b){a.hj=a.hj||function(){(a.hj.q=a.hj.q||[]).push(arguments)},a._hjSettings={hjid:1579889,hjsv:6},d=c.getElementsByTagName('head')[0],b=c.createElement('script'),b.async=1,b.src=e+a._hjSettings.hjid+f+a._hjSettings.hjsv,d.appendChild(b)})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')</script></head><body><div class="progress-container fixed-top"><span class=progress-bar></span></div><nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top"><div class="container-fluid px-0"><a class="navbar-brand logo text-focus-in ms-3 mt-3" href=/>PMK</a>
-<button class="bg-warning rounded-start border-0 mt-1" type=button data-bs-toggle=offcanvas data-bs-target=#offcanvasRight aria-controls=offcanvasRight><i class="bi bi-chevron-double-left"></i></button></div><div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex=-1 data-bs-scroll=true id=offcanvasRight aria-labelledby=offcanvasRightLabel><div class=offcanvas-header><h5 id=offcanvasRightLabel class=fw-bold>Menu</h5><button type=button class="btn-close text-reset" data-bs-dismiss=offcanvas aria-label=Close></button></div><div class=offcanvas-body><div class="container-fluid p-0"><ul class="list-group list-group-flush"><a href=/#home><li class="list-group-item active" aria-current=true>Home</li></a><a href=/#intro><li class=list-group-item>Introduction</li></a><a href=/#exp1><li class=list-group-item>Work Experience</li></a><a href=/#oss1><li class=list-group-item>Open Source Contributions</li></a><a href=/blog><li class=list-group-item>Blog</li></a><a href=/tags><li class=list-group-item>Tags</li></a></ul></div></div></div></nav><div id=title class="container-fluid bg-warning bg-warning-gradient p-5"><h2 class="text-dark text-center p-3 p-lg-5">Your Own Bootstrap Github Page Using Jekyll ? - Part 2</h2><h5 class="text-dark text-center">Apr 4, 2018</h5></div><div id=content class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container"><h3 id=to-create-your-own-template>To Create your own template:</h3><h4 id=follow-the-directory-structure>Follow the directory structure:</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>    PROJECT_ROOT<span style=color:#ae81ff>\
-</span><span style=color:#ae81ff></span>    ├── assets
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <title>Your Own Bootstrap Github Page Using Jekyll ? - Part 2 </title>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/header.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/index.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/footer.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-icons-150.css">
+  
+     <link rel="stylesheet" href="https://mangalakader.github.io/css/bootstrap-501.min.css">
+  
+  
+     <script src="https://mangalakader.github.io/js/jquery.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/bootstrap-501.bundle.min.js"></script>
+  
+     <script src="https://mangalakader.github.io/js/index.js"></script>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1579889,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+
+    <body>
+        <div class="progress-container fixed-top">
+            <span class="progress-bar"></span>
+        </div>
+        <nav class="slide-in-blurred-top navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+  <div class="container-fluid px-0">
+    <a class="navbar-brand logo text-focus-in ms-3 mt-3" href="/">PMK</a>
+    <button class="bg-warning rounded-start border-0 mt-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-chevron-double-left"></i></button>
+  </div>
+
+  <div class="offcanvas offcanvas-end bg-warning bg-warning-gradient" tabindex="-1" data-bs-scroll="true" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 id="offcanvasRightLabel" class="fw-bold">Menu</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="container-fluid p-0">
+        <ul class="list-group list-group-flush">
+          <a href="/#home"><li class="list-group-item active" aria-current="true">Home</li></a>
+          <a href="/#intro"><li class="list-group-item">Introduction</li></a>
+          <a href="/#exp1"><li class="list-group-item">Work Experience</li></a>
+          <a href="/#oss1"><li class="list-group-item">Open Source Contributions</li></a>
+          <a href="/blog"><li class="list-group-item">Blog</li></a>
+          <a href="/tags"><li class="list-group-item">Tags</li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+        <div id="title" class="container-fluid bg-warning bg-warning-gradient p-5">
+            <h2 class="text-dark text-center p-3 p-lg-5">Your Own Bootstrap Github Page Using Jekyll ? - Part 2</h2>
+            <h5 class="text-dark text-center">Apr 4, 2018</h5>
+        </div>
+        <div id="content" class="text-white container-fluid bg-dark bg-dark-gradient p-5 post-container">
+            <h3 id="to-create-your-own-template">To Create your own template:</h3>
+<h4 id="follow-the-directory-structure">Follow the directory structure:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    PROJECT_ROOT<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    ├── assets
     │   ├── css
     │   ├── fonts
     │   │   └── bootstrap
     │   ├── images
     │   ├── js
-    ├── _includes ➜ <span style=color:#f92672>(</span>Reusable HTML Elements<span style=color:#f92672>)</span>
-    ├── _layouts ➜ <span style=color:#f92672>(</span>Template elements<span style=color:#f92672>)</span>
-    ├── _pages ➜ <span style=color:#f92672>(</span>Pages <span style=color:#66d9ef>for</span> Static Sites<span style=color:#f92672>)</span>
-    ├── _posts ➜ <span style=color:#f92672>(</span>Blog Posts<span style=color:#f92672>)</span>
-    ├── _sass ➜ <span style=color:#f92672>(</span>CSS in SASS mode<span style=color:#f92672>)</span>
+    ├── _includes ➜ <span style="color:#f92672">(</span>Reusable HTML Elements<span style="color:#f92672">)</span>
+    ├── _layouts ➜ <span style="color:#f92672">(</span>Template elements<span style="color:#f92672">)</span>
+    ├── _pages ➜ <span style="color:#f92672">(</span>Pages <span style="color:#66d9ef">for</span> Static Sites<span style="color:#f92672">)</span>
+    ├── _posts ➜ <span style="color:#f92672">(</span>Blog Posts<span style="color:#f92672">)</span>
+    ├── _sass ➜ <span style="color:#f92672">(</span>CSS in SASS mode<span style="color:#f92672">)</span>
        ├── bootstrap
        │   └── mixins
        └── minima
-</code></pre></div><ul><li><p>For _pages to work, we need to define collections in <code>_config.yml</code> as below:<br><strong>Adding this will give us neat project directory by allowing us to organise the pages inside _pages directory instead of PROJECT ROOT.</strong>
+</code></pre></div><ul>
+<li>
+<p>For _pages to work, we need to define collections in <code>_config.yml</code> as below:<br>
+<strong>Adding this will give us neat project directory by allowing us to organise the pages inside _pages directory instead of PROJECT ROOT.</strong>
 One more major issue with having collections for pages, is that, it doesn&rsquo;t support pagination, and github pages doesn&rsquo;t support other paginate plugins,
-so, if you want to use pagination with collections, go for <strong><a href=https://github.com/luis-almeida/jPages target=_blank>jQuery based plugins</a>
-</strong>:</p><pre><code>collections:
+so, if you want to use pagination with collections, go for <strong><a href="https://github.com/luis-almeida/jPages" target="_blank" >jQuery based plugins</a>
+</strong>:</p>
+<pre><code>collections:
 pages:
 output:  true
 permalink:  /:path
-</code></pre></li><li><p>After creating the directory structure, open the following folder <code>/var/lib/gems/{gem-version}/gems/minima-{minima-version}</code></p><ol><li>copy the files from <code>_includes</code> to <code>PROJECT_ROOT/_includes</code></li><li>copy the files from <code>_layouts</code> to <code>PROJECT_ROOT/_layouts</code></li><li>copy the files from <code>_sass</code> to <code>PROJECT_ROOT/_sass</code></li><li>If you want social icons svg such as facebook, twitter, copy <code>assets/minima-social-icons.svg</code> to <code>PROJECT_ROOT/assets/images/</code></li></ol></li><li><p>Next step, would be start creating our templates, by editing the files that we copied in above step.</p></li><li><p>Sometimes, we might need to list out files in a directory, there are many plugins available but Github Pages runs in <code>safe</code> mode, which means
-only <a href=https://help.github.com/articles/configuring-jekyll-plugins/>defaults plugins</a> will be allowed, otherwise github pages reports an error as unrecognized tag.
+</code></pre></li>
+<li>
+<p>After creating the directory structure, open the following folder <code>/var/lib/gems/{gem-version}/gems/minima-{minima-version}</code></p>
+<ol>
+<li>copy the files from <code>_includes</code> to <code>PROJECT_ROOT/_includes</code></li>
+<li>copy the files from <code>_layouts</code> to <code>PROJECT_ROOT/_layouts</code></li>
+<li>copy the files from <code>_sass</code> to <code>PROJECT_ROOT/_sass</code></li>
+<li>If you want social icons svg such as facebook, twitter, copy <code>assets/minima-social-icons.svg</code> to <code>PROJECT_ROOT/assets/images/</code></li>
+</ol>
+</li>
+<li>
+<p>Next step, would be start creating our templates, by editing the files that we copied in above step.</p>
+</li>
+<li>
+<p>Sometimes, we might need to list out files in a directory, there are many plugins available but Github Pages runs in <code>safe</code> mode, which means
+only <a href="https://help.github.com/articles/configuring-jekyll-plugins/">defaults plugins</a> will be allowed, otherwise github pages reports an error as unrecognized tag.
 This is the code sample, that I have used in this website, which is using liquid, it can be customised according to your own requirements,
-In Case you want to list based on extension of the file:</p><pre><code>{% raw %}{% if file.extname == &quot;.jpg&quot; %}{% endraw %}
+In Case you want to list based on extension of the file:</p>
+<pre><code>{% raw %}{% if file.extname == &quot;.jpg&quot; %}{% endraw %}
 {% highlight liquid%}
 {% raw %}
 {% for file in site.static_files %}
@@ -34,9 +131,222 @@ In Case you want to list based on extension of the file:</p><pre><code>{% raw %}
 {% endfor %}
 {% endraw %}
 {% endhighlight %}
-</code></pre></li></ul><h5 id=references->References :</h5><ul><li><a href=https://jekyllrb.com/docs/structure/ target=_blank>https://jekyllrb.com/docs/structure/</a></li><li><a href=https://jekyllrb.com/tutorials/home/ target=_blank>https://jekyllrb.com/tutorials/home</a></li><li><a href=https://help.shopify.com/themes/liquid target=_blank>https://help.shopify.com/themes/liquid</a></li><li><a href=https://github.com/luis-almeida/jPages target=_blank>https://github.com/luis-almeida/jPages</a></li></ul><br><div class="p-3 border-top"><i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
-<a href=https://mangalakader.github.io/tags/html/ class="tags text-decoration-none text-white">html
-(2)</a>
-,
-<a href=https://mangalakader.github.io/tags/css/ class="tags text-decoration-none text-white">css
-(2)</a></div></div><div class="container-fluid justify-content-evenly p-0 row g-0"><div class="next-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><i class="bi bi-arrow-left-circle-fill fs-2"></i><h5 class=m-0>&nbsp;&nbsp;Delete Saved Shell Cmd History in Erlang...</h5></div></a></div><div class="previous-post col-lg btn-secondary p-3 text-center"><a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/own-github-pages-part-1/?ref=footer"><div class="d-inline-flex flex-row align-items-center"><h5 class=m-0>Your Own Bootstrap Github Page Using...&nbsp;&nbsp;</h5><i class="bi bi-arrow-right-circle-fill fs-2"></i></div></a></div></div><footer class="bg-dark bg-dark-gradient"><div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div></footer></body></html>
+</code></pre></li>
+</ul>
+<h5 id="references-">References :</h5>
+<ul>
+<li><a href="https://jekyllrb.com/docs/structure/" target="_blank" >https://jekyllrb.com/docs/structure/</a>
+</li>
+<li><a href="https://jekyllrb.com/tutorials/home/" target="_blank" >https://jekyllrb.com/tutorials/home</a>
+</li>
+<li><a href="https://help.shopify.com/themes/liquid" target="_blank" >https://help.shopify.com/themes/liquid</a>
+</li>
+<li><a href="https://github.com/luis-almeida/jPages" target="_blank" >https://github.com/luis-almeida/jPages</a>
+</li>
+</ul>
+
+            <br />
+            <div class="p-3 border-top">
+                
+                <i class="bi bi-tags-fill"></i>&nbsp;&nbsp;
+                
+                
+                
+                <a href="https://mangalakader.github.io/tags/html/" class="tags text-decoration-none text-white">html
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (2)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/css/" class="tags text-decoration-none text-white">css
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (2)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/jekyll/" class="tags text-decoration-none text-white">jekyll
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                , 
+                
+                <a href="https://mangalakader.github.io/tags/static-site-generator/" class="tags text-decoration-none text-white">static-site-generator
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    (3)</a>
+                
+                
+                
+            </div>
+        </div>
+        <div class="container-fluid justify-content-evenly p-0 row g-0">
+            <div class="next-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/erlang-elixir-session-shell-cmd-history/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <i class="bi bi-arrow-left-circle-fill fs-2"></i>
+                        <h5 class="m-0">&nbsp;&nbsp;Delete Saved Shell Cmd History in Erlang...</h5>
+                    </div>
+                </a>
+                
+            </div>
+
+            <div class="previous-post col-lg btn-secondary p-3 text-center">
+                
+                <a class="link-reverse text-decoration-none text-white" href="https://mangalakader.github.io/post/own-github-pages-part-1/?ref=footer">
+                    <div class="d-inline-flex flex-row align-items-center">
+                        <h5 class="m-0">Your Own Bootstrap Github Page Using...&nbsp;&nbsp;</h5>
+                        <i class="bi bi-arrow-right-circle-fill fs-2"></i>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+        <footer class="bg-dark bg-dark-gradient">
+    <div class="d-flex justify-content-center py-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
+</footer>
+
+    </body>
+</html>

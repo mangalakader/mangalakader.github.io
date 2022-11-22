@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>help on Mangala Kader</title><link>https://mangalakader.github.io/tags/help/</link><description>Recent content in help on Mangala Kader</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/help/index.xml" rel="self" type="application/rss+xml"/><item><title>Erlang Help Docs on Elixir Shell - Using ASDF or Kerl</title><link>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</link><pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate><guid>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</guid><description>Note: Proceed if you&amp;rsquo;re already using ASDF or Kerl for Elixir/Erlang Version Management
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>help on Mangala Kader</title>
+    <link>https://mangalakader.github.io/tags/help/</link>
+    <description>Recent content in help on Mangala Kader</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/help/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Erlang Help Docs on Elixir Shell - Using ASDF or Kerl</title>
+      <link>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</guid>
+      <description>Note: Proceed if you&amp;rsquo;re already using ASDF or Kerl for Elixir/Erlang Version Management
 Elixir is very well known for it&amp;rsquo;s documentation and community involvement and most of the developers, when they adopt elixir, they first struggle to find the help documentation for erlang functions.
 We all would have come across this message when using:
-iex(1)&amp;gt; h :heart **heart module not compiled with erlang docs So, how do we enable documentation for erlang functions: The solution that I&amp;rsquo;m going to discuss is relevant with ASDF or Kerl.</description></item></channel></rss>
+iex(1)&amp;gt; h :heart **heart module not compiled with erlang docs So, how do we enable documentation for erlang functions: The solution that I&amp;rsquo;m going to discuss is relevant with ASDF or Kerl.</description>
+    </item>
+    
+  </channel>
+</rss>
