@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>one-time-password on PMK</title>
-    <link>https://mangalakader.github.io/tags/one-time-password/</link>
+    <link>http://localhost:1313/tags/one-time-password/</link>
     <description>Recent content in one-time-password on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/one-time-password/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/one-time-password/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Taking MFA to next level - A new approach!</title>
-      <link>https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/</link>
+      <link>http://localhost:1313/post/time-based-one-time-password-elixir-phoenix/</link>
       <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mangalakader.github.io/post/time-based-one-time-password-elixir-phoenix/</guid>
-      <description>What is TOTP? Those who have enabled multi-factor authentication (mfa) in his/her Google accounts, major vendors out there are aware of the importance of having them. For others, who are not aware of what mfa is and how it works, please look into the following wiki link: TOTP Wiki PageTraditional Approach of TOTP apps: Most of the Authenticator apps out there, starts providing One Time Password easily, when you:
- scan the QR code provided to you Enter the secret text provided to you  Why this might not be the completely safest approach?</description>
+      <guid>http://localhost:1313/post/time-based-one-time-password-elixir-phoenix/</guid>
+      <description>What is TOTP? Those who have enabled multi-factor authentication (mfa) in his/her Google accounts, major vendors out there are aware of the importance of having them. For others, who are not aware of what mfa is and how it works, please look into the following wiki link: TOTP Wiki Page
+Traditional Approach of TOTP apps: Most of the Authenticator apps out there, starts providing One Time Password easily, when you:</description>
     </item>
     
   </channel>

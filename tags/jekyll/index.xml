@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>jekyll on PMK</title>
-    <link>https://mangalakader.github.io/tags/jekyll/</link>
+    <link>http://localhost:1313/tags/jekyll/</link>
     <description>Recent content in jekyll on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Jun 2021 17:29:12 +0530</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Jun 2021 17:29:12 +0530</lastBuildDate><atom:link href="http://localhost:1313/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Journey to Hugo</title>
-      <link>https://mangalakader.github.io/post/journey-to-hugo/</link>
+      <link>http://localhost:1313/post/journey-to-hugo/</link>
       <pubDate>Wed, 30 Jun 2021 17:29:12 +0530</pubDate>
       
-      <guid>https://mangalakader.github.io/post/journey-to-hugo/</guid>
+      <guid>http://localhost:1313/post/journey-to-hugo/</guid>
       <description>This is a very opinionated blog post describing, why I chose Hugo for my blog. I have no intent on hurting or producing wrong facts about whatsoever, also not trying to praise one over the other.
 Started with Jekyll Initially, I just wanted a blog to share my knowledge! I was in the middle of my career and didn&amp;rsquo;t have enough time to actively write posts. So, I had done some research and stumbled upon GitHub pages for hosting and Jekyll as static site generator.</description>
     </item>
     
     <item>
       <title>Your Own Bootstrap Github Page Using Jekyll ? - Part 2</title>
-      <link>https://mangalakader.github.io/post/own-github-pages-part-2/</link>
+      <link>http://localhost:1313/post/own-github-pages-part-2/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mangalakader.github.io/post/own-github-pages-part-2/</guid>
-      <description>To Create your own template: Follow the directory structure:  PROJECT_ROOT\  ├── assets  │ ├── css  │ ├── fonts  │ │ └── bootstrap  │ ├── images  │ ├── js  ├── _includes ➜ (Reusable HTML Elements)  ├── _layouts ➜ (Template elements)  ├── _pages ➜ (Pages for Static Sites)  ├── _posts ➜ (Blog Posts)  ├── _sass ➜ (CSS in SASS mode)  ├── bootstrap  │ └── mixins  └── minima   For _pages to work, we need to define collections in _config.</description>
+      <guid>http://localhost:1313/post/own-github-pages-part-2/</guid>
+      <description>To Create your own template: Follow the directory structure: PROJECT_ROOT\ ├── assets │ ├── css │ ├── fonts │ │ └── bootstrap │ ├── images │ ├── js ├── _includes ➜ (Reusable HTML Elements) ├── _layouts ➜ (Template elements) ├── _pages ➜ (Pages for Static Sites) ├── _posts ➜ (Blog Posts) ├── _sass ➜ (CSS in SASS mode) ├── bootstrap │ └── mixins └── minima For _pages to work, we need to define collections in _config.</description>
     </item>
     
     <item>
       <title>Your Own Bootstrap Github Page Using Jekyll ? - Part 1</title>
-      <link>https://mangalakader.github.io/post/own-github-pages-part-1/</link>
+      <link>http://localhost:1313/post/own-github-pages-part-1/</link>
       <pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mangalakader.github.io/post/own-github-pages-part-1/</guid>
-      <description>To setup Github:  Login to your Github and create a new public repository with your Github Username.github.io Goto repository settings and enable the repository for rendering github pages.  To Integrate Bootstrap:  Jekyll is used by Github Pages and it has it&amp;rsquo;s own default minima theme. Jekyll supports only Sass, but bootstrap is using Less. If you want to customize themes based on bootstrap, then follow the below steps:  Download the sass bootstrap file from the following url SASS BOOTSTRAP.</description>
+      <guid>http://localhost:1313/post/own-github-pages-part-1/</guid>
+      <description>To setup Github: Login to your Github and create a new public repository with your Github Username.github.io Goto repository settings and enable the repository for rendering github pages. To Integrate Bootstrap: Jekyll is used by Github Pages and it has it&amp;rsquo;s own default minima theme. Jekyll supports only Sass, but bootstrap is using Less. If you want to customize themes based on bootstrap, then follow the below steps: Download the sass bootstrap file from the following url SASS BOOTSTRAP.</description>
     </item>
     
   </channel>

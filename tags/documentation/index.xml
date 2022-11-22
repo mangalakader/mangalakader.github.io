@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>documentation on PMK</title>
-    <link>https://mangalakader.github.io/tags/documentation/</link>
+    <link>http://localhost:1313/tags/documentation/</link>
     <description>Recent content in documentation on PMK</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://mangalakader.github.io/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/documentation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Erlang Help Docs on Elixir Shell - Using ASDF or Kerl</title>
-      <link>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</link>
+      <link>http://localhost:1313/post/erlang-docs-on-elixir-iex-shell/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://mangalakader.github.io/post/erlang-docs-on-elixir-iex-shell/</guid>
+      <guid>http://localhost:1313/post/erlang-docs-on-elixir-iex-shell/</guid>
       <description>Note: Proceed if you&amp;rsquo;re already using ASDF or Kerl for Elixir/Erlang Version Management
 Elixir is very well known for it&amp;rsquo;s documentation and community involvement and most of the developers, when they adopt elixir, they first struggle to find the help documentation for erlang functions.
 We all would have come across this message when using:
