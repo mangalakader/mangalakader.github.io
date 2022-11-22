@@ -12,8 +12,8 @@
 
 
 
-<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-991" />
-<meta property="og:image" content="https://source.unsplash.com/600x900?technology-991" />
+<meta itemprop="image" content="https://source.unsplash.com/600x900?technology-1181" />
+<meta property="og:image" content="https://source.unsplash.com/600x900?technology-1181" />
 
 <base href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/">
 <link rel="canonical" href="https://mangalakader.github.io/post/xmpp-mongooseim-ejabberd-erlang-journey-part-1/" itemprop="url" />
@@ -101,11 +101,11 @@ This article will be mainly about Erlang based XMPP servers such as Ejabberd and
 <li>Ejabberd has direct distribution through apt (apt install ejabberd)</li>
 <li>docker (Convenient and best approach)</li>
 </ul>
-<pre tabindex="0"><code class="language-console" data-lang="console"># For Ejabberd
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console"># For Ejabberd
 docker run --name ejabberd -d -p 5222:5222 ejabberd/ecs
 # For MongooseIM
 docker run -d -t -h mongooseim-1 --name mongooseim-1 -p 5222:5222 mongooseim/mongooseim:latest
-</code></pre><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
+</code></pre></div><h4 id="trying-out-our-chat-server">Trying out our chat server</h4>
 <ul>
 <li>Pick your favorite IM client from this <a style="text-decoration: none !important;color: red;font-weight: bold;" href="https://xmpp.org/software/clients.html" target="_blank" rel="noreferrer" >page</a>
 .</li>
@@ -528,7 +528,7 @@ To access it: Click on the <code>Accounts &gt; {Account Name} &gt; Advanced &gt;
             <i class="bi-rss-fill text-white px-3 fs-2" role="img" aria-label="RSS"></i>
         </a>
     </div>
-    <div class="d-flex justify-content-center pb-5 container-fluid text-white">&copy; 2021, Mangala Kader, All rights reserved.</div>
+    <div class="d-flex justify-content-center pb-5 container-fluid text-white">&copy; 2022, Mangala Kader, All rights reserved.</div>
 </footer>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link prefetch="true" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
